@@ -73,6 +73,7 @@ Plug 'mileszs/ack.vim'
 Plug 'Shougo/neocomplete.vim'
 Plug 'davidhalter/jedi-vim'
 Plug 'nvie/vim-flake8'
+Plug 'kien/ctrlp.vim'
 
 call plug#end()
 
@@ -115,7 +116,7 @@ map <C-n> :NERDTreeToggle<CR>
 nmap <F8> :TagbarToggle<CR>
 
 " Snippets
-let g:UltiSnipsExpandTrigger="<C-t>"
+let g:UltiSnipsExpandTrigger="<C-Enter>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
