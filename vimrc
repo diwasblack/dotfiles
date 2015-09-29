@@ -21,7 +21,7 @@ set guioptions-=T  "remove toolbar
 set guioptions-=r  "remove right-hand scroll bar
 set guioptions-=L  "remove left-hand scroll bar
 
-set t_Co=256 "enable 256 color support
+set t_Co=256
 colorscheme badwolf
 
 
@@ -74,6 +74,8 @@ Plug 'Shougo/neocomplete.vim'
 Plug 'davidhalter/jedi-vim'
 Plug 'nvie/vim-flake8'
 Plug 'kien/ctrlp.vim'
+Plug 'xolox/vim-session'
+Plug 'xolox/vim-misc'
 
 call plug#end()
 
@@ -121,3 +123,6 @@ let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+
+" vim-session
+let g:session_autosave = 'yes'
