@@ -69,13 +69,13 @@ Plug 'tpope/vim-surround'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'majutsushi/tagbar'
-Plug 'mileszs/ack.vim'
 Plug 'Shougo/neocomplete.vim'
 Plug 'davidhalter/jedi-vim'
 Plug 'nvie/vim-flake8'
-Plug 'kien/ctrlp.vim'
 Plug 'xolox/vim-session'
 Plug 'xolox/vim-misc'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
+Plug 'junegunn/fzf.vim'
 
 call plug#end()
 
@@ -107,6 +107,18 @@ autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 " Flake8
 let g:flake8_show_in_gutter=1
 
+" FZF 
+let g:fzf_action = {
+  \ 'ctrl-t': 'tab split',
+  \ 'ctrl-x': 'split',
+  \ 'ctrl-v': 'vsplit' }
+
+" Default fzf layout
+let g:fzf_layout = { 'down': '40%' }
+
+" Advanced customization using autoload functions
+autocmd VimEnter * command! Colors
+  \ call fzf#vim#colors({'left': '15%', 'options': '--reverse --margin 30%,0'})
 
 " Mapping to use
 
@@ -126,3 +138,6 @@ inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 
 " vim-session
 let g:session_autosave = 'yes'
+
+" FZF mapping
+map <C-p> :FZF<CR>
