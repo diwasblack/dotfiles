@@ -1,32 +1,21 @@
 " Options for GUI
 
-
-" Make GUI fullscreen
-if has("gui_running")
-  " GUI is running or is about to start.
-  " Maximize gvim window (for an alternative on Windows, see simalt below).
-  set lines=999 columns=999
-else
-  " This is console Vim.
-  if exists("+lines")
-    set lines=50
-  endif
-  if exists("+columns")
-    set columns=100
-  endif
-endif
-
 set guioptions-=m  "remove menu bar
 set guioptions-=T  "remove toolbar
 set guioptions-=r  "remove right-hand scroll bar
 set guioptions-=L  "remove left-hand scroll bar
 
-set t_Co=256
+" Support for 256 color
+if !has("gui_running")
+    if $TERM == "xterm"
+        let $TERM = "xterm-256color"
+    endif
+    set t_Co=256
+endif
+
 colorscheme badwolf
 
-
 " General vim settings
-
 
 filetype plugin indent on
 
@@ -52,9 +41,9 @@ set foldmethod=indent "fold based on indent level
 set wildmenu "visual autocomplete for command menu
 set autoindent "auto indent
 
+set nowrap "disable wrapping
 
 " Plugin list
-
 
 call plug#begin('~/.vim/plugged')
 
@@ -82,7 +71,6 @@ call plug#end()
 
 " Settings for plugins
 
-
 " Synstastic
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
@@ -100,9 +88,6 @@ let g:acp_enableAtStartup = 0 "Disable AutoComplPop.
 let g:neocomplete#enable_at_startup = 1 "Use neocomplete.
 let g:neocomplete#enable_smart_case = 1 "Use smartcase.
 
-autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 
 " Flake8
 let g:flake8_show_in_gutter=1
@@ -120,17 +105,17 @@ let g:fzf_layout = { 'down': '40%' }
 autocmd VimEnter * command! Colors
   \ call fzf#vim#colors({'left': '15%', 'options': '--reverse --margin 30%,0'})
 
-" Mapping to use
 
+" Mapping to use
 
 " NERDTree
 map <C-n> :NERDTreeToggle<CR>
 
 " Tagbar
-nmap <F8> :TagbarToggle<CR>
+nmap <C-t> :TagbarToggle<CR>
 
 " Snippets
-let g:UltiSnipsExpandTrigger="<C-Enter>"
+let g:UltiSnipsExpandTrigger="<Enter>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
@@ -141,3 +126,10 @@ let g:session_autosave = 'yes'
 
 " FZF mapping
 map <C-p> :FZF<CR>
+
+
+" Autocmd
+
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
