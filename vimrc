@@ -1,10 +1,3 @@
-" Options for GUI
-
-set guioptions-=m  "remove menu bar
-set guioptions-=T  "remove toolbar
-set guioptions-=r  "remove right-hand scroll bar
-set guioptions-=L  "remove left-hand scroll bar
-
 " Support for 256 color
 if !has("gui_running")
     if $TERM == "xterm"
@@ -55,8 +48,7 @@ Plug 'easymotion/vim-easymotion'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-surround'
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
+Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 Plug 'majutsushi/tagbar'
 Plug 'Shougo/neocomplete.vim'
 Plug 'davidhalter/jedi-vim'
