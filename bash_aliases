@@ -1,8 +1,8 @@
-alias rs='python3 manage.py runserver'
-alias mkmig='python3 manage.py makemigrations'
-alias mig='python3 manage.py migrate'
+alias djrs='python3 manage.py runserver'
+alias djmm='python3 manage.py makemigrations'
+alias djmg='python3 manage.py migrate'
+alias djsh='python3 manage.py shell'
 
-alias gstatus='git status'
-alias gpull='git pull'
-alias gpush='git push origin master'
-
+alias gst='git status'
+alias gpl='git pull'
+alias gps='git push origin master'
