@@ -50,8 +50,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-surround'
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 Plug 'majutsushi/tagbar'
-Plug 'Shougo/neocomplete.vim'
-Plug 'davidhalter/jedi-vim'
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 Plug 'nvie/vim-flake8'
 Plug 'xolox/vim-session'
 Plug 'xolox/vim-misc'
@@ -74,12 +73,6 @@ let g:airline_powerline_fonts = 1
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
 endif
-
-" Neocomplete
-let g:acp_enableAtStartup = 0 "Disable AutoComplPop.
-let g:neocomplete#enable_at_startup = 1 "Use neocomplete.
-let g:neocomplete#enable_smart_case = 1 "Use smartcase.
-
 
 " Flake8
 let g:flake8_show_in_gutter=1
@@ -121,7 +114,3 @@ map <C-p> :FZF<CR>
 
 
 " Autocmd
-
-autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
