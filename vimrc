@@ -52,8 +52,7 @@ Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 Plug 'majutsushi/tagbar'
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 Plug 'nvie/vim-flake8'
-Plug 'xolox/vim-session'
-Plug 'xolox/vim-misc'
+Plug 'xolox/vim-session' | Plug 'xolox/vim-misc'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
 Plug 'junegunn/fzf.vim'
 
@@ -86,10 +85,6 @@ let g:fzf_action = {
 " Default fzf layout
 let g:fzf_layout = { 'down': '40%' }
 
-" Advanced customization using autoload functions
-autocmd VimEnter * command! Colors
-  \ call fzf#vim#colors({'left': '15%', 'options': '--reverse --margin 30%,0'})
-
 
 " Mapping to use
 
@@ -100,11 +95,9 @@ map <C-n> :NERDTreeToggle<CR>
 nmap <C-t> :TagbarToggle<CR>
 
 " Snippets
-let g:UltiSnipsExpandTrigger="<Enter>"
+let g:UltiSnipsExpandTrigger="<C-Enter>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 
 " vim-session
 let g:session_autosave = 'yes'
@@ -114,3 +107,7 @@ map <C-p> :FZF<CR>
 
 
 " Autocmd
+ 
+" Advanced customization using autoload functions
+autocmd VimEnter * command! Colors
+  \ call fzf#vim#colors({'left': '15%', 'options': '--reverse --margin 30%,0'})
