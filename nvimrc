@@ -38,7 +38,7 @@ Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 Plug 'majutsushi/tagbar'
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 Plug 'nvie/vim-flake8'
-Plug 'xolox/vim-session' | Plug 'xolox/vim-misc'
+Plug 'xolox/vim-misc' | Plug 'xolox/vim-session'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' } | Plug 'junegunn/fzf.vim'
 Plug 'benekastah/neomake'
 
@@ -48,10 +48,11 @@ call plug#end()
 " Settings for plugins
 
 " Synstastic
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
+let g:syntastic_always_populate_loc_list = 0
+let g:syntastic_auto_loc_list = 0
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+let g:syntastic_html_tidy_exec = 'tidy5'
 
 " Airline
 let g:airline_powerline_fonts = 1
@@ -70,6 +71,9 @@ let g:fzf_action = {
 
 " Default fzf layout
 let g:fzf_layout = { 'down': '40%' }
+
+" vim-session
+let g:session_autosave = 'yes'
 
 
 " Mapping to use
@@ -94,9 +98,6 @@ nmap <C-t> :TagbarToggle<CR>
 let g:UltiSnipsExpandTrigger="<C-Enter>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-
-" vim-session
-let g:session_autosave = 'yes'
 
 " FZF mapping
 map <C-p> :FZF<CR>
