@@ -24,7 +24,7 @@ set nowrap "disable wrapping
 
 " Plugin list
 
-call plug#begin('~/.vim/plugged')
+call plug#begin('~/.nvim/plugged')
 
 Plug 'tomtom/tcomment_vim'
 Plug 'scrooloose/nerdtree'
@@ -40,6 +40,7 @@ Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 Plug 'nvie/vim-flake8'
 Plug 'xolox/vim-session' | Plug 'xolox/vim-misc'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' } | Plug 'junegunn/fzf.vim'
+Plug 'benekastah/neomake'
 
 call plug#end()
 
