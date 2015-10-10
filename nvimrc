@@ -41,6 +41,7 @@ Plug 'nvie/vim-flake8'
 Plug 'xolox/vim-misc' | Plug 'xolox/vim-session'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' } | Plug 'junegunn/fzf.vim'
 Plug 'benekastah/neomake'
+Plug 'Yggdroot/indentLine'
 
 call plug#end()
 
@@ -53,6 +54,11 @@ let g:syntastic_auto_loc_list = 0
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_html_tidy_exec = 'tidy5'
+
+let g:syntastic_error_symbol = "✗"
+let g:syntastic_style_error_symbol = "✠"
+let g:syntastic_warning_symbol = "⚠"
+let g:syntastic_style_warning_symbol = "≈"
 
 " Airline
 let g:airline_powerline_fonts = 1
