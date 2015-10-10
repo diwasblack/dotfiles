@@ -27,11 +27,11 @@ set nowrap "disable wrapping
 call plug#begin('~/.nvim/plugged')
 
 Plug 'tomtom/tcomment_vim'
-Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'scrooloose/syntastic'
 Plug 'bling/vim-airline'
 Plug 'easymotion/vim-easymotion'
-Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-fugitive', { 'on': 'TagbarToggle' }
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-surround'
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
