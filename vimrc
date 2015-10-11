@@ -41,7 +41,7 @@ set nowrap "disable wrapping
 call plug#begin('~/.vim/plugged')
 
 Plug 'tomtom/tcomment_vim'
-Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'scrooloose/syntastic'
 Plug 'bling/vim-airline'
 Plug 'easymotion/vim-easymotion'
@@ -66,6 +66,11 @@ let g:syntastic_auto_loc_list = 0
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_html_tidy_exec = 'tidy5'
+
+let g:syntastic_error_symbol = "✗"
+let g:syntastic_style_error_symbol = "✠"
+let g:syntastic_warning_symbol = "⚠"
+let g:syntastic_style_warning_symbol = "≈"
 
 " Airline
 let g:airline_powerline_fonts = 1
@@ -92,13 +97,13 @@ let g:session_autosave = 'yes'
 " Mapping to use
 
 " NERDTree
-map <C-n> :NERDTreeToggle<CR>
+map <F2> :NERDTreeToggle<CR>
 
 " Tagbar
-nmap <C-t> :TagbarToggle<CR>
+nmap <F3> :TagbarToggle<CR>
 
 " Snippets
-let g:UltiSnipsExpandTrigger="<C-Enter>"
+let g:UltiSnipsExpandTrigger="<C-y>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 

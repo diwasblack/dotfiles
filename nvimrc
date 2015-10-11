@@ -31,7 +31,7 @@ Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'scrooloose/syntastic'
 Plug 'bling/vim-airline'
 Plug 'easymotion/vim-easymotion'
-Plug 'tpope/vim-fugitive', { 'on': 'TagbarToggle' }
+Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-surround'
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
@@ -41,7 +41,6 @@ Plug 'nvie/vim-flake8'
 Plug 'xolox/vim-misc' | Plug 'xolox/vim-session'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' } | Plug 'junegunn/fzf.vim'
 Plug 'benekastah/neomake'
-Plug 'Yggdroot/indentLine'
 
 call plug#end()
 
@@ -81,8 +80,7 @@ let g:fzf_layout = { 'down': '40%' }
 " vim-session
 let g:session_autosave = 'yes'
 
-" Indent line
-let g:indentLine_color_term = 239
+
 " Mapping to use
 
 " Mapping for navigation
@@ -96,13 +94,13 @@ nnoremap <A-k> <C-w>k
 nnoremap <A-l> <C-w>l
 
 " NERDTree
-map <C-n> :NERDTreeToggle<CR>
+map <F2> :NERDTreeToggle<CR>
 
 " Tagbar
-nmap <C-t> :TagbarToggle<CR>
+nmap <F3> :TagbarToggle<CR>
 
 " Snippets
-let g:UltiSnipsExpandTrigger="<C-Enter>"
+let g:UltiSnipsExpandTrigger="<C-y>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
