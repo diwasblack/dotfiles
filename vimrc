@@ -1,4 +1,4 @@
-" Support for 256 color
+"Support for 256 color
 if !has("gui_running")
     if $TERM == "xterm"
         let $TERM = "xterm-256color"
@@ -8,7 +8,7 @@ endif
 
 colorscheme badwolf
 
-" General vim settings
+"General vim settings
 
 filetype plugin indent on
 
@@ -35,8 +35,11 @@ set wildmenu "visual autocomplete for command menu
 set autoindent "auto indent
 
 set nowrap "disable wrapping
+set title "change terminal title
+set hidden "enables hidden buffer
+set autoread "auto read file when modified externally
 
-" Plugin list
+"Plugin list
 
 call plug#begin('~/.vim/plugged')
 
@@ -58,9 +61,9 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' } | Plug 'juneg
 call plug#end()
 
 
-" Settings for plugins
+"Settings for plugins
 
-" Synstastic
+"Synstastic
 let g:syntastic_always_populate_loc_list = 0
 let g:syntastic_auto_loc_list = 0
 let g:syntastic_check_on_open = 1
@@ -72,47 +75,47 @@ let g:syntastic_style_error_symbol = "✠"
 let g:syntastic_warning_symbol = "⚠"
 let g:syntastic_style_warning_symbol = "≈"
 
-" Airline
+"Airline
 let g:airline_powerline_fonts = 1
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
 endif
 
-" Flake8
+"Flake8
 let g:flake8_show_in_gutter=1
 
-" FZF 
+"FZF 
 let g:fzf_action = {
   \ 'ctrl-t': 'tab split',
   \ 'ctrl-x': 'split',
   \ 'ctrl-v': 'vsplit' }
 
-" Default fzf layout
+"Default fzf layout
 let g:fzf_layout = { 'down': '40%' }
 
-" vim-session
+"vim-session
 let g:session_autosave = 'yes'
 
 
-" Mapping to use
+"Mapping to use
 
-" NERDTree
+"NERDTree
 map <F2> :NERDTreeToggle<CR>
 
-" Tagbar
+"Tagbar
 nmap <F3> :TagbarToggle<CR>
 
-" Snippets
+"Snippets
 let g:UltiSnipsExpandTrigger="<C-y>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
-" FZF mapping
+"FZF mapping
 map <C-p> :FZF<CR>
 
 
-" Autocmd
+"Autocmd
  
-" Advanced customization using autoload functions
+"Advanced customization using autoload functions
 autocmd VimEnter * command! Colors
   \ call fzf#vim#colors({'left': '15%', 'options': '--reverse --margin 30%,0'})
