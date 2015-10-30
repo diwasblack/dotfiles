@@ -1,50 +1,46 @@
-"Support for 256 color
-if !has("gui_running")
-    if $TERM == "xterm"
-        let $TERM = "xterm-256color"
-    endif
-    set t_Co=256
-endif
-
-colorscheme badwolf
-
-"General vim settings
-
-filetype plugin indent on
+"==============================================================================
+" General vim settings
+"==============================================================================
 
 let mapleader=' '
 
-set expandtab "tabs are spaces
-set softtabstop=4 "number of spaces in tab when editing
-set tabstop=4 "number of visual spaces per TAB
-set shiftwidth=4 "number of space insert/remove shifting line
+set expandtab " Tabs are spaces
+set softtabstop=4 " Number of spaces in tab when editing
+set tabstop=4 " Number of visual spaces per TAB
+set shiftwidth=4 " Number of space insert/remove shifting line
 
-set number "shows line number
-set cursorline "highlight current line
-set colorcolumn=80 "ruler for maximum characters
-set laststatus=2 "always show status line
+set number " Shows line number
+set cursorline " Highlight current line
+set colorcolumn=80 " Ruler for maximum characters
+set laststatus=2 " Always show status line
 
-set ignorecase "case insensitive search
-set smartcase "performs case sensitive search if search contains uppercase letters
-set hlsearch "turn on search pattern highlighting.
-set incsearch "search as characters are entered
+set ignorecase " Case insensitive search
+set smartcase " Performs case sensitive search if search contains uppercase letters
+set hlsearch " Turn on search pattern highlighting.
+set incsearch " Search as characters are entered
 
-set foldenable "enable folding
-set foldlevelstart=10 "open most folds by default
-set foldmethod=indent "fold based on indent level
+set foldenable " Enable folding
+set foldlevelstart=10 " Open most folds by default
+set foldmethod=indent " Fold based on indent level
 
-set wildmenu "visual autocomplete for command menu
-set autoindent "auto indent
+set wildmenu " Visual autocomplete for command menu
+set autoindent " Auto indent
 
-set nowrap "disable wrapping
-set title "change terminal title
-set hidden "enables hidden buffer
-set autoread "auto read file when modified externally
+set nowrap " Disable wrapping
+set title " Change terminal title
+set hidden " Enables hidden buffer
+set autoread " Auto read file when modified externally
 
-"Plugin list
+filetype plugin indent on
 
-call plug#begin('~/.vim/plugged')
+"==============================================================================
+" Plugin list
+"==============================================================================
 
+call plug#begin('~/.config/nvim/plugged')
+
+Plug 'sjl/badwolf'
+Plug 'altercation/vim-colors-solarized'
 Plug 'tomtom/tcomment_vim'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'scrooloose/syntastic'
@@ -59,13 +55,49 @@ Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 Plug 'nvie/vim-flake8'
 Plug 'xolox/vim-misc' | Plug 'xolox/vim-session'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' } | Plug 'junegunn/fzf.vim'
+Plug 'benekastah/neomake'
 
 call plug#end()
 
+"==============================================================================
+" Colorscheme
+"==============================================================================
 
-"Settings for plugins
+"Support for 256 color
+if !has("gui_running")
+    if $TERM == "xterm"
+        let $TERM = "xterm-256color"
+    endif
+    set t_Co=256
+endif
 
-"Synstastic
+colorscheme badwolf
+
+"==============================================================================
+" Mappings
+"==============================================================================
+
+
+"==============================================================================
+" Easymotion
+"==============================================================================
+
+let g:EasyMotion_do_mapping = 0 " Disable default mappings
+
+" Bi-directional find motion
+nmap s <Plug>(easymotion-s2)
+
+" Turn on case insensitive feature
+let g:EasyMotion_smartcase = 1
+
+" JK motions: Line motions
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)
+
+"==============================================================================
+" Synstastic
+"==============================================================================
+
 let g:syntastic_always_populate_loc_list = 0
 let g:syntastic_auto_loc_list = 0
 let g:syntastic_check_on_open = 1
@@ -77,47 +109,62 @@ let g:syntastic_style_error_symbol = "✠"
 let g:syntastic_warning_symbol = "⚠"
 let g:syntastic_style_warning_symbol = "≈"
 
-"Airline
+"==============================================================================
+" Airline
+"==============================================================================
+
 let g:airline_powerline_fonts = 1
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
 endif
 
-"Flake8
+"==============================================================================
+" Flake8
+"==============================================================================
+
 let g:flake8_show_in_gutter=1
 
-"FZF 
+"==============================================================================
+" FZF 
+"==============================================================================
+
 let g:fzf_action = {
   \ 'ctrl-t': 'tab split',
   \ 'ctrl-x': 'split',
   \ 'ctrl-v': 'vsplit' }
 
-"Default fzf layout
+" Fzf layout
 let g:fzf_layout = { 'down': '40%' }
 
-"vim-session
-let g:session_autosave = 'yes'
-
-
-"Mapping to use
-
-"NERDTree
-map <F2> :NERDTreeToggle<CR>
-
-"Tagbar
-nmap <F3> :TagbarToggle<CR>
-
-"Snippets
-let g:UltiSnipsExpandTrigger="<C-y>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-
-"FZF mapping
+" Mapping
 map <C-p> :FZF<CR>
-
-
-"Autocmd
  
-"Advanced customization using autoload functions
+" Advanced customization using autoload functions
 autocmd VimEnter * command! Colors
   \ call fzf#vim#colors({'left': '15%', 'options': '--reverse --margin 30%,0'})
+
+"==============================================================================
+" vim-session
+"==============================================================================
+
+let g:session_autosave = 'yes'
+
+"==============================================================================
+" NERDTree
+"==============================================================================
+
+map <F2> :NERDTreeToggle<CR>
+
+"==============================================================================
+" Tagbar
+"==============================================================================
+
+nmap <F3> :TagbarToggle<CR>
+
+"==============================================================================
+" vim-snippet
+"==============================================================================
+
+let g:UltiSnipsExpandTrigger='<C-y>'
+let g:UltiSnipsJumpForwardTrigger='<c-b>'
+let g:UltiSnipsJumpBackwardTrigger='<c-z>'

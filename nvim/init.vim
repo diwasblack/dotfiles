@@ -1,35 +1,39 @@
-colorscheme badwolf
-
-"General vim settings
-
-filetype plugin indent on
+"==============================================================================
+" General vim settings
+"==============================================================================
 
 let mapleader=' '
 
-set expandtab "tabs are spaces
-set softtabstop=4 "number of spaces in tab when editing
-set tabstop=4 "number of visual spaces per TAB
-set shiftwidth=4 "number of space insert/remove shifting line
+set expandtab " Tabs are spaces
+set softtabstop=4 " Number of spaces in tab when editing
+set tabstop=4 " Number of visual spaces per TAB
+set shiftwidth=4 " Number of space insert/remove shifting line
 
-set number "shows line number
-set cursorline "highlight current line
-set colorcolumn=80 "ruler for maximum characters
+set number " Shows line number
+set cursorline " Highlight current line
+set colorcolumn=80 " Ruler for maximum characters
 
-set ignorecase "case insensitive search
-set smartcase "performs case sensitive search if search contains uppercase letters
+set ignorecase " Case insensitive search
+set smartcase " Performs case sensitive search if contains uppercase letters
 
-set foldenable "enable folding
-set foldlevelstart=10 "open most folds by default
-set foldmethod=indent "fold based on indent level
+set foldenable " Enable folding
+set foldlevelstart=10 " Open most folds by default
+set foldmethod=indent " Fold based on indent level
 
-set nowrap "disable wrapping
-set title "change terminal title
-set hidden "enables hidden buffer
+set nowrap " Disable wrapping
+set title " Change terminal title
+set hidden " Enables hidden buffer
 
-"Plugin list
+filetype plugin indent on
+
+"==============================================================================
+" Plugin list
+"==============================================================================
 
 call plug#begin('~/.config/nvim/plugged')
 
+Plug 'sjl/badwolf'
+Plug 'altercation/vim-colors-solarized'
 Plug 'tomtom/tcomment_vim'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'scrooloose/syntastic'
@@ -48,10 +52,45 @@ Plug 'benekastah/neomake'
 
 call plug#end()
 
+"==============================================================================
+" Colorscheme
+"==============================================================================
 
-"Settings for plugins
+colorscheme badwolf
 
-"Synstastic
+"==============================================================================
+" Mappings
+"==============================================================================
+tnoremap <A-h> <C-\><C-n><C-w>h
+tnoremap <A-j> <C-\><C-n><C-w>j
+tnoremap <A-k> <C-\><C-n><C-w>k
+tnoremap <A-l> <C-\><C-n><C-w>l
+
+nnoremap <A-h> <C-w>h
+nnoremap <A-j> <C-w>j
+nnoremap <A-k> <C-w>k
+nnoremap <A-l> <C-w>l
+
+"==============================================================================
+" Easymotion
+"==============================================================================
+
+let g:EasyMotion_do_mapping = 0 " Disable default mappings
+
+" Bi-directional find motion
+nmap s <Plug>(easymotion-s2)
+
+" Turn on case insensitive feature
+let g:EasyMotion_smartcase = 1
+
+" JK motions: Line motions
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)
+
+"==============================================================================
+" Synstastic
+"==============================================================================
+
 let g:syntastic_always_populate_loc_list = 0
 let g:syntastic_auto_loc_list = 0
 let g:syntastic_check_on_open = 1
@@ -63,58 +102,62 @@ let g:syntastic_style_error_symbol = "✠"
 let g:syntastic_warning_symbol = "⚠"
 let g:syntastic_style_warning_symbol = "≈"
 
-"Airline
+"==============================================================================
+" Airline
+"==============================================================================
+
 let g:airline_powerline_fonts = 1
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
 endif
 
-"Flake8
+"==============================================================================
+" Flake8
+"==============================================================================
+
 let g:flake8_show_in_gutter=1
 
-"FZF 
+"==============================================================================
+" FZF 
+"==============================================================================
+
 let g:fzf_action = {
   \ 'ctrl-t': 'tab split',
   \ 'ctrl-x': 'split',
   \ 'ctrl-v': 'vsplit' }
 
-"Default fzf layout
+" Fzf layout
 let g:fzf_layout = { 'down': '40%' }
 
-"vim-session
-let g:session_autosave = 'yes'
-
-
-"Mapping to use
-
-"Mapping for navigation
-tnoremap <A-h> <C-\><C-n><C-w>h
-tnoremap <A-j> <C-\><C-n><C-w>j
-tnoremap <A-k> <C-\><C-n><C-w>k
-tnoremap <A-l> <C-\><C-n><C-w>l
-nnoremap <A-h> <C-w>h
-nnoremap <A-j> <C-w>j
-nnoremap <A-k> <C-w>k
-nnoremap <A-l> <C-w>l
-
-
-"NERDTree
-map <F2> :NERDTreeToggle<CR>
-
-"Tagbar
-nmap <F3> :TagbarToggle<CR>
-
-"Snippets
-let g:UltiSnipsExpandTrigger="<C-y>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-
-"FZF mapping
+" Mapping
 map <C-p> :FZF<CR>
-
-
-"Autocmd
  
-"Advanced customization using autoload functions
+" Advanced customization using autoload functions
 autocmd VimEnter * command! Colors
   \ call fzf#vim#colors({'left': '15%', 'options': '--reverse --margin 30%,0'})
+
+"==============================================================================
+" vim-session
+"==============================================================================
+
+let g:session_autosave = 'yes'
+
+"==============================================================================
+" NERDTree
+"==============================================================================
+
+map <F2> :NERDTreeToggle<CR>
+
+"==============================================================================
+" Tagbar
+"==============================================================================
+
+nmap <F3> :TagbarToggle<CR>
+
+"==============================================================================
+" vim-snippet
+"==============================================================================
+
+let g:UltiSnipsExpandTrigger='<C-y>'
+let g:UltiSnipsJumpForwardTrigger='<c-b>'
+let g:UltiSnipsJumpBackwardTrigger='<c-z>'
