@@ -12,6 +12,8 @@ colorscheme badwolf
 
 filetype plugin indent on
 
+let mapleader=' '
+
 set expandtab "tabs are spaces
 set softtabstop=4 "number of spaces in tab when editing
 set tabstop=4 "number of visual spaces per TAB
