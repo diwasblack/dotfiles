@@ -55,7 +55,7 @@ Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 Plug 'nvie/vim-flake8'
 Plug 'xolox/vim-misc' | Plug 'xolox/vim-session'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' } | Plug 'junegunn/fzf.vim'
-Plug 'benekastah/neomake'
+Plug 'junegunn/vim-peekaboo'
 
 call plug#end()
 
