@@ -8,6 +8,7 @@ set expandtab " Tabs are spaces
 set softtabstop=4 " Number of spaces in tab when editing
 set tabstop=4 " Number of visual spaces per TAB
 set shiftwidth=4 " Number of space insert/remove shifting line
+set shiftround " Round indent to multiple of 'shiftwidth'
 
 set number " Shows line number
 set cursorline " Highlight current line
