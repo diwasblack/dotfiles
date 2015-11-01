@@ -8,7 +8,7 @@ set expandtab " Tabs are spaces
 set softtabstop=4 " Number of spaces in tab when editing
 set tabstop=4 " Number of visual spaces per TAB
 set shiftwidth=4 " Number of space insert/remove shifting line
-set shiftround " Round indent to multiple of 'shiftwidth'
+set shiftround " Round indent to multiple of 'shiftwidth' 
 
 set number " Shows line number
 set cursorline " Highlight current line
@@ -16,7 +16,7 @@ set colorcolumn=80 " Ruler for maximum characters
 set laststatus=2 " Always show status line
 
 set ignorecase " Case insensitive search
-set smartcase " Performs case sensitive search if search contains uppercase letters
+set smartcase " Performs case sensitive search if contains uppercase letters
 set hlsearch " Turn on search pattern highlighting.
 set incsearch " Search as characters are entered
 
@@ -38,7 +38,7 @@ filetype plugin indent on
 " Plugin list
 "==============================================================================
 
-call plug#begin('~/.config/nvim/plugged')
+call plug#begin('~/.vim/plugged')
 
 Plug 'sjl/badwolf'
 Plug 'altercation/vim-colors-solarized'
@@ -57,6 +57,7 @@ Plug 'nvie/vim-flake8'
 Plug 'xolox/vim-misc' | Plug 'xolox/vim-session'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' } | Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-peekaboo'
+Plug 'benekastah/neomake'
 
 call plug#end()
 
@@ -64,19 +65,22 @@ call plug#end()
 " Colorscheme
 "==============================================================================
 
-"Support for 256 color
-if !has("gui_running")
-    if $TERM == "xterm"
-        let $TERM = "xterm-256color"
-    endif
-    set t_Co=256
-endif
-
 colorscheme badwolf
 
 "==============================================================================
 " Mappings
 "==============================================================================
+if has('nvim')
+    tnoremap <A-h> <C-\><C-n><C-w>h
+    tnoremap <A-j> <C-\><C-n><C-w>j
+    tnoremap <A-k> <C-\><C-n><C-w>k
+    tnoremap <A-l> <C-\><C-n><C-w>l
+endif
+
+nnoremap <A-h> <C-w>h
+nnoremap <A-j> <C-w>j
+nnoremap <A-k> <C-w>k
+nnoremap <A-l> <C-w>l
 
 " Move line
 nnoremap <C-j> :m .+1<CR>==
