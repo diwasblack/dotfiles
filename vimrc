@@ -85,10 +85,14 @@ nnoremap <A-l> <C-w>l
 " Move line
 nnoremap <C-j> :m .+1<CR>==
 nnoremap <C-k> :m .-2<CR>==
-inoremap <C-j> <Esc>:m .+1<CR>==gi
-inoremap <C-k> <Esc>:m .-2<CR>==gi
-vnoremap <C-j> :m '>+1<CR>gv=gv
-vnoremap <C-k> :m '<-2<CR>gv=gv
+xnoremap <C-j> :m '>+1<CR>gv=gv
+xnoremap <C-k> :m '<-2<CR>gv=gv
+xnoremap <C-h> <gv
+xnoremap <C-l> >gv
+nnoremap <C-h> <<
+nnoremap <C-l> >>
+xnoremap < <gv
+xnoremap > >gv
 
 "==============================================================================
 " Easymotion
