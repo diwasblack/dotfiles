@@ -8,7 +8,7 @@ set expandtab " Tabs are spaces
 set softtabstop=4 " Number of spaces in tab when editing
 set tabstop=4 " Number of visual spaces per TAB
 set shiftwidth=4 " Number of space insert/remove shifting line
-set shiftround " Round indent to multiple of 'shiftwidth' 
+set shiftround " Round indent to multiple of 'shiftwidth'
 
 set number " Shows line number
 set cursorline " Highlight current line
@@ -17,7 +17,7 @@ set laststatus=2 " Always show status line
 
 set ignorecase " Case insensitive search
 set smartcase " Performs case sensitive search if contains uppercase letters
-set hlsearch " Turn on search pattern highlighting.
+set hlsearch " Turn on search pattern highlighting
 set incsearch " Search as characters are entered
 
 set foldenable " Enable folding
@@ -26,11 +26,15 @@ set foldmethod=indent " Fold based on indent level
 
 set wildmenu " Visual autocomplete for command menu
 set autoindent " Auto indent
+set smartindent " Smart indentation
 
 set nowrap " Disable wrapping
 set title " Change terminal title
 set hidden " Enables hidden buffer
 set autoread " Auto read file when modified externally
+
+set list " Show invisible characters
+set backspace=indent,eol,start " Backspace through everything
 
 filetype plugin indent on
 
