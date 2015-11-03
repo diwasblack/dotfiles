@@ -61,6 +61,7 @@ Plug 'nvie/vim-flake8'
 Plug 'xolox/vim-misc' | Plug 'xolox/vim-session'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' } | Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-peekaboo'
+Plug 'junegunn/vim-easy-align'
 Plug 'benekastah/neomake'
 
 call plug#end()
@@ -145,7 +146,7 @@ endif
 let g:flake8_show_in_gutter=1
 
 "==============================================================================
-" FZF 
+" FZF
 "==============================================================================
 
 let g:fzf_action = {
@@ -158,7 +159,7 @@ let g:fzf_layout = { 'down': '40%' }
 
 " Mapping
 map <C-p> :FZF<CR>
- 
+
 " Advanced customization using autoload functions
 autocmd VimEnter * command! Colors
   \ call fzf#vim#colors({'left': '15%', 'options': '--reverse --margin 30%,0'})
@@ -188,3 +189,13 @@ nmap <F3> :TagbarToggle<CR>
 let g:UltiSnipsExpandTrigger='<C-y>'
 let g:UltiSnipsJumpForwardTrigger='<c-b>'
 let g:UltiSnipsJumpBackwardTrigger='<c-z>'
+
+"==============================================================================
+" vim-easy-align
+"==============================================================================
+
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
