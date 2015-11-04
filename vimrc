@@ -3,37 +3,30 @@
 "==============================================================================
 
 let mapleader=' '
-
-set expandtab " Tabs are spaces
-set softtabstop=4 " Number of spaces in tab when editing
-set tabstop=4 " Number of visual spaces per TAB
-set shiftwidth=4 " Number of space insert/remove shifting line
-set shiftround " Round indent to multiple of 'shiftwidth'
-
-set number " Shows line number
-set cursorline " Highlight current line
-set colorcolumn=80 " Ruler for maximum characters
-set laststatus=2 " Always show status line
-
-set ignorecase " Case insensitive search
-set smartcase " Performs case sensitive search if contains uppercase letters
-set hlsearch " Turn on search pattern highlighting
-set incsearch " Search as characters are entered
-
-set foldenable " Enable folding
-set foldlevelstart=10 " Open most folds by default
-set foldmethod=indent " Fold based on indent level
-
-set wildmenu " Visual autocomplete for command menu
-set autoindent " Auto indent
-set smartindent " Smart indentation
-
-set nowrap " Disable wrapping
-set title " Change terminal title
-set hidden " Enables hidden buffer
-set autoread " Auto read file when modified externally
-
-set list " Show invisible characters
+set expandtab                  " Tabs are spaces
+set softtabstop=4              " Number of spaces in tab when editing
+set tabstop=4                  " Number of visual spaces per TAB
+set shiftwidth=4               " Number of space insert/remove shifting line
+set shiftround                 " Round indent to multiple of 'shiftwidth'
+set number                     " Shows line number
+set cursorline                 " Highlight current line
+set colorcolumn=80             " Ruler for maximum characters
+set laststatus=2               " Always show status line
+set ignorecase                 " Case insensitive search
+set smartcase                  " Performs case sensitive search if contains uppercase letters
+set hlsearch                   " Turn on search pattern highlighting
+set incsearch                  " Search as characters are entered
+set foldenable                 " Enable folding
+set foldlevelstart=10          " Open most folds by default
+set foldmethod=indent          " Fold based on indent level
+set wildmenu                   " Visual autocomplete for command menu
+set autoindent                 " Auto indent
+set smartindent                " Smart indentation
+set nowrap                     " Disable wrapping
+set title                      " Change terminal title
+set hidden                     " Enables hidden buffer
+set autoread                   " Auto read file when modified externally
+set list                       " Show invisible characters
 set backspace=indent,eol,start " Backspace through everything
 
 filetype plugin indent on
@@ -52,17 +45,18 @@ Plug 'scrooloose/syntastic'
 Plug 'bling/vim-airline'
 Plug 'easymotion/vim-easymotion'
 Plug 'tpope/vim-fugitive'
-Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-surround'
+Plug 'airblade/vim-gitgutter'
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 Plug 'majutsushi/tagbar'
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 Plug 'nvie/vim-flake8'
 Plug 'xolox/vim-misc' | Plug 'xolox/vim-session'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' } | Plug 'junegunn/fzf.vim'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
+Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-peekaboo'
-Plug 'junegunn/vim-easy-align'
-Plug 'benekastah/neomake'
+Plug 'junegunn/vim-easy-align', { 'on': ['<Plug>(EasyAlign)', 'EasyAlign'] }
+Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
 
 call plug#end()
 
@@ -177,10 +171,16 @@ let g:session_autosave = 'yes'
 map <F2> :NERDTreeToggle<CR>
 
 "==============================================================================
+" undotree
+"==============================================================================
+
+nmap <F3> :UndotreeToggle<CR>
+
+"==============================================================================
 " Tagbar
 "==============================================================================
 
-nmap <F3> :TagbarToggle<CR>
+nmap <F10> :TagbarToggle<CR>
 
 "==============================================================================
 " vim-snippet
