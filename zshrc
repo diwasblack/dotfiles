@@ -23,3 +23,6 @@ antigen theme jdavis/zsh-files themes/jdavis
 antigen apply
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# True color support for neovim
+export NVIM_TUI_ENABLE_TRUE_COLOR=1
