@@ -57,7 +57,6 @@ Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-peekaboo'
 Plug 'junegunn/vim-easy-align', { 'on': ['<Plug>(EasyAlign)', 'EasyAlign'] }
 Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
-
 call plug#end()
 
 "==============================================================================
@@ -96,6 +95,12 @@ xnoremap > >gv
 " Mapping to switch buffers
 nnoremap gb :bnext<CR>
 nnoremap gB :bprevious<CR>
+
+nnoremap <leader>q :q<CR>
+inoremap <leader>q <ESC>:q<CR>
+if has('nvim')
+    tnoremap <leader>q <C-\><C-n>:q<CR>
+endif
 
 "==============================================================================
 " Easymotion
