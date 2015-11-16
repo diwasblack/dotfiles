@@ -57,6 +57,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-peekaboo'
 Plug 'junegunn/vim-easy-align', { 'on': ['<Plug>(EasyAlign)', 'EasyAlign'] }
 Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
+Plug 'mhinz/vim-startify'
 call plug#end()
 
 "==============================================================================
@@ -215,3 +216,10 @@ xmap ga <Plug>(EasyAlign)
 
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
+
+"==============================================================================
+" startify
+"==============================================================================
+
+let g:startify_custom_header =
+    \ map(split(system('fortune | cowsay'), '\n'), '"   ". v:val') + ['','']
