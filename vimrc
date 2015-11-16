@@ -93,6 +93,10 @@ nnoremap <C-l> >>
 xnoremap < <gv
 xnoremap > >gv
 
+" Mapping to switch buffers
+nnoremap gb :bnext<CR>
+nnoremap gB :bprevious<CR>
+
 "==============================================================================
 " Easymotion
 "==============================================================================
@@ -133,6 +137,12 @@ if !exists('g:airline_symbols')
     let g:airline_symbols = {}
 endif
 
+" Show buffer list at top
+let g:airline#extensions#tabline#enabled = 1
+
+" Show just the filename
+let g:airline#extensions#tabline#fnamemod = ':t'
+
 "==============================================================================
 " Flake8
 "==============================================================================
@@ -152,7 +162,8 @@ let g:fzf_action = {
 let g:fzf_layout = { 'down': '40%' }
 
 " Mapping
-map <C-p> :FZF<CR>
+nnoremap <C-p> :Files<CR>
+nnoremap <Leader>b :Buffers<CR>
 
 " Advanced customization using autoload functions
 autocmd VimEnter * command! Colors
