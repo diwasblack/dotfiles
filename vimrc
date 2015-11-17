@@ -3,31 +3,35 @@
 "==============================================================================
 
 let mapleader=' '
-set expandtab                  " Tabs are spaces
-set softtabstop=4              " Number of spaces in tab when editing
-set tabstop=4                  " Number of visual spaces per TAB
-set shiftwidth=4               " Number of space insert/remove shifting line
-set shiftround                 " Round indent to multiple of 'shiftwidth'
-set number                     " Shows line number
-set cursorline                 " Highlight current line
+set autoindent                 " Auto indent
+set autoread                   " Auto read file when modified externally
+set backspace=indent,eol,start " Backspace through everything
 set colorcolumn=80             " Ruler for maximum characters
-set laststatus=2               " Always show status line
-set ignorecase                 " Case insensitive search
-set smartcase                  " Performs case sensitive search if contains uppercase letters
-set hlsearch                   " Turn on search pattern highlighting
-set incsearch                  " Search as characters are entered
+set cursorline                 " Highlight current line
+set encoding=utf-8             " UTF-8 encoding
+set expandtab                  " Tabs are spaces
 set foldenable                 " Enable folding
 set foldlevelstart=10          " Open most folds by default
 set foldmethod=indent          " Fold based on indent level
-set wildmenu                   " Visual autocomplete for command menu
-set autoindent                 " Auto indent
-set smartindent                " Smart indentation
-set nowrap                     " Disable wrapping
-set title                      " Change terminal title
 set hidden                     " Enables hidden buffer
-set autoread                   " Auto read file when modified externally
+set hlsearch                   " Turn on search pattern highlighting
+set ignorecase                 " Case insensitive search
+set incsearch                  " Search as characters are entered
+set laststatus=2               " Always show status line
+set lazyredraw                 " Redraw only when we need to
 set list                       " Show invisible characters
-set backspace=indent,eol,start " Backspace through everything
+set nowrap                     " Disable wrapping
+set number                     " Shows line number
+set shiftround                 " Round indent to multiple of 'shiftwidth'
+set shiftwidth=4               " Number of space insert/remove shifting line
+set smartcase                  " Performs case sensitive search if contains uppercase letters
+set smartindent                " Smart indentation
+set softtabstop=4              " Number of spaces in tab when editing
+set splitright                 " New windows goes right
+set tabstop=4                  " Number of visual spaces per TAB
+set title                      " Change terminal title
+set ttyfast                    " Optimize for fast terminal connections
+set wildmenu                   " Visual autocomplete for command menu
 
 filetype plugin indent on
 
