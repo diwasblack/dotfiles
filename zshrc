@@ -35,3 +35,8 @@ setopt histignoredups
 
 # True color support for neovim
 export NVIM_TUI_ENABLE_TRUE_COLOR=1
+
+export WORKON_HOME=$HOME/.virtualenvs
+export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3.4
+export PROJECT_HOME=$HOME/Devel
+source /usr/local/bin/virtualenvwrapper.sh
