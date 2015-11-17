@@ -22,6 +22,15 @@ antigen theme jdavis/zsh-files themes/jdavis
 # Tell antigen that you're done.
 antigen apply
 
+# Turn on spelling correction
+setopt correct
+
+# Correction for arguments
+setopt correctall
+
+# Don't save duplicate in history
+setopt histignoredups
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # True color support for neovim
