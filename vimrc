@@ -64,6 +64,7 @@ call plug#end()
 " Colorscheme
 "==============================================================================
 
+set t_Co=256
 colorscheme badwolf
 
 "==============================================================================
@@ -98,7 +99,6 @@ nnoremap gb :bnext<CR>
 nnoremap gB :bprevious<CR>
 
 nnoremap <leader>q :q<CR>
-inoremap <leader>q <ESC>:q<CR>
 if has('nvim')
     tnoremap <leader>q <C-\><C-n>:q<CR>
 endif
