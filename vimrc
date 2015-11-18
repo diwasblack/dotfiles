@@ -133,9 +133,10 @@ xnoremap > >gv
 nnoremap gb :bnext<CR>
 nnoremap gB :bprevious<CR>
 
-nnoremap <leader>q :q<CR>
+nnoremap <C-q> :q<CR>
+inoremap <C-q> <ESC>:q<CR>
 if has('nvim')
-    tnoremap <leader>q <C-\><C-n>:q<CR>
+    tnoremap <C-q> <C-\><C-n>:q<CR>
 endif
 
 "==============================================================================
