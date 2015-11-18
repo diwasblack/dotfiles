@@ -57,6 +57,7 @@ filetype plugin indent on
 
 call plug#begin('~/.vim/plugged')
 
+Plug 'morhetz/gruvbox'
 Plug 'sjl/badwolf'
 Plug 'altercation/vim-colors-solarized'
 Plug 'tomtom/tcomment_vim'
@@ -85,7 +86,21 @@ call plug#end()
 "==============================================================================
 
 set t_Co=256
-colorscheme badwolf
+set background=dark
+colorscheme gruvbox
+
+let g:gruvbox_invert_selection=0
+let g:gruvbox_contrast_dark="hard"
+
+function! ToggleBackground()
+    if &background=="dark"
+        set background=light
+    else
+        set background=dark
+    endif
+endfunction
+
+nnoremap <F5> :call ToggleBackground()<CR>
 
 "==============================================================================
 " Mappings
