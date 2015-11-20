@@ -87,10 +87,11 @@ call plug#end()
 
 set t_Co=256
 set background=dark
-colorscheme gruvbox
 
 let g:gruvbox_invert_selection=0
 let g:gruvbox_contrast_dark="hard"
+
+colorscheme gruvbox
 
 function! ToggleBackground()
     if &background=="dark"
@@ -175,9 +176,9 @@ let g:syntastic_style_warning_symbol = "≈"
 "==============================================================================
 
 let g:airline_powerline_fonts = 1
-if !exists('g:airline_symbols')
-    let g:airline_symbols = {}
-endif
+" if !exists('g:airline_symbols')
+"     let g:airline_symbols = {}
+" endif
 
 " Show buffer list at top
 let g:airline#extensions#tabline#enabled = 1
