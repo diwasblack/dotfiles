@@ -140,6 +140,9 @@ if has('nvim')
     tnoremap <C-q> <C-\><C-n>:q<CR>
 endif
 
+" Force saving files requiring root permission
+cnoremap w!! w !sudo tee > /dev/null %
+
 "==============================================================================
 " Easymotion
 "==============================================================================
