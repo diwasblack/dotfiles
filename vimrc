@@ -43,6 +43,9 @@ set tabpagemax=50              " Maximux number of tab pages to be opened from c
 set tabstop=4                  " Number of visual spaces per TAB
 set title                      " Change terminal title
 set ttyfast                    " Optimize for fast terminal connections
+set undofile                   " Persistent undo
+set undolevels=1000            " How many undos
+set undoreload=10000           " Number of lines to save for undo
 set wildmenu                   " Visual autocomplete for command menu
 
 if !empty(&viminfo)
