@@ -35,6 +35,7 @@ setopt histignoredups
 
 # True color support for neovim
 export NVIM_TUI_ENABLE_TRUE_COLOR=1
+source "$HOME/.vim/plugged/gruvbox/gruvbox_256palette.sh"
 
 export WORKON_HOME=$HOME/.virtualenvs
 export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3.4
