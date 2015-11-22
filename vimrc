@@ -88,7 +88,6 @@ call plug#end()
 " Colorscheme
 "==============================================================================
 
-set t_Co=256
 set background=dark
 
 let g:gruvbox_invert_selection=0
@@ -143,6 +142,8 @@ endif
 
 " Force saving files requiring root permission
 cnoremap w!! w !sudo tee > /dev/null %
+
+nnoremap <Leader>n :enew<CR>
 
 "==============================================================================
 " Easymotion
