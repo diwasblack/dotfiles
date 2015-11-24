@@ -10,7 +10,7 @@ antigen bundle heroku
 antigen bundle pip
 antigen bundle lein
 antigen bundle command-not-found
-
+antigen bundle django
 antigen bundle rupa/z
 
 # Syntax highlighting bundle.

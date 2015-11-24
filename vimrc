@@ -61,7 +61,6 @@ filetype plugin indent on
 call plug#begin('~/.vim/plugged')
 
 Plug 'morhetz/gruvbox'
-Plug 'sjl/badwolf'
 Plug 'altercation/vim-colors-solarized'
 Plug 'tomtom/tcomment_vim'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
@@ -82,6 +81,7 @@ Plug 'junegunn/vim-peekaboo'
 Plug 'junegunn/vim-easy-align', { 'on': ['<Plug>(EasyAlign)', 'EasyAlign'] }
 Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
 Plug 'mhinz/vim-startify'
+
 call plug#end()
 
 "==============================================================================
