@@ -245,6 +245,8 @@ nmap <F10> :TagbarToggle<CR>
 " vim-snippet
 "==============================================================================
 
+let g:UltiSnipsUsePythonVersion = 2
+
 let g:UltiSnipsExpandTrigger='<C-y>'
 let g:UltiSnipsJumpForwardTrigger='<c-b>'
 let g:UltiSnipsJumpBackwardTrigger='<c-z>'
