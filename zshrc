@@ -11,6 +11,8 @@ antigen bundle pip
 antigen bundle lein
 antigen bundle command-not-found
 antigen bundle django
+
+# Jump to frecent directory
 antigen bundle rupa/z
 
 # Syntax highlighting bundle.
@@ -31,10 +33,12 @@ setopt correctall
 # Don't save duplicate in history
 setopt histignoredups
 
+export EDITOR=nvim
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # True color support for neovim
-export NVIM_TUI_ENABLE_TRUE_COLOR=1
+# export NVIM_TUI_ENABLE_TRUE_COLOR=1
 gruvbox_file="$HOME/.vim/plugged/gruvbox/gruvbox_256palette.sh"
 [ -f $gruvbox_file ] && source $gruvbox_file
 
@@ -43,3 +47,5 @@ export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3.4
 export PROJECT_HOME=$HOME/Devel
 virtualenv_file="/usr/local/bin/virtualenvwrapper.sh"
 [ -f $virtualenv_file ] && source $virtualenv_file
+
+[ -f ~/zshrc_extra ] && source ~/zshrc_extra
