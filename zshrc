@@ -48,4 +48,4 @@ export PROJECT_HOME=$HOME/Devel
 virtualenv_file="/usr/local/bin/virtualenvwrapper.sh"
 [ -f $virtualenv_file ] && source $virtualenv_file
 
-[ -f ~/zshrc_extra ] && source ~/zshrc_extra
+[ -f ~/.zshrc_extra ] && source ~/.zshrc_extra

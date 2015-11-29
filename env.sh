@@ -1,5 +1,10 @@
 #!/bin/bash
 
+echo "Installing tmux and zsh"
+sudo apt-get install tmux zsh
+echo "Installing tmuxinator"
+gem install tmuxinator
+
 # Create directory for keeping old files
 if [ ! -d $HOME/oldfiles ]; then
     mkdir $HOME/oldfiles
