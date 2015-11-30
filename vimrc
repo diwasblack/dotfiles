@@ -63,7 +63,6 @@ call plug#begin('~/.vim/plugged')
 Plug 'morhetz/gruvbox'
 Plug 'altercation/vim-colors-solarized'
 Plug 'tomtom/tcomment_vim'
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'scrooloose/syntastic'
 Plug 'bling/vim-airline'
 Plug 'easymotion/vim-easymotion'
@@ -80,6 +79,7 @@ Plug 'junegunn/vim-peekaboo'
 Plug 'junegunn/vim-easy-align', { 'on': ['<Plug>(EasyAlign)', 'EasyAlign'] }
 Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
 Plug 'mhinz/vim-startify'
+Plug 'tpope/vim-obsession'
 
 call plug#end()
 
@@ -215,12 +215,6 @@ nnoremap <Leader>b :Buffers<CR>
 " Advanced customization using autoload functions
 autocmd VimEnter * command! Colors
   \ call fzf#vim#colors({'left': '15%', 'options': '--reverse --margin 30%,0'})
-
-"==============================================================================
-" NERDTree
-"==============================================================================
-
-map <F2> :NERDTreeToggle<CR>
 
 "==============================================================================
 " undotree
