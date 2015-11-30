@@ -6,9 +6,7 @@ antigen use oh-my-zsh
 
 # Bundles from the default repo (robbyrussell's oh-my-zsh).
 antigen bundle git
-antigen bundle heroku
 antigen bundle pip
-antigen bundle lein
 antigen bundle command-not-found
 antigen bundle django
 
@@ -28,7 +26,7 @@ antigen apply
 setopt correct
 
 # Correction for arguments
-setopt correctall
+# setopt correctall
 
 # Don't save duplicate in history
 setopt histignoredups
