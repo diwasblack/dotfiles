@@ -117,6 +117,8 @@ if has('nvim')
     tnoremap <A-j> <C-\><C-n><C-w>j
     tnoremap <A-k> <C-\><C-n><C-w>k
     tnoremap <A-l> <C-\><C-n><C-w>l
+
+    tnoremap <C-q> <C-\><C-n>
 endif
 
 nnoremap <A-h> <C-w>h
@@ -140,13 +142,10 @@ xnoremap > >gv
 nnoremap gb :bnext<CR>
 nnoremap gB :bprevious<CR>
 
-if has('nvim')
-    tnoremap <C-q> <C-\><C-n>
-endif
-
 " Force saving files requiring root permission
 cnoremap w!! w !sudo tee > /dev/null %
 
+nnoremap <Leader>q :bd<CR>
 nnoremap <Leader>n :enew<CR>
 
 "==============================================================================
