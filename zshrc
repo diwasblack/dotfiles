@@ -35,8 +35,7 @@ export EDITOR=nvim
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# True color support for neovim
-# export NVIM_TUI_ENABLE_TRUE_COLOR=1
+# Fix for 256 color terminal
 gruvbox_file="$HOME/.vim/plugged/gruvbox/gruvbox_256palette.sh"
 [ -f $gruvbox_file ] && source $gruvbox_file
 
