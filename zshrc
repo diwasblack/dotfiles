@@ -1,26 +1,13 @@
-# Load Antigen
-source ~/dotfiles/antigen/antigen.zsh
+# Path to oh-my-zsh installation.
+export ZSH=$HOME/dotfiles/oh-my-zsh
 
-# Load the oh-my-zsh's library.
-antigen use oh-my-zsh
+# Name of the theme to load.
+ZSH_THEME="gentoo"
 
-# Bundles from the default repo (robbyrussell's oh-my-zsh).
-antigen bundle git
-antigen bundle pip
-antigen bundle command-not-found
-antigen bundle django
+# List of plugins
+plugins=(git pip django command-not-found)
 
-# Jump to frecent directory
-antigen bundle rupa/z
-
-# Syntax highlighting bundle.
-antigen bundle zsh-users/zsh-syntax-highlighting
-
-# Antigen theme
-antigen theme jdavis/zsh-files themes/jdavis
-
-# Tell antigen that you're done.
-antigen apply
+source $ZSH/oh-my-zsh.sh
 
 # Turn on spelling correction
 setopt correct
