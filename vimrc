@@ -3,6 +3,7 @@
 "==============================================================================
 
 let mapleader=' '
+let maplocalleader=' '
 
 " Set encoding at startup
 if has('vim_starting')
@@ -35,6 +36,7 @@ set number                     " Shows line number
 set sessionoptions-=options    " Don't store options in sessions
 set shiftround                 " Round indent to multiple of 'shiftwidth'
 set shiftwidth=4               " Number of space insert/remove shifting line
+set shortmess=I                " Hide intro message
 set smartcase                  " Performs case sensitive search if contains uppercase letters
 set smartindent                " Smart indentation
 set softtabstop=4              " Number of spaces in tab when editing
@@ -78,7 +80,6 @@ Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-peekaboo'
 Plug 'junegunn/vim-easy-align', { 'on': ['<Plug>(EasyAlign)', 'EasyAlign'] }
 Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
-Plug 'mhinz/vim-startify'
 Plug 'tpope/vim-obsession'
 
 call plug#end()
@@ -147,6 +148,9 @@ cnoremap w!! w !sudo tee > /dev/null %
 
 nnoremap <Leader>q :bd<CR>
 nnoremap <Leader>n :enew<CR>
+
+nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+nnoremap <leader>sv :source $MYVIMRC<cr>
 
 "==============================================================================
 " Easymotion
@@ -251,10 +255,3 @@ xmap ga <Plug>(EasyAlign)
 
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
-
-"==============================================================================
-" startify
-"==============================================================================
-
-let g:startify_custom_header =
-    \ map(split(system('fortune | cowsay'), '\n'), '"   ". v:val') + ['','']
