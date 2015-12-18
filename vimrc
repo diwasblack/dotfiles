@@ -107,7 +107,7 @@ nnoremap <F5> :call ToggleBackground()<CR>
 
 if has('nvim')
     " let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-    let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
+    " let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 endif
 
 "==============================================================================
@@ -119,7 +119,7 @@ if has('nvim')
     tnoremap <A-k> <C-\><C-n><C-w>k
     tnoremap <A-l> <C-\><C-n><C-w>l
 
-    tnoremap <C-q> <C-\><C-n>
+    tnoremap <C-d> <C-\><C-n>
 endif
 
 nnoremap <A-h> <C-w>h
@@ -149,7 +149,7 @@ cnoremap w!! w !sudo tee > /dev/null %
 nnoremap <Leader>q :bd<CR>
 nnoremap <Leader>n :enew<CR>
 
-nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+nnoremap <leader>ev :edit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 
 "==============================================================================
