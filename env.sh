@@ -3,11 +3,16 @@
 echo "Installing tmux and zsh"
 sudo apt-get install tmux zsh
 
+if ! command -v gem > /dev/null 2>&1; then
+    echo "Installing ruby"
+    sudo apt-get install ruby
+fi
+
 echo "Installing tmuxinator"
 gem install tmuxinator
 
 echo "Installing powerline"
-pip3 install powerline-status
+sudo -H /usr/local/bin/pip3 install powerline-status
 
 echo "Setting up powerline"
 wget https://github.com/powerline/powerline/raw/develop/font/PowerlineSymbols.otf
