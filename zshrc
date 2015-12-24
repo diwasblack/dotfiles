@@ -26,10 +26,7 @@ export EDITOR=nvim
 gruvbox_file="$HOME/.vim/plugged/gruvbox/gruvbox_256palette.sh"
 [ -f $gruvbox_file ] && source $gruvbox_file
 
-export WORKON_HOME=$HOME/.virtualenvs
-export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3.4
-export PROJECT_HOME=$HOME/Devel
-virtualenv_file="/usr/local/bin/virtualenvwrapper.sh"
-[ -f $virtualenv_file ] && source $virtualenv_file
+# Completion for mux command
+[ -f ~/dotfiles/tmuxinator.zsh ] && source ~/dotfiles/tmuxinator.zsh
 
 [ -f ~/.zshrc_extra ] && source ~/.zshrc_extra
