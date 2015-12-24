@@ -9,7 +9,7 @@ if ! command -v gem > /dev/null 2>&1; then
 fi
 
 echo "Installing tmuxinator"
-gem install tmuxinator
+sudo gem install tmuxinator
 
 echo "Installing powerline"
 sudo -H /usr/local/bin/pip3 install powerline-status
