@@ -23,9 +23,16 @@ if ! command -v fc-cache > /dev/null 2>&1; then
     sudo apt-get install fontconfig
 fi
 
+if [ ! -d $HOME/.fonts ]; then
+    mkdir $HOME/.fonts
+fi
 mv PowerlineSymbols.otf ~/.fonts/
-mv 10-powerline-symbols.conf ~/.config/fontconfig/conf.d/
 fc-cache -vf ~/.fonts/
+
+if [ ! -d $HOME/.config/fontconfig/conf.d ]; then
+    mkdir -p $HOME/.config/fontconfig/conf.d
+fi
+mv 10-powerline-symbols.conf ~/.config/fontconfig/conf.d/
 
 echo "Creating necessary dotfiles"
 # Create directory for keeping old files
