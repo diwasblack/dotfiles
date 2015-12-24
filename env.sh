@@ -18,9 +18,14 @@ echo "Setting up powerline"
 wget https://github.com/powerline/powerline/raw/develop/font/PowerlineSymbols.otf
 wget https://github.com/powerline/powerline/raw/develop/font/10-powerline-symbols.conf
 
+if ! command -v fc-cache > /dev/null 2>&1; then
+    echo "Installing fontconfig"
+    sudo apt-get install fontconfig
+fi
+
 mv PowerlineSymbols.otf ~/.fonts/
-fc-cache -vf ~/.fonts/
 mv 10-powerline-symbols.conf ~/.config/fontconfig/conf.d/
+fc-cache -vf ~/.fonts/
 
 echo "Creating necessary dotfiles"
 # Create directory for keeping old files
