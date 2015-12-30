@@ -119,7 +119,7 @@ if has('nvim')
     tnoremap <A-k> <C-\><C-n><C-w>k
     tnoremap <A-l> <C-\><C-n><C-w>l
 
-    tnoremap <C-d> <C-\><C-n>
+    tnoremap <C-q> <C-\><C-n>
 endif
 
 nnoremap <A-h> <C-w>h
