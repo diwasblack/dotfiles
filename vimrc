@@ -73,7 +73,8 @@ Plug 'tpope/vim-surround'
 Plug 'airblade/vim-gitgutter'
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 Plug 'majutsushi/tagbar'
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
+" Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
+Plug 'Shougo/deoplete.nvim'
 Plug 'nvie/vim-flake8'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
 Plug 'junegunn/fzf.vim'
@@ -81,6 +82,7 @@ Plug 'junegunn/vim-peekaboo'
 Plug 'junegunn/vim-easy-align', { 'on': ['<Plug>(EasyAlign)', 'EasyAlign'] }
 Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
 Plug 'tpope/vim-obsession'
+Plug 'junegunn/vim-journal'
 
 call plug#end()
 
@@ -140,8 +142,8 @@ xnoremap < <gv
 xnoremap > >gv
 
 " Mapping to switch buffers
-nnoremap gb :bnext<CR>
-nnoremap gB :bprevious<CR>
+nnoremap gn :bnext<CR>
+nnoremap gp :bprevious<CR>
 
 " Force saving files requiring root permission
 cnoremap w!! w !sudo tee > /dev/null %
@@ -176,7 +178,6 @@ let g:syntastic_always_populate_loc_list = 0
 let g:syntastic_auto_loc_list = 0
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
-let g:syntastic_html_tidy_exec = 'tidy5'
 
 let g:syntastic_error_symbol = "✗"
 let g:syntastic_style_error_symbol = "✠"
@@ -240,9 +241,9 @@ nmap <F10> :TagbarToggle<CR>
 " vim-snippet
 "==============================================================================
 
-let g:UltiSnipsUsePythonVersion = 2
+" let g:UltiSnipsUsePythonVersion = 2
 
-let g:UltiSnipsExpandTrigger='<C-y>'
+let g:UltiSnipsExpandTrigger='<Tab>'
 let g:UltiSnipsJumpForwardTrigger='<c-b>'
 let g:UltiSnipsJumpBackwardTrigger='<c-z>'
 
@@ -255,3 +256,13 @@ xmap ga <Plug>(EasyAlign)
 
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
+
+"==============================================================================
+" deoplete
+"==============================================================================
+
+" Enable completion
+let g:deoplete#enable_at_startup = 1
+
+" Disable pydoc split
+autocmd FileType python set completeopt-=preview
