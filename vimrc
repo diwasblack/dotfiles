@@ -83,6 +83,7 @@ Plug 'junegunn/vim-easy-align', { 'on': ['<Plug>(EasyAlign)', 'EasyAlign'] }
 Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
 Plug 'tpope/vim-obsession'
 Plug 'junegunn/vim-journal'
+Plug 'Yggdroot/indentLine'
 
 call plug#end()
 
@@ -273,3 +274,9 @@ let g:deoplete#enable_at_startup = 1
 
 " Disable pydoc split
 autocmd FileType python set completeopt-=preview
+
+"==============================================================================
+" Indentline
+"==============================================================================
+
+let g:indentLine_char = '┆'
