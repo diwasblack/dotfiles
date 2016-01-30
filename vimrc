@@ -67,6 +67,7 @@ Plug 'altercation/vim-colors-solarized'
 Plug 'tomtom/tcomment_vim'
 Plug 'scrooloose/syntastic'
 Plug 'bling/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'easymotion/vim-easymotion'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
@@ -83,6 +84,7 @@ Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
 Plug 'tpope/vim-obsession'
 Plug 'junegunn/vim-journal'
 Plug 'Yggdroot/indentLine'
+Plug 'othree/html5.vim'
 
 call plug#end()
 
