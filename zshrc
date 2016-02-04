@@ -20,6 +20,9 @@ setopt histignoredups
 
 export EDITOR=nvim
 
+# Vi mode bindings
+bindkey -v
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # Fix for 256 color terminal
