@@ -9,6 +9,9 @@ plugins=(git pip django command-not-found)
 
 source $ZSH/oh-my-zsh.sh
 
+# Source z
+source $HOME/dotfiles/z/z.sh
+
 # Turn on spelling correction
 setopt correct
 
