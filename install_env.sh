@@ -11,6 +11,13 @@ fi
 echo "Installing tmuxinator"
 sudo gem install tmuxinator
 
+# Install pip if not present
+if [ ! -f /usr/local/bin/pip3 ]; then
+    echo "Installing pip for python3"
+    wget -P ~/ https://bootstrap.pypa.io/get-pip.py
+    exec /usr/bin/python3 ~/get-pip.py
+fi
+
 echo "Installing powerline"
 sudo -H /usr/local/bin/pip3 install powerline-status
 
