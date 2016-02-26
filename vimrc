@@ -85,6 +85,7 @@ Plug 'tpope/vim-obsession'
 Plug 'junegunn/vim-journal'
 Plug 'Yggdroot/indentLine'
 Plug 'othree/html5.vim'
+Plug 'tweekmonster/braceless.vim'
 
 call plug#end()
 
@@ -162,6 +163,7 @@ nnoremap <leader>sv :source $MYVIMRC<cr>
 "==============================================================================
 
 autocmd Filetype html setlocal ts=2 sw=2 sts=2
+autocmd FileType python BracelessEnable +indent
 
 "==============================================================================
 " Easymotion
