@@ -15,7 +15,7 @@ sudo gem install tmuxinator
 if [ ! -f /usr/local/bin/pip3 ]; then
     echo "Installing pip for python3"
     wget -P ~/ https://bootstrap.pypa.io/get-pip.py
-    exec /usr/bin/python3 ~/get-pip.py
+    /usr/bin/python3 ~/get-pip.py
 fi
 
 echo "Installing powerline"
