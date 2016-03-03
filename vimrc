@@ -144,6 +144,9 @@ nnoremap <C-l> >>
 xnoremap < <gv
 xnoremap > >gv
 
+" Highlight last inserted text
+nnoremap gV `[v`]
+
 " Mapping to switch buffers
 nnoremap gn :bnext<CR>
 nnoremap gp :bprevious<CR>
