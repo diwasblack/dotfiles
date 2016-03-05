@@ -86,6 +86,7 @@ Plug 'junegunn/vim-journal'
 Plug 'Yggdroot/indentLine'
 Plug 'othree/html5.vim'
 Plug 'tweekmonster/braceless.vim'
+Plug 'justinmk/vim-gtfo'
 
 call plug#end()
 
