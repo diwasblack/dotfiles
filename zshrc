@@ -1,3 +1,19 @@
+# Turn on spelling correction
+setopt correct
+
+# Correction for arguments
+# setopt correctall
+
+# Don't save duplicate in history
+setopt histignoredups
+
+# Vi mode bindings
+bindkey -v
+
+# Default editor to use
+export EDITOR=nvim
+
+# Load antigen files
 source ~/dotfiles/antigen/antigen.zsh
 
 # Load the oh-my-zsh's library.
@@ -5,7 +21,7 @@ antigen use oh-my-zsh
 
 # Bundles from the default repo .
 antigen bundle git
-antigen bundle heroku
+# antigen bundle heroku
 antigen bundle pip
 antigen bundle command-not-found
 antigen bundle rupa/z
@@ -19,20 +35,7 @@ antigen theme gentoo
 # Tell antigen that you're done.
 antigen apply
 
-# Turn on spelling correction
-setopt correct
-
-# Correction for arguments
-# setopt correctall
-
-# Don't save duplicate in history
-setopt histignoredups
-
-export EDITOR=nvim
-
-# Vi mode bindings
-bindkey -v
-
+# Configuration for fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # Fix for 256 color terminal
