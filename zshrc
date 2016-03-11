@@ -8,6 +8,7 @@ antigen bundle git
 antigen bundle heroku
 antigen bundle pip
 antigen bundle command-not-found
+antigen bundle rupa/z
 
 # Syntax highlighting bundle.
 # antigen bundle zsh-users/zsh-syntax-highlighting
@@ -17,9 +18,6 @@ antigen theme gentoo
 
 # Tell antigen that you're done.
 antigen apply
-
-# Source z
-source $HOME/dotfiles/z/z.sh
 
 # Turn on spelling correction
 setopt correct
