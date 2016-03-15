@@ -10,6 +10,14 @@ setopt histignoredups
 # Vi mode bindings
 bindkey -v
 
+# tmux plugin settings
+# This always starts tmux
+ZSH_TMUX_AUTOSTART=true
+ZSH_TMUX_AUTOSTART_ONCE=true
+ZSH_TMUX_AUTOCONNECT=false
+ZSH_TMUX_FIXTERM=true
+ZSH_TMUX_AUTOQUIT=false
+
 # Default editor to use
 export EDITOR=nvim
 
@@ -28,6 +36,7 @@ if ! zgen saved; then
     zgen oh-my-zsh plugins/sudo
     zgen oh-my-zsh plugins/command-not-found
     zgen oh-my-zsh plugins/tmuxinator
+    zgen oh-my-zsh plugins/tmux
 
     # zgen load zsh-users/zsh-syntax-highlighting
 
