@@ -38,12 +38,11 @@ if ! zgen saved; then
     zgen oh-my-zsh plugins/tmuxinator
     zgen oh-my-zsh plugins/tmux
 
-    # zgen load zsh-users/zsh-syntax-highlighting
-
-    zgen load rupa/z
-
-    # Theme
+    # Theme to use
     zgen oh-my-zsh themes/gentoo
+
+    zgen load zsh-users/zsh-syntax-highlighting
+    zgen load rupa/z
 
     zgen save
 fi
