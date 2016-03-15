@@ -47,9 +47,13 @@ if [ ! -d $HOME/oldfiles ]; then
     mkdir $HOME/oldfiles
 fi
 
+echo "Download vim-plug"
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
 # Move previous files to another directory
-names=( "tmux.conf" "zshrc" )
-files=( ".tmux.conf" ".zshrc" )
+names=( "tmux.conf" "zshrc" "vimrc")
+files=( ".tmux.conf" ".zshrc" ".vimrc")
 for i in `seq 0 1`; do
     if [ -f $HOME/${files[$i]} ]; then
         mv "$HOME/${files[$i]}" "$HOME/oldfiles/"
