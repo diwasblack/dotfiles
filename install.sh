@@ -54,9 +54,13 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 # Move previous files to another directory
 names=( "tmux.conf" "zshrc" "vimrc")
 files=( ".tmux.conf" ".zshrc" ".vimrc")
-for i in `seq 0 1`; do
+for i in `seq 0 2`; do
     if [ -f $HOME/${files[$i]} ]; then
         mv "$HOME/${files[$i]}" "$HOME/oldfiles/"
     fi
     ln -s $HOME/dotfiles/${names[$i]} $HOME/${files[$i]}
 done
+
+# Config for neovim
+ln -s $HOME/dotfiles/vimrc $HOME/.vim/init.vim
+ln -s $HOME/.vim $HOME/.config/nvim
