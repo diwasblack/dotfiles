@@ -85,7 +85,6 @@ Plug 'tpope/vim-obsession'
 Plug 'junegunn/vim-journal'
 Plug 'Yggdroot/indentLine'
 Plug 'othree/html5.vim'
-Plug 'tweekmonster/braceless.vim'
 Plug 'justinmk/vim-gtfo'
 
 call plug#end()
@@ -167,7 +166,6 @@ nnoremap <leader>sv :source $MYVIMRC<cr>
 "==============================================================================
 
 autocmd Filetype html setlocal ts=2 sw=2 sts=2
-autocmd FileType python BracelessEnable +indent
 
 "==============================================================================
 " Easymotion
@@ -181,13 +179,6 @@ let g:EasyMotion_smartcase = 1
 " JK motions: Line motions
 map <Leader>j <Plug>(easymotion-j)
 map <Leader>k <Plug>(easymotion-k)
-
-" n-character motion
-map  / <Plug>(easymotion-sn)
-omap / <Plug>(easymotion-tn)
-
-map  n <Plug>(easymotion-next)
-map  N <Plug>(easymotion-prev)
 
 "==============================================================================
 " Synstastic
