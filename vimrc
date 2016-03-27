@@ -69,25 +69,27 @@ Plug 'morhetz/gruvbox'
 Plug 'bling/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
-Plug 'tomtom/tcomment_vim'
-Plug 'scrooloose/syntastic'
-Plug 'easymotion/vim-easymotion'
 Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
+Plug 'scrooloose/syntastic'
+Plug 'Shougo/deoplete.nvim'
+Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
+
+Plug 'nvie/vim-flake8'
+Plug 'othree/html5.vim'
+
+Plug 'Yggdroot/indentLine'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
-Plug 'airblade/vim-gitgutter'
-Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
+Plug 'tpope/vim-obsession'
 Plug 'majutsushi/tagbar'
-Plug 'Shougo/deoplete.nvim'
-Plug 'nvie/vim-flake8'
+Plug 'tomtom/tcomment_vim'
+Plug 'easymotion/vim-easymotion'
+Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-peekaboo'
 Plug 'junegunn/vim-easy-align', { 'on': ['<Plug>(EasyAlign)', 'EasyAlign'] }
-Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
-Plug 'tpope/vim-obsession'
-Plug 'Yggdroot/indentLine'
-Plug 'othree/html5.vim'
 Plug 'justinmk/vim-gtfo'
 
 call plug#end()
