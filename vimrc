@@ -41,6 +41,7 @@ set smartcase                  " Performs case sensitive search if contains uppe
 set smartindent                " Smart indentation
 set softtabstop=4              " Number of spaces in tab when editing
 set splitright                 " New windows goes right
+set t_Co=256                   " Set terminal color to 256
 set tabpagemax=50              " Maximux number of tab pages to be opened from command
 set tabstop=4                  " Number of visual spaces per TAB
 set title                      " Change terminal title
@@ -49,6 +50,8 @@ set undofile                   " Persistent undo
 set undolevels=1000            " How many undos
 set undoreload=10000           " Number of lines to save for undo
 set wildmenu                   " Visual autocomplete for command menu
+syntax on
+
 
 if !empty(&viminfo)
   set viminfo^=!
@@ -63,7 +66,6 @@ filetype plugin indent on
 call plug#begin('~/.vim/plugged')
 
 Plug 'morhetz/gruvbox'
-Plug 'altercation/vim-colors-solarized'
 Plug 'tomtom/tcomment_vim'
 Plug 'scrooloose/syntastic'
 Plug 'bling/vim-airline'
@@ -96,7 +98,6 @@ call plug#end()
 set background=dark
 
 let g:gruvbox_invert_selection=0
-let g:gruvbox_contrast_dark="hard"
 
 colorscheme gruvbox
 
