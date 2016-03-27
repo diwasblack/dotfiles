@@ -66,13 +66,15 @@ filetype plugin indent on
 call plug#begin('~/.vim/plugged')
 
 Plug 'morhetz/gruvbox'
-Plug 'tomtom/tcomment_vim'
-Plug 'scrooloose/syntastic'
 Plug 'bling/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+
+Plug 'tomtom/tcomment_vim'
+Plug 'scrooloose/syntastic'
 Plug 'easymotion/vim-easymotion'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
+Plug 'tpope/vim-repeat'
 Plug 'airblade/vim-gitgutter'
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 Plug 'majutsushi/tagbar'
@@ -84,7 +86,6 @@ Plug 'junegunn/vim-peekaboo'
 Plug 'junegunn/vim-easy-align', { 'on': ['<Plug>(EasyAlign)', 'EasyAlign'] }
 Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
 Plug 'tpope/vim-obsession'
-Plug 'junegunn/vim-journal'
 Plug 'Yggdroot/indentLine'
 Plug 'othree/html5.vim'
 Plug 'justinmk/vim-gtfo'
