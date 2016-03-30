@@ -77,6 +77,7 @@ Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 
 Plug 'nvie/vim-flake8'
 Plug 'othree/html5.vim'
+Plug 'tmhedberg/matchit'
 
 Plug 'Yggdroot/indentLine'
 Plug 'tpope/vim-surround'
