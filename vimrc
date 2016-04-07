@@ -84,6 +84,7 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-obsession'
 Plug 'majutsushi/tagbar'
+Plug 'wellle/targets.vim'
 Plug 'tomtom/tcomment_vim'
 Plug 'easymotion/vim-easymotion'
 Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
