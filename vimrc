@@ -103,12 +103,11 @@ call plug#end()
 
 set background=dark
 
-" let g:gruvbox_invert_selection=0
+let g:gruvbox_invert_selection=0
+colorscheme gruvbox
 
-let base16colorspace=256  " Access colors present in 256 colorspace
-
-" colorscheme gruvbox
-colorscheme base16-default
+" let base16colorspace=256  " Access colors present in 256 colorspace
+" colorscheme base16-default
 
 function! ToggleBackground()
     if &background=="dark"
