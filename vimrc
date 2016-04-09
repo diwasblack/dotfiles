@@ -138,22 +138,25 @@ if has('nvim')
     tnoremap <C-q> <C-\><C-n>
 endif
 
+" Key binding for moving between splits
 nnoremap <A-h> <C-w>h
 nnoremap <A-j> <C-w>j
 nnoremap <A-k> <C-w>k
 nnoremap <A-l> <C-w>l
 
-" Move line
+" Move line up/down
 nnoremap <C-j> :m .+1<CR>==
 nnoremap <C-k> :m .-2<CR>==
 xnoremap <C-j> :m '>+1<CR>gv=gv
 xnoremap <C-k> :m '<-2<CR>gv=gv
+
+" Mapping for indentation
+xnoremap < <gv
+xnoremap > >gv
 xnoremap <C-h> <gv
 xnoremap <C-l> >gv
 nnoremap <C-h> <<
 nnoremap <C-l> >>
-xnoremap < <gv
-xnoremap > >gv
 
 " Highlight last inserted text
 nnoremap gV `[v`]
