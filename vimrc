@@ -97,6 +97,8 @@ Plug 'junegunn/vim-easy-align', { 'on': ['<Plug>(EasyAlign)', 'EasyAlign'] }
 Plug 'justinmk/vim-gtfo'
 Plug 'christoomey/vim-tmux-navigator'
 
+Plug 'mhinz/vim-startify'
+
 call plug#end()
 
 "==============================================================================
