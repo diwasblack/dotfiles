@@ -10,22 +10,6 @@ setopt histignoredups
 # Vi mode bindings
 bindkey -v
 
-# Automatically start tmux
-ZSH_TMUX_AUTOSTART=true
-
-# Only autostart once. If set to false, tmux will attempt to
-# autostart every time zsh configs are reloaded.
-ZSH_TMUX_AUTOSTART_ONCE=true
-
-# Automatically connect to a previous session if it exists
-ZSH_TMUX_AUTOCONNECT=false
-
-# Automatically close the terminal when tmux exits
-ZSH_TMUX_AUTOQUIT=true
-
-# Set term to screen or screen-256color based on current terminal support
-ZSH_TMUX_FIXTERM=true
-
 # Default editor to use
 export EDITOR=nvim
 
