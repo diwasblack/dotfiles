@@ -4,6 +4,7 @@
 
 let mapleader=' '
 let maplocalleader=' '
+let g:python3_host_prog='/usr/bin/python3'
 
 " Set encoding at startup
 if has('vim_starting')
