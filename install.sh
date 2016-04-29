@@ -50,6 +50,11 @@ if [ ! -d $HOME/oldfiles ]; then
     mkdir $HOME/oldfiles
 fi
 
+if ! command -v curl > /dev/null 2>&1; then
+    echo "Installing curl"
+    sudo apt-get install curl
+fi
+
 echo "Download vim-plug"
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
