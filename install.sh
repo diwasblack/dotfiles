@@ -1,5 +1,8 @@
 #!/bin/bash
 
+git submodule init
+git submodule update
+
 echo "Installing tmux and zsh"
 sudo apt-get install tmux zsh
 
