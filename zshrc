@@ -46,4 +46,8 @@ fi
 gruvbox_file="$HOME/.vim/plugged/gruvbox/gruvbox_256palette.sh"
 [ -f $gruvbox_file ] && source $gruvbox_file
 
+# Extra setting for zsh
 [ -f ~/.zshrc_extra ] && source ~/.zshrc_extra
+
+# Include bash_aliases
+[ -f ~/.bash_aliases ] && source ~/.bash_aliases
