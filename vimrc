@@ -94,6 +94,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-peekaboo'
 Plug 'junegunn/vim-easy-align', { 'on': ['<Plug>(EasyAlign)', 'EasyAlign'] }
 Plug 'editorconfig/editorconfig-vim'
+Plug 'tpope/vim-vinegar'
 
 Plug 'justinmk/vim-gtfo'
 Plug 'christoomey/vim-tmux-navigator'
