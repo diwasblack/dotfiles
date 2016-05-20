@@ -34,6 +34,7 @@ set list                       " Show invisible characters
 set noswapfile                 " Disable swap file
 set nowrap                     " Disable wrapping
 set number                     " Shows line number
+set relativenumber             " Enable relative numbering
 set sessionoptions-=options    " Don't store options in sessions
 set shiftround                 " Round indent to multiple of 'shiftwidth'
 set shiftwidth=4               " Number of space insert/remove shifting line
@@ -87,7 +88,6 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-obsession'
 Plug 'wellle/targets.vim'
-Plug 'easymotion/vim-easymotion'
 Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
 Plug 'junegunn/fzf.vim'
@@ -98,6 +98,7 @@ Plug 'tpope/vim-vinegar'
 
 Plug 'justinmk/vim-gtfo'
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'tpope/vim-eunuch'
 
 Plug 'mhinz/vim-startify'
 
@@ -169,9 +170,6 @@ nnoremap gV `[v`]
 nnoremap gn :bnext<CR>
 nnoremap gp :bprevious<CR>
 
-" Force saving files requiring root permission
-cnoremap w!! w !sudo tee > /dev/null %
-
 nnoremap <Leader>q :bd<CR>
 nnoremap <Leader>n :enew<CR>
 
@@ -184,19 +182,6 @@ nnoremap <leader>sv :source $MYVIMRC<cr>
 "==============================================================================
 
 autocmd Filetype html setlocal ts=2 sw=2 sts=2
-
-"==============================================================================
-" Easymotion
-"==============================================================================
-
-let g:EasyMotion_do_mapping = 0 " Disable default mappings
-
-" Turn on case insensitive feature
-let g:EasyMotion_smartcase = 1
-
-" JK motions: Line motions
-map <Leader>j <Plug>(easymotion-j)
-map <Leader>k <Plug>(easymotion-k)
 
 "==============================================================================
 " Synstastic
