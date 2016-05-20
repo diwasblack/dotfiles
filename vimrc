@@ -82,6 +82,8 @@ Plug 'othree/html5.vim'
 Plug 'tmhedberg/matchit'
 Plug 'majutsushi/tagbar'
 Plug 'tomtom/tcomment_vim'
+Plug 'tell-k/vim-autopep8'
+Plug 'editorconfig/editorconfig-vim'
 
 Plug 'Yggdroot/indentLine'
 Plug 'tpope/vim-surround'
@@ -89,13 +91,12 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-obsession'
 Plug 'wellle/targets.vim'
 Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
-Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-peekaboo'
 Plug 'junegunn/vim-easy-align', { 'on': ['<Plug>(EasyAlign)', 'EasyAlign'] }
-Plug 'editorconfig/editorconfig-vim'
+Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-vinegar'
 
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
 Plug 'justinmk/vim-gtfo'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'tpope/vim-eunuch'

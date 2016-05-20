@@ -59,6 +59,11 @@ echo "Download vim-plug"
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
+echo "Installing python libraries for vim"
+sudo -H /usr/local/bin/pip3 install neovim
+sudo -H /usr/local/bin/pip3 install flake8
+sudo -H /usr/local/bin/pip3 install autopep8
+
 # Move previous files to another directory
 names=( "tmux.conf" "zshrc" "vimrc")
 files=( ".tmux.conf" ".zshrc" ".vimrc")
