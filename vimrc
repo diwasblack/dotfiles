@@ -17,6 +17,7 @@ set backspace=indent,eol,start " Backspace through everything
 set colorcolumn=80             " Ruler for maximum characters
 set complete-=i                " Don't search included files
 set cursorline                 " Highlight current line
+set diffopt+=vertical          " Use vertical splits
 set display+=lastline          " Display as much as possible content of last line
 set expandtab                  " Tabs are spaces
 set foldenable                 " Enable folding
