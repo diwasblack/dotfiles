@@ -17,6 +17,7 @@ set backspace=indent,eol,start " Backspace through everything
 set colorcolumn=80             " Ruler for maximum characters
 set complete-=i                " Don't search included files
 set cursorline                 " Highlight current line
+set diffopt+=vertical          " Use vertical splits
 set display+=lastline          " Display as much as possible content of last line
 set expandtab                  " Tabs are spaces
 set foldenable                 " Enable folding
@@ -34,6 +35,7 @@ set list                       " Show invisible characters
 set noswapfile                 " Disable swap file
 set nowrap                     " Disable wrapping
 set number                     " Shows line number
+set relativenumber             " Enable relative numbering
 set sessionoptions-=options    " Don't store options in sessions
 set shiftround                 " Round indent to multiple of 'shiftwidth'
 set shiftwidth=4               " Number of space insert/remove shifting line
@@ -45,6 +47,7 @@ set splitright                 " New windows goes right
 set t_Co=256                   " Set terminal color to 256
 set tabpagemax=50              " Maximux number of tab pages to be opened from command
 set tabstop=4                  " Number of visual spaces per TAB
+" set termguicolors              " True color support
 set title                      " Change terminal title
 set ttyfast                    " Optimize for fast terminal connections
 set undofile                   " Persistent undo
@@ -53,9 +56,12 @@ set undoreload=10000           " Number of lines to save for undo
 set wildmenu                   " Visual autocomplete for command menu
 syntax on
 
-
 if !empty(&viminfo)
   set viminfo^=!
+endif
+
+if has('nvim')
+    " let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 endif
 
 filetype plugin indent on
@@ -81,22 +87,25 @@ Plug 'othree/html5.vim'
 Plug 'tmhedberg/matchit'
 Plug 'majutsushi/tagbar'
 Plug 'tomtom/tcomment_vim'
+Plug 'tell-k/vim-autopep8'
+Plug 'editorconfig/editorconfig-vim'
 
 Plug 'Yggdroot/indentLine'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-obsession'
 Plug 'wellle/targets.vim'
-Plug 'easymotion/vim-easymotion'
 Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
-Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-peekaboo'
 Plug 'junegunn/vim-easy-align', { 'on': ['<Plug>(EasyAlign)', 'EasyAlign'] }
 Plug 'editorconfig/editorconfig-vim'
+Plug 'junegunn/fzf.vim'
+Plug 'tpope/vim-vinegar'
 
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
 Plug 'justinmk/vim-gtfo'
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'tpope/vim-eunuch'
 
 Plug 'mhinz/vim-startify'
 
@@ -111,9 +120,6 @@ set background=dark
 let g:gruvbox_invert_selection=0
 colorscheme gruvbox
 
-" let base16colorspace=256  " Access colors present in 256 colorspace
-" colorscheme base16-default
-
 function! ToggleBackground()
     if &background=="dark"
         set background=light
@@ -124,14 +130,10 @@ endfunction
 
 nnoremap <F5> :call ToggleBackground()<CR>
 
-if has('nvim')
-    " let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-    " let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
-endif
-
 "==============================================================================
 " Mappings
 "==============================================================================
+
 if has('nvim')
     tnoremap <A-h> <C-\><C-n><C-w>h
     tnoremap <A-j> <C-\><C-n><C-w>j
@@ -168,15 +170,20 @@ nnoremap gV `[v`]
 nnoremap gn :bnext<CR>
 nnoremap gp :bprevious<CR>
 
-" Force saving files requiring root permission
-cnoremap w!! w !sudo tee > /dev/null %
-
 nnoremap <Leader>q :bd<CR>
 nnoremap <Leader>n :enew<CR>
 
 nnoremap <leader>ev :edit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 
+" Mappings for fugitive
+nnoremap <Leader>gs :Gstatus<CR>
+nnoremap <Leader>gd :Gdiff<CR>
+nnoremap <Leader>gw :Gwrite<CR>
+nnoremap <Leader>gr :Gread<CR>
+
+nnoremap <Leader>dg :diffget<CR>
+nnoremap <Leader>dp :diffput<CR>
 
 "==============================================================================
 " Autocmd
@@ -184,19 +191,6 @@ nnoremap <leader>sv :source $MYVIMRC<cr>
 
 autocmd Filetype html setlocal ts=2 sw=2 sts=2
 autocmd Filetype htmldjango setlocal ts=2 sw=2 sts=2
-
-"==============================================================================
-" Easymotion
-"==============================================================================
-
-let g:EasyMotion_do_mapping = 0 " Disable default mappings
-
-" Turn on case insensitive feature
-let g:EasyMotion_smartcase = 1
-
-" JK motions: Line motions
-map <Leader>j <Plug>(easymotion-j)
-map <Leader>k <Plug>(easymotion-k)
 
 "==============================================================================
 " Synstastic
@@ -281,8 +275,6 @@ nmap <F10> :TagbarToggle<CR>
 "==============================================================================
 " vim-snippet
 "==============================================================================
-
-" let g:UltiSnipsUsePythonVersion = 2
 
 let g:UltiSnipsExpandTrigger='<Tab>'
 let g:UltiSnipsJumpForwardTrigger='<c-b>'
