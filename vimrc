@@ -47,6 +47,7 @@ set splitright                 " New windows goes right
 set t_Co=256                   " Set terminal color to 256
 set tabpagemax=50              " Maximux number of tab pages to be opened from command
 set tabstop=4                  " Number of visual spaces per TAB
+" set termguicolors              " True color support
 set title                      " Change terminal title
 set ttyfast                    " Optimize for fast terminal connections
 set undofile                   " Persistent undo
@@ -55,9 +56,12 @@ set undoreload=10000           " Number of lines to save for undo
 set wildmenu                   " Visual autocomplete for command menu
 syntax on
 
-
 if !empty(&viminfo)
   set viminfo^=!
+endif
+
+if has('nvim')
+    " let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 endif
 
 filetype plugin indent on
@@ -115,9 +119,6 @@ set background=dark
 let g:gruvbox_invert_selection=0
 colorscheme gruvbox
 
-" let base16colorspace=256  " Access colors present in 256 colorspace
-" colorscheme base16-default
-
 function! ToggleBackground()
     if &background=="dark"
         set background=light
@@ -128,14 +129,10 @@ endfunction
 
 nnoremap <F5> :call ToggleBackground()<CR>
 
-if has('nvim')
-    " let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-    " let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
-endif
-
 "==============================================================================
 " Mappings
 "==============================================================================
+
 if has('nvim')
     tnoremap <A-h> <C-\><C-n><C-w>h
     tnoremap <A-j> <C-\><C-n><C-w>j
@@ -178,6 +175,14 @@ nnoremap <Leader>n :enew<CR>
 nnoremap <leader>ev :edit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 
+" Mappings for fugitive
+nnoremap <Leader>gs :Gstatus<CR>
+nnoremap <Leader>gd :Gdiff<CR>
+nnoremap <Leader>gw :Gwrite<CR>
+nnoremap <Leader>gr :Gread<CR>
+
+nnoremap <Leader>dg :diffget<CR>
+nnoremap <Leader>dp :diffput<CR>
 
 "==============================================================================
 " Autocmd
@@ -268,8 +273,6 @@ nmap <F10> :TagbarToggle<CR>
 "==============================================================================
 " vim-snippet
 "==============================================================================
-
-" let g:UltiSnipsUsePythonVersion = 2
 
 let g:UltiSnipsExpandTrigger='<Tab>'
 let g:UltiSnipsJumpForwardTrigger='<c-b>'
