@@ -86,28 +86,28 @@ Plug 'nvie/vim-flake8'
 Plug 'othree/html5.vim'
 Plug 'tmhedberg/matchit'
 Plug 'majutsushi/tagbar'
-Plug 'tomtom/tcomment_vim'
+Plug 'tpope/vim-commentary'
 Plug 'tell-k/vim-autopep8'
-Plug 'editorconfig/editorconfig-vim'
 
-Plug 'Yggdroot/indentLine'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-obsession'
-Plug 'wellle/targets.vim'
-Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
-Plug 'junegunn/vim-peekaboo'
-Plug 'junegunn/vim-easy-align', { 'on': ['<Plug>(EasyAlign)', 'EasyAlign'] }
-Plug 'editorconfig/editorconfig-vim'
-Plug 'junegunn/fzf.vim'
-Plug 'justinmk/vim-dirvish'
-
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
-Plug 'justinmk/vim-gtfo'
-Plug 'christoomey/vim-tmux-navigator'
 Plug 'tpope/vim-eunuch'
 
+Plug 'junegunn/vim-peekaboo'
+Plug 'junegunn/fzf.vim'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
+Plug 'junegunn/vim-easy-align', { 'on': ['<Plug>(EasyAlign)', 'EasyAlign'] }
+
+Plug 'justinmk/vim-gtfo'
+Plug 'justinmk/vim-dirvish'
 Plug 'mhinz/vim-startify'
+Plug 'wellle/targets.vim'
+Plug 'Yggdroot/indentLine'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
+
+Plug 'christoomey/vim-tmux-navigator'
 
 call plug#end()
 
@@ -170,7 +170,7 @@ nnoremap gV `[v`]
 nnoremap gn :bnext<CR>
 nnoremap gp :bprevious<CR>
 
-nnoremap <Leader>q :bd<CR>
+nnoremap <Leader>q :bdelete<CR>
 nnoremap <Leader>n :enew<CR>
 
 nnoremap <leader>ev :edit $MYVIMRC<cr>
@@ -181,9 +181,6 @@ nnoremap <Leader>gs :Gstatus<CR>
 nnoremap <Leader>gd :Gdiff<CR>
 nnoremap <Leader>gw :Gwrite<CR>
 nnoremap <Leader>gr :Gread<CR>
-
-nnoremap <Leader>dg :diffget<CR>
-nnoremap <Leader>dp :diffput<CR>
 
 "==============================================================================
 " Autocmd
@@ -220,19 +217,8 @@ let g:airline#extensions#tabline#enabled = 1
 
 " Show just the filename
 let g:airline#extensions#tabline#fnamemod = ':t'
-let g:airline#extensions#tabline#buffer_idx_mode = 1
+" let g:airline#extensions#tabline#buffer_idx_mode = 1
 " let g:airline#extensions#tabline#buffer_nr_show = 1
-let g:airline#extensions#tabline#enabled = 1
-
-nmap <Leader>1 <Plug>AirlineSelectTab1
-nmap <Leader>2 <Plug>AirlineSelectTab2
-nmap <Leader>3 <Plug>AirlineSelectTab3
-nmap <Leader>4 <Plug>AirlineSelectTab4
-nmap <Leader>5 <Plug>AirlineSelectTab5
-nmap <Leader>6 <Plug>AirlineSelectTab6
-nmap <Leader>7 <Plug>AirlineSelectTab7
-nmap <Leader>8 <Plug>AirlineSelectTab8
-nmap <Leader>9 <Plug>AirlineSelectTab9
 
 "==============================================================================
 " Flake8
@@ -253,7 +239,7 @@ let g:fzf_action = {
 let g:fzf_layout = { 'down': '40%' }
 
 " Mapping
-nnoremap <C-p> :Files<CR>
+nnoremap <Leader>f :Files<CR>
 nnoremap <Leader>b :Buffers<CR>
 
 " Advanced customization using autoload functions
