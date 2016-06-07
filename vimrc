@@ -93,6 +93,7 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-obsession'
 Plug 'tpope/vim-eunuch'
+Plug 'tpope/vim-dispatch'
 
 Plug 'junegunn/vim-peekaboo'
 Plug 'junegunn/fzf.vim'
@@ -181,6 +182,8 @@ nnoremap <Leader>gs :Gstatus<CR>
 nnoremap <Leader>gd :Gdiff<CR>
 nnoremap <Leader>gw :Gwrite<CR>
 nnoremap <Leader>gr :Gread<CR>
+nnoremap <Leader>gp :Dispatch git push<CR>
+nnoremap <Leader>gf :Dispatch git fetch<CR>
 
 "==============================================================================
 " Autocmd
