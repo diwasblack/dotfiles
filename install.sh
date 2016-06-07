@@ -3,6 +3,9 @@
 git submodule init
 git submodule update
 
+echo "Updating package lists"
+sudo apt-get update
+
 echo "Installing tmux and zsh"
 sudo apt-get install tmux zsh
 
