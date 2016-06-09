@@ -187,6 +187,10 @@ nnoremap <Leader>gl :Dispatch git pull --ff-only<CR>
 nnoremap <Leader>gp :Dispatch git push<CR>
 nnoremap <Leader>gf :Dispatch git fetch<CR>
 
+" Dispatch
+nnoremap <Leader>w :Dispatch webpack<CR>
+nnoremap <Leader>t :Dispatch py.test<CR>
+
 "==============================================================================
 " Autocmd
 "==============================================================================
