@@ -82,12 +82,13 @@ Plug 'scrooloose/syntastic'
 Plug 'Shougo/deoplete.nvim'
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 
-Plug 'nvie/vim-flake8'
-Plug 'othree/html5.vim'
+Plug 'tpope/vim-commentary'
 Plug 'tmhedberg/matchit'
 Plug 'majutsushi/tagbar'
-Plug 'tpope/vim-commentary'
+Plug 'nvie/vim-flake8'
 Plug 'tell-k/vim-autopep8'
+Plug 'othree/html5.vim'
+Plug 'pangloss/vim-javascript'
 
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
@@ -182,6 +183,7 @@ nnoremap <Leader>gs :Gstatus<CR>
 nnoremap <Leader>gd :Gdiff<CR>
 nnoremap <Leader>gw :Gwrite<CR>
 nnoremap <Leader>gr :Gread<CR>
+nnoremap <Leader>gl :Dispatch git pull --ff-only<CR>
 nnoremap <Leader>gp :Dispatch git push<CR>
 nnoremap <Leader>gf :Dispatch git fetch<CR>
 
