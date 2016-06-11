@@ -67,8 +67,8 @@ sudo -H /usr/bin/pip3 install flake8
 sudo -H /usr/bin/pip3 install autopep8
 
 # Move previous files to another directory
-names=( "tmux.conf" "zshrc" "vimrc")
-files=( ".tmux.conf" ".zshrc" ".vimrc")
+names=( "tmux.conf" "zshrc" "vimrc", "bash_aliases")
+files=( ".tmux.conf" ".zshrc" ".vimrc", ".bash_aliases")
 for i in `seq 0 2`; do
     if [ -f $HOME/${files[$i]} ]; then
         mv "$HOME/${files[$i]}" "$HOME/oldfiles/"
