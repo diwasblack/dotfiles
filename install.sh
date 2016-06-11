@@ -18,14 +18,13 @@ echo "Installing tmuxinator"
 sudo gem install tmuxinator
 
 # Install pip if not present
-if [ ! -f /usr/local/bin/pip3 ]; then
+if [ ! -f /usr/bin/pip3 ]; then
     echo "Installing pip for python3"
-    wget -P ~/ https://bootstrap.pypa.io/get-pip.py
-    sudo -H /usr/bin/python3 ~/get-pip.py
+    sudo apt-get install python3-pip
 fi
 
 echo "Installing powerline"
-sudo -H /usr/local/bin/pip3 install powerline-status
+sudo -H /usr/bin/pip3 install powerline-status
 
 echo "Setting up powerline"
 wget https://github.com/powerline/powerline/raw/develop/font/PowerlineSymbols.otf
@@ -63,9 +62,9 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 echo "Installing python libraries for vim"
-sudo -H /usr/local/bin/pip3 install neovim
-sudo -H /usr/local/bin/pip3 install flake8
-sudo -H /usr/local/bin/pip3 install autopep8
+sudo -H /usr/bin/pip3 install neovim
+sudo -H /usr/bin/pip3 install flake8
+sudo -H /usr/bin/pip3 install autopep8
 
 # Move previous files to another directory
 names=( "tmux.conf" "zshrc" "vimrc")
