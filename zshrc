@@ -42,10 +42,6 @@ fi
 # Configuration for fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# Fix for 256 color terminal
-gruvbox_file="$HOME/.vim/plugged/gruvbox/gruvbox_256palette.sh"
-[ -f $gruvbox_file ] && source $gruvbox_file
-
 # Extra setting for zsh
 [ -f ~/.zshrc_extra ] && source ~/.zshrc_extra
 
