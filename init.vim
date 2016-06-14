@@ -60,9 +60,7 @@ if !empty(&viminfo)
   set viminfo^=!
 endif
 
-if has('nvim')
-    " let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
-endif
+" let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 
 filetype plugin indent on
 
@@ -103,6 +101,7 @@ Plug 'junegunn/vim-easy-align', { 'on': ['<Plug>(EasyAlign)', 'EasyAlign'] }
 
 Plug 'justinmk/vim-gtfo'
 Plug 'justinmk/vim-dirvish'
+Plug 'easymotion/vim-easymotion'
 Plug 'mhinz/vim-startify'
 Plug 'wellle/targets.vim'
 Plug 'Yggdroot/indentLine'
@@ -136,14 +135,12 @@ nnoremap <F5> :call ToggleBackground()<CR>
 " Mappings
 "==============================================================================
 
-if has('nvim')
-    tnoremap <A-h> <C-\><C-n><C-w>h
-    tnoremap <A-j> <C-\><C-n><C-w>j
-    tnoremap <A-k> <C-\><C-n><C-w>k
-    tnoremap <A-l> <C-\><C-n><C-w>l
+tnoremap <A-h> <C-\><C-n><C-w>h
+tnoremap <A-j> <C-\><C-n><C-w>j
+tnoremap <A-k> <C-\><C-n><C-w>k
+tnoremap <A-l> <C-\><C-n><C-w>l
 
-    tnoremap <C-q> <C-\><C-n>
-endif
+tnoremap <C-q> <C-\><C-n>
 
 " Key binding for moving between splits
 nnoremap <A-h> <C-w>h

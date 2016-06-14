@@ -58,7 +58,7 @@ if ! command -v curl > /dev/null 2>&1; then
 fi
 
 echo "Download vim-plug"
-curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 echo "Installing python libraries for vim"
@@ -67,8 +67,8 @@ sudo -H /usr/bin/pip3 install flake8
 sudo -H /usr/bin/pip3 install autopep8
 
 # Move previous files to another directory
-names=( "tmux.conf" "zshrc" "vimrc", "bash_aliases")
-files=( ".tmux.conf" ".zshrc" ".vimrc", ".bash_aliases")
+names=( "tmux.conf" "zshrc" "bash_aliases")
+files=( ".tmux.conf" ".zshrc" ".bash_aliases")
 for i in `seq 0 2`; do
     if [ -f $HOME/${files[$i]} ]; then
         mv "$HOME/${files[$i]}" "$HOME/oldfiles/"
@@ -76,6 +76,4 @@ for i in `seq 0 2`; do
     ln -s $HOME/dotfiles/${names[$i]} $HOME/${files[$i]}
 done
 
-# Config for neovim
-ln -s $HOME/dotfiles/vimrc $HOME/.vim/init.vim
-ln -s $HOME/.vim $HOME/.config/nvim
+ln -s $HOME/dotfiles/init.vim $HOME/.config/nvim/init.vim
