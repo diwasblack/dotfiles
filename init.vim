@@ -44,7 +44,7 @@ Plug 'junegunn/vim-easy-align', { 'on': ['<Plug>(EasyAlign)', 'EasyAlign'] }
 
 Plug 'justinmk/vim-gtfo'
 Plug 'justinmk/vim-dirvish'
-Plug 'easymotion/vim-easymotion'
+Plug 'justinmk/vim-sneak'
 Plug 'mhinz/vim-startify'
 Plug 'wellle/targets.vim'
 Plug 'Yggdroot/indentLine'
