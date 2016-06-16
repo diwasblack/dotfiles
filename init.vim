@@ -25,7 +25,6 @@ Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 
 Plug 'tpope/vim-commentary'
 Plug 'tmhedberg/matchit'
-Plug 'majutsushi/tagbar'
 Plug 'nvie/vim-flake8'
 Plug 'tell-k/vim-autopep8'
 Plug 'othree/html5.vim'
@@ -62,6 +61,8 @@ call plug#end()
 set background=dark
 
 let g:gruvbox_invert_selection=0
+let g:gruvbox_contrast_dark='soft'
+
 colorscheme gruvbox
 
 function! ToggleBackground()
@@ -146,6 +147,10 @@ let g:airline#extensions#tabline#fnamemod = ':t'
 " let g:airline#extensions#tabline#buffer_idx_mode = 1
 " let g:airline#extensions#tabline#buffer_nr_show = 1
 
+let g:airline_section_z = '%l,%v'
+let g:airline_section_error=''
+let g:airline_section_warning=''
+
 "==============================================================================
 " Flake8
 "==============================================================================
@@ -177,12 +182,6 @@ autocmd VimEnter * command! Colors
 "==============================================================================
 
 nmap <F3> :UndotreeToggle<CR>
-
-"==============================================================================
-" Tagbar
-"==============================================================================
-
-nmap <F10> :TagbarToggle<CR>
 
 "==============================================================================
 " vim-snippet
