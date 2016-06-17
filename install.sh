@@ -77,3 +77,4 @@ for i in `seq 0 2`; do
 done
 
 ln -s $HOME/dotfiles/init.vim $HOME/.config/nvim/init.vim
+ln -s $HOME/dotfiles/powerline $HOME/.config/powerline
