@@ -19,16 +19,16 @@ Plug 'vim-airline/vim-airline-themes'
 
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
-Plug 'scrooloose/syntastic'
+Plug 'neomake/neomake'
 Plug 'Shougo/deoplete.nvim'
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 
 Plug 'tpope/vim-commentary'
 Plug 'tmhedberg/matchit'
-Plug 'nvie/vim-flake8'
 Plug 'tell-k/vim-autopep8'
 Plug 'othree/html5.vim'
 Plug 'pangloss/vim-javascript'
+Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
 
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
@@ -48,7 +48,6 @@ Plug 'mhinz/vim-startify'
 Plug 'wellle/targets.vim'
 Plug 'Yggdroot/indentLine'
 Plug 'editorconfig/editorconfig-vim'
-Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
 
 Plug 'christoomey/vim-tmux-navigator'
 
@@ -117,18 +116,17 @@ autocmd Filetype html setlocal ts=2 sw=2 sts=2
 autocmd Filetype htmldjango setlocal ts=2 sw=2 sts=2
 
 "==============================================================================
-" Synstastic
+" Neomake
 "==============================================================================
 
-let g:syntastic_always_populate_loc_list = 0
-let g:syntastic_auto_loc_list = 0
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
+let g:neomake_error_sign = {'text': '✗', 'texthl': 'NeomakeErrorSign'}
+let g:neomake_warning_sign = {'text': '✠', 'texthl': 'NeomakeWarningSign'}
+let g:neomake_message_sign = {'text': '➤', 'texthl': 'NeomakeMessageSign'}
+let g:neomake_info_sign = {'text': 'ℹ', 'texthl': 'NeomakeInfoSign'}
 
-let g:syntastic_error_symbol = "✗"
-let g:syntastic_style_error_symbol = "✠"
-let g:syntastic_warning_symbol = "⚠"
-let g:syntastic_style_warning_symbol = "≈"
+let g:neomake_python_enabled_makers = ['flake8']
+
+autocmd! BufWritePost,BufEnter * Neomake
 
 "==============================================================================
 " Airline
@@ -228,3 +226,4 @@ nnoremap <silent> <A-j> :TmuxNavigateDown<cr>
 nnoremap <silent> <A-k> :TmuxNavigateUp<cr>
 nnoremap <silent> <A-l> :TmuxNavigateRight<cr>
 " nnoremap <silent> {Previous-Mapping} :TmuxNavigatePrevious<cr>
+
