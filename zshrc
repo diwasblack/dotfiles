@@ -31,13 +31,18 @@ if ! zgen saved; then
     zgen oh-my-zsh plugins/tmux
 
     # Theme to use
-    zgen oh-my-zsh themes/gentoo
+    # zgen oh-my-zsh themes/gentoo
 
     zgen load zsh-users/zsh-syntax-highlighting
-    zgen load rupa/z
+    zgen load zsh-users/zsh-completions 
 
     zgen save
 fi
+
+# Custom PROMPT for zsh
+PROMPT='%{$fg_bold[yellow]%}λ %{$fg_bold[green]%} %~/ $(git_prompt_info)$ %{$reset_color%}'
+ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg_bold[blue]%}("
+ZSH_THEME_GIT_PROMPT_SUFFIX=") "
 
 # Configuration for fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
