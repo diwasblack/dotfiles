@@ -6,6 +6,7 @@
 source $HOME/dotfiles/vim/base.vim
 
 set termguicolors
+" let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 
 "==============================================================================
 " Plugin list
@@ -48,6 +49,7 @@ Plug 'mhinz/vim-startify'
 Plug 'wellle/targets.vim'
 Plug 'Yggdroot/indentLine'
 Plug 'editorconfig/editorconfig-vim'
+Plug 'kshenoy/vim-signature'
 
 Plug 'christoomey/vim-tmux-navigator'
 
