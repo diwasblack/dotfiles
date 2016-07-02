@@ -2,8 +2,64 @@
 " General vim settings
 "==============================================================================
 
-" Source common settings
-source $HOME/dotfiles/vim/base.vim
+let mapleader=' '
+let maplocalleader=' '
+let g:python3_host_prog='/usr/bin/python3'
+
+" Set encoding at startup
+if has('vim_starting')
+    set encoding=utf-8
+endif
+
+set autoindent                 " Auto indent
+set autoread                   " Auto read file when modified externally
+set backspace=indent,eol,start " Backspace through everything
+set colorcolumn=80             " Ruler for maximum characters
+set complete-=i                " Don't search included files
+set cursorline                 " Highlight current line
+set diffopt+=vertical          " Use vertical splits
+set display+=lastline          " Display as much as possible content of last line
+set expandtab                  " Tabs are spaces
+set foldenable                 " Enable folding
+set foldlevelstart=10          " Open most folds by default
+set foldmethod=indent          " Fold based on indent level
+set formatoptions="tcqj"       " Settings for automatic formatting
+set hidden                     " Enables hidden buffer
+set history=1000               " Max history to remember
+set hlsearch                   " Turn on search pattern highlighting
+set ignorecase                 " Case insensitive search
+set incsearch                  " Search as characters are entered
+set laststatus=2               " Always show status line
+set lazyredraw                 " Redraw only when we need to
+set list                       " Show invisible characters
+set noswapfile                 " Disable swap file
+set nowrap                     " Disable wrapping
+set number                     " Shows line number
+set relativenumber             " Enable relative numbering
+set sessionoptions-=options    " Don't store options in sessions
+set shiftround                 " Round indent to multiple of 'shiftwidth'
+set shiftwidth=4               " Number of space insert/remove shifting line
+set shortmess=I                " Hide intro message
+set smartcase                  " Performs case sensitive search if contains uppercase letters
+set smartindent                " Smart indentation
+set softtabstop=4              " Number of spaces in tab when editing
+set splitright                 " New windows goes right
+set t_Co=256                   " Set terminal color to 256
+set tabpagemax=50              " Maximux number of tab pages to be opened from command
+set tabstop=4                  " Number of visual spaces per TAB
+set title                      " Change terminal title
+set ttyfast                    " Optimize for fast terminal connections
+set undofile                   " Persistent undo
+set undolevels=1000            " How many undos
+set undoreload=10000           " Number of lines to save for undo
+set wildmenu                   " Visual autocomplete for command menu
+syntax on
+
+if !empty(&viminfo)
+  set viminfo^=!
+endif
+
+filetype plugin indent on
 
 set termguicolors
 " let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
@@ -80,8 +136,32 @@ nnoremap <F5> :call ToggleBackground()<CR>
 " Mappings
 "==============================================================================
 
-" Source common mappings
-source $HOME/dotfiles/vim/maps.vim
+" Move line up/down
+nnoremap <C-j> :m .+1<CR>==
+nnoremap <C-k> :m .-2<CR>==
+xnoremap <C-j> :m '>+1<CR>gv=gv
+xnoremap <C-k> :m '<-2<CR>gv=gv
+
+" Mapping for indentation
+xnoremap < <gv
+xnoremap > >gv
+xnoremap <C-h> <gv
+xnoremap <C-l> >gv
+nnoremap <C-h> <<
+nnoremap <C-l> >>
+
+" Highlight last inserted text
+nnoremap gV `[v`]
+
+" Mapping to switch buffers
+nnoremap gn :bnext<CR>
+nnoremap gp :bprevious<CR>
+
+nnoremap <Leader>q :bdelete<CR>
+nnoremap <Leader>n :enew<CR>
+
+nnoremap <leader>ev :edit $MYVIMRC<cr>
+nnoremap <leader>sv :source $MYVIMRC<cr>
 
 " Mapping for builtin terminal
 tnoremap <A-h> <C-\><C-n><C-w>h
