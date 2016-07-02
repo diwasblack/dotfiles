@@ -23,35 +23,35 @@ Plug 'airblade/vim-gitgutter'
 Plug 'neomake/neomake'
 Plug 'Shougo/deoplete.nvim'
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
+Plug 'junegunn/fzf.vim'
 
-Plug 'tpope/vim-commentary'
-Plug 'tmhedberg/matchit'
-Plug 'tell-k/vim-autopep8'
 Plug 'othree/html5.vim'
 Plug 'pangloss/vim-javascript'
-Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
+Plug 'tell-k/vim-autopep8'
 
-Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-surround'
 Plug 'tpope/vim-obsession'
 Plug 'tpope/vim-eunuch'
-Plug 'tpope/vim-dispatch'
-
 Plug 'junegunn/vim-peekaboo'
-Plug 'junegunn/fzf.vim'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
 Plug 'junegunn/vim-easy-align', { 'on': ['<Plug>(EasyAlign)', 'EasyAlign'] }
-
-Plug 'justinmk/vim-gtfo'
 Plug 'justinmk/vim-dirvish'
 Plug 'justinmk/vim-sneak'
-Plug 'mhinz/vim-startify'
 Plug 'wellle/targets.vim'
-Plug 'Yggdroot/indentLine'
-Plug 'editorconfig/editorconfig-vim'
 Plug 'kshenoy/vim-signature'
+Plug 'tmhedberg/matchit'
+Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
 
+Plug 'mhinz/vim-startify'
+Plug 'Yggdroot/indentLine'
+
+Plug 'justinmk/vim-gtfo'
+Plug 'tpope/vim-dispatch'
 Plug 'christoomey/vim-tmux-navigator'
+
+Plug 'editorconfig/editorconfig-vim'
 
 call plug#end()
 
@@ -118,19 +118,6 @@ autocmd Filetype html setlocal ts=2 sw=2 sts=2
 autocmd Filetype htmldjango setlocal ts=2 sw=2 sts=2
 
 "==============================================================================
-" Neomake
-"==============================================================================
-
-let g:neomake_error_sign = {'text': '✗', 'texthl': 'NeomakeErrorSign'}
-let g:neomake_warning_sign = {'text': '✠', 'texthl': 'NeomakeWarningSign'}
-let g:neomake_message_sign = {'text': '➤', 'texthl': 'NeomakeMessageSign'}
-let g:neomake_info_sign = {'text': 'ℹ', 'texthl': 'NeomakeInfoSign'}
-
-let g:neomake_python_enabled_makers = ['flake8']
-
-autocmd! BufWritePost,BufEnter * Neomake
-
-"==============================================================================
 " Airline
 "==============================================================================
 
@@ -152,10 +139,35 @@ let g:airline_section_error=''
 let g:airline_section_warning=''
 
 "==============================================================================
-" Flake8
+" Neomake
 "==============================================================================
 
-let g:flake8_show_in_gutter=1
+let g:neomake_error_sign = {'text': '✗', 'texthl': 'NeomakeErrorSign'}
+let g:neomake_warning_sign = {'text': '✠', 'texthl': 'NeomakeWarningSign'}
+let g:neomake_message_sign = {'text': '➤', 'texthl': 'NeomakeMessageSign'}
+let g:neomake_info_sign = {'text': 'ℹ', 'texthl': 'NeomakeInfoSign'}
+
+let g:neomake_python_enabled_makers = ['flake8']
+
+autocmd! BufWritePost,BufEnter * Neomake
+
+"==============================================================================
+" deoplete
+"==============================================================================
+
+" Enable completion
+let g:deoplete#enable_at_startup = 1
+
+" Disable pydoc split
+autocmd FileType python set completeopt-=preview
+
+"==============================================================================
+" vim-snippet
+"==============================================================================
+
+let g:UltiSnipsExpandTrigger='<Tab>'
+let g:UltiSnipsJumpForwardTrigger='<c-b>'
+let g:UltiSnipsJumpBackwardTrigger='<c-z>'
 
 "==============================================================================
 " FZF
@@ -178,20 +190,6 @@ autocmd VimEnter * command! Colors
   \ call fzf#vim#colors({'left': '15%', 'options': '--reverse --margin 30%,0'})
 
 "==============================================================================
-" undotree
-"==============================================================================
-
-nmap <F3> :UndotreeToggle<CR>
-
-"==============================================================================
-" vim-snippet
-"==============================================================================
-
-let g:UltiSnipsExpandTrigger='<Tab>'
-let g:UltiSnipsJumpForwardTrigger='<c-b>'
-let g:UltiSnipsJumpBackwardTrigger='<c-z>'
-
-"==============================================================================
 " vim-easy-align
 "==============================================================================
 
@@ -202,14 +200,10 @@ xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
 
 "==============================================================================
-" deoplete
+" undotree
 "==============================================================================
 
-" Enable completion
-let g:deoplete#enable_at_startup = 1
-
-" Disable pydoc split
-autocmd FileType python set completeopt-=preview
+nmap <F3> :UndotreeToggle<CR>
 
 "==============================================================================
 " Indentline
@@ -227,5 +221,4 @@ nnoremap <silent> <A-h> :TmuxNavigateLeft<cr>
 nnoremap <silent> <A-j> :TmuxNavigateDown<cr>
 nnoremap <silent> <A-k> :TmuxNavigateUp<cr>
 nnoremap <silent> <A-l> :TmuxNavigateRight<cr>
-" nnoremap <silent> {Previous-Mapping} :TmuxNavigatePrevious<cr>
-
+" nnoremap <silent> <A-/> :TmuxNavigatePrevious<cr>
