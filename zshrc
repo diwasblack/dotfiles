@@ -1,3 +1,9 @@
+# Default editor to use
+export EDITOR=nvim
+
+export HISTSIZE=2000
+export HISTFILE="$HOME/.zsh_history"
+
 # Turn on spelling correction
 setopt correct
 
@@ -10,9 +16,6 @@ setopt histignoredups
 # Vi mode bindings
 bindkey -v
 
-# Default editor to use
-export EDITOR=nvim
-
 # load zgen
 source "${HOME}/dotfiles/zgen/zgen.zsh"
 
@@ -20,29 +23,26 @@ source "${HOME}/dotfiles/zgen/zgen.zsh"
 if ! zgen saved; then
     echo "Creating a zgen save"
 
-    # Load oh-my-zsh library
-    zgen oh-my-zsh
-
-    zgen oh-my-zsh plugins/git
-    zgen oh-my-zsh plugins/pip
-    zgen oh-my-zsh plugins/sudo
-    zgen oh-my-zsh plugins/command-not-found
-    zgen oh-my-zsh plugins/tmuxinator
-    zgen oh-my-zsh plugins/tmux
-
-    # Theme to use
-    # zgen oh-my-zsh themes/gentoo
-
     zgen load zsh-users/zsh-syntax-highlighting
-    zgen load zsh-users/zsh-completions 
+    zgen load zsh-users/zsh-completions
+
+    zgen load olivierverdier/zsh-git-prompt
 
     zgen save
 fi
 
+autoload -Uz compinit && compinit
+zstyle ':completion:*' menu select
+
+autoload -Uz up-line-or-beginning-search down-line-or-beginning-search
+zle -N up-line-or-beginning-search
+zle -N down-line-or-beginning-search
+
+[[ -n "${key[Up]}"   ]] && bindkey "${key[Up]}"   up-line-or-beginning-search
+[[ -n "${key[Down]}" ]] && bindkey "${key[Down]}" down-line-or-beginning-search
+
 # Custom PROMPT for zsh
-PROMPT='%{$fg_bold[yellow]%}λ %{$fg_bold[green]%} %~/ $(git_prompt_info)$ %{$reset_color%}'
-ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg_bold[blue]%}("
-ZSH_THEME_GIT_PROMPT_SUFFIX=") "
+PROMPT='%{$fg_bold[yellow]%}λ %{$fg_bold[green]%} %~/ %{$reset_color%}$(git_super_status)$ %{$reset_color%}'
 
 # Configuration for fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
