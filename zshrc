@@ -10,6 +10,12 @@ setopt correct
 # Correction for arguments
 # setopt correctall
 
+# Appends every command to the history file once it is executed
+setopt inc_append_history
+
+# Reloads the history whenever you use it
+setopt share_history
+
 # Don't save duplicate in history
 setopt histignoredups
 
