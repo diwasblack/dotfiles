@@ -85,7 +85,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'othree/html5.vim'
 Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'pangloss/vim-javascript'
-Plug 'tell-k/vim-autopep8'
+Plug 'Chiel92/vim-autoformat'
 
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-commentary'
@@ -303,3 +303,9 @@ nnoremap <silent> <A-j> :TmuxNavigateDown<cr>
 nnoremap <silent> <A-k> :TmuxNavigateUp<cr>
 nnoremap <silent> <A-l> :TmuxNavigateRight<cr>
 " nnoremap <silent> <A-/> :TmuxNavigatePrevious<cr>
+
+"==============================================================================
+" vim-autoformat
+"==============================================================================
+
+noremap <F8> :Autoformat<CR>
