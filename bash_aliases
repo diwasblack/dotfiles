@@ -13,3 +13,6 @@ alias gl='git pull'
 
 alias gss='git status -s'
 alias gst='git status'
+
+alias ls='ls --color=auto'
+alias ll='ls -alF'

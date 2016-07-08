@@ -47,6 +47,8 @@ zle -N down-line-or-beginning-search
 [[ -n "${key[Up]}"   ]] && bindkey "${key[Up]}"   up-line-or-beginning-search
 [[ -n "${key[Down]}" ]] && bindkey "${key[Down]}" down-line-or-beginning-search
 
+[[ -e /etc/zsh_command_not_found ]] && source /etc/zsh_command_not_found
+
 # Custom PROMPT for zsh
 PROMPT='%{$fg_bold[yellow]%}λ %{$fg_bold[green]%} %~/ %{$reset_color%}$(git_super_status)$ %{$reset_color%}'
 
