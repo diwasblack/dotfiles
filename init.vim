@@ -54,6 +54,7 @@ Plug 'Shougo/deoplete.nvim'
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
 Plug 'junegunn/fzf.vim'
+Plug 'mileszs/ack.vim'
 
 Plug 'othree/html5.vim'
 Plug 'othree/javascript-libraries-syntax.vim'
@@ -242,6 +243,13 @@ nnoremap <Leader>b :Buffers<CR>
 " Advanced customization using autoload functions
 autocmd VimEnter * command! Colors
   \ call fzf#vim#colors({'left': '15%', 'options': '--reverse --margin 30%,0'})
+"==============================================================================
+" Ack.vim
+"==============================================================================
+
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
 
 "==============================================================================
 " vim-easy-align
