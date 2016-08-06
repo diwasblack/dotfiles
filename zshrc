@@ -1,8 +1,9 @@
 # Default editor to use
-export EDITOR=nvim
+EDITOR=nvim
 
-export HISTSIZE=2000
-export HISTFILE="$HOME/.zsh_history"
+HISTSIZE=2000
+SAVEHIST=2000
+HISTFILE=~/.zsh_history
 
 # Turn on spelling correction
 setopt correct
