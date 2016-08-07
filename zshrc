@@ -1,5 +1,5 @@
 # Default editor to use
-EDITOR=nvim
+export EDITOR=nvim
 
 HISTSIZE=2000
 SAVEHIST=2000
