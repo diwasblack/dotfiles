@@ -38,6 +38,15 @@ if ! zgen saved; then
     zgen save
 fi
 
+# Configuration for fzf
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Extra setting for zsh
+[ -f ~/.zshrc_extra ] && source ~/.zshrc_extra
+
+# Include bash_aliases
+[ -f ~/.bash_aliases ] && source ~/.bash_aliases
+
 autoload -Uz compinit && compinit
 zstyle ':completion:*' menu select
 
@@ -52,12 +61,3 @@ zle -N down-line-or-beginning-search
 
 # Custom PROMPT for zsh
 PROMPT='%{$fg_bold[yellow]%}λ %{$fg_bold[green]%} %~/ %{$reset_color%}$(git_super_status)$ %{$reset_color%}'
-
-# Configuration for fzf
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-# Extra setting for zsh
-[ -f ~/.zshrc_extra ] && source ~/.zshrc_extra
-
-# Include bash_aliases
-[ -f ~/.bash_aliases ] && source ~/.bash_aliases
