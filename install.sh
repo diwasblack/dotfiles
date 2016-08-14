@@ -71,5 +71,6 @@ echo "############ Installing python libraries for vim ############"
 sudo -H /usr/bin/pip3 install neovim
 sudo -H /usr/bin/pip3 install flake8
 sudo -H /usr/bin/pip3 install autopep8
+sudo -H /usr/bin/pip3 install jedi
 
 ln -s $HOME/dotfiles/init.vim $HOME/.config/nvim/init.vim

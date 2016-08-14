@@ -60,6 +60,7 @@ Plug 'othree/html5.vim'
 Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'pangloss/vim-javascript'
 Plug 'Chiel92/vim-autoformat'
+Plug 'zchee/deoplete-jedi'
 
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-commentary'
