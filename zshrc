@@ -23,20 +23,13 @@ setopt histignoredups
 # Vi mode bindings
 bindkey -v
 
-# load zgen
-source "${HOME}/dotfiles/zgen/zgen.zsh"
+source "${HOME}/.zplug/init.zsh"
 
-# check if there's no init script
-if ! zgen saved; then
-    echo "Creating a zgen save"
+zplug "zsh-users/zsh-syntax-highlighting"
+zplug "zsh-users/zsh-completions"
+zplug "plugins/git",   from:oh-my-zsh
 
-    zgen load zsh-users/zsh-syntax-highlighting
-    zgen load zsh-users/zsh-completions
-
-    zgen load olivierverdier/zsh-git-prompt
-
-    zgen save
-fi
+zplug load
 
 # Configuration for fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -59,5 +52,12 @@ zle -N down-line-or-beginning-search
 
 [[ -e /etc/zsh_command_not_found ]] && source /etc/zsh_command_not_found
 
+autoload -Uz vcs_info
+precmd_vcs_info() { vcs_info }
+precmd_functions+=( precmd_vcs_info )
+setopt prompt_subst
+
 # Custom PROMPT for zsh
-PROMPT='%{$fg_bold[yellow]%}λ %{$fg_bold[green]%} %~/ %{$reset_color%}$(git_super_status)$ %{$reset_color%}'
+PROMPT='%{$fg_bold[yellow]%}λ %{$fg_bold[green]%} %~/ %{$fg_bold[blue]%}($vcs_info_msg_0_)%{$reset_color%} $ '
+
+zstyle ':vcs_info:git:*' formats '%b'
