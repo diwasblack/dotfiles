@@ -1,5 +1,11 @@
 #!/bin/bash
 
+# Check if script is running as sudo
+if [ "$EUID" -eq 0 ]
+  then echo "Run script without sudo"
+  exit
+fi
+
 echo "############ Updating submodules ############"
 git submodule init
 git submodule update
