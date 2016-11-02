@@ -112,6 +112,8 @@ nnoremap <F5> :call ToggleBackground()<CR>
 " Mappings
 "==============================================================================
 
+inoremap jk <esc>
+
 " Move line up/down
 nnoremap <C-j> :m .+1<CR>==
 nnoremap <C-k> :m .-2<CR>==
