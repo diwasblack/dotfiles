@@ -44,8 +44,7 @@ set undoreload=10000           " Number of lines to save for undo
 call plug#begin()
 
 Plug 'morhetz/gruvbox'
-Plug 'bling/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+Plug 'itchyny/lightline.vim'
 
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
@@ -176,25 +175,60 @@ autocmd Filetype html setlocal ts=2 sw=2 sts=2
 autocmd Filetype htmldjango setlocal ts=2 sw=2 sts=2
 
 "==============================================================================
-" Airline
+" Lightline
 "==============================================================================
 
-let g:airline_powerline_fonts = 1
-" if !exists('g:airline_symbols')
-"     let g:airline_symbols = {}
-" endif
+let g:lightline = {
+      \ 'colorscheme': 'wombat',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'fugitive', 'filename' ] ]
+      \ },
+      \ 'component_function': {
+      \   'fugitive': 'LightlineFugitive',
+      \   'readonly': 'LightlineReadonly',
+      \   'modified': 'LightlineModified',
+      \   'filename': 'LightlineFilename'
+      \ },
+      \ 'separator': { 'left': '', 'right': '' },
+      \ 'subseparator': { 'left': '', 'right': '' }
+      \ }
 
-" Show buffer list at top
-let g:airline#extensions#tabline#enabled = 1
+function! LightlineModified()
+  if &filetype == "help"
+    return ""
+  elseif &modified
+    return "+"
+  elseif &modifiable
+    return ""
+  else
+    return ""
+  endif
+endfunction
 
-" Show just the filename
-let g:airline#extensions#tabline#fnamemod = ':t'
-" let g:airline#extensions#tabline#buffer_idx_mode = 1
-" let g:airline#extensions#tabline#buffer_nr_show = 1
+function! LightlineReadonly()
+  if &filetype == "help"
+    return ""
+  elseif &readonly
+    return "⭤"
+  else
+    return ""
+  endif
+endfunction
 
-let g:airline_section_z = '%l,%v'
-let g:airline_section_error=''
-let g:airline_section_warning=''
+function! LightlineFugitive()
+  if exists("*fugitive#head")
+    let branch = fugitive#head()
+    return branch !=# '' ? ' '.branch : ''
+  endif
+  return ''
+endfunction
+
+function! LightlineFilename()
+  return ('' != LightlineReadonly() ? LightlineReadonly() . ' ' : '') .
+       \ ('' != expand('%:t') ? expand('%:t') : '[No Name]') .
+       \ ('' != LightlineModified() ? ' ' . LightlineModified() : '')
+endfunction
 
 "==============================================================================
 " Neomake
