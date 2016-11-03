@@ -38,19 +38,22 @@ if ! command -v curl > /dev/null 2>&1; then
     sudo apt-get install curl
 fi
 
-echo "############ Setting up powerline fonts ############"
-curl -fLo ~/.fonts/PowerlineSymbols.otf --create-dirs \
-    https://github.com/powerline/powerline/raw/develop/font/PowerlineSymbols.otf
+echo "############ Installing fontface hack ############"
+sudo apt-get install fonts-hack-ttf
 
-if ! command -v fc-cache > /dev/null 2>&1; then
-    echo "############ Installing fontconfig ############"
-    sudo apt-get install fontconfig
-fi
+# echo "############ Setting up powerline fonts ############"
+# curl -fLo ~/.fonts/PowerlineSymbols.otf --create-dirs \
+#     https://github.com/powerline/powerline/raw/develop/font/PowerlineSymbols.otf
 
-curl -fLo ~/.config/fontconfig/conf.d/10-powerline-symbols.conf  --create-dirs \
-    https://github.com/powerline/powerline/raw/develop/font/10-powerline-symbols.conf
+# if ! command -v fc-cache > /dev/null 2>&1; then
+#     echo "############ Installing fontconfig ############"
+#     sudo apt-get install fontconfig
+# fi
 
-fc-cache -vf ~/.fonts/
+# curl -fLo ~/.config/fontconfig/conf.d/10-powerline-symbols.conf  --create-dirs \
+#     https://github.com/powerline/powerline/raw/develop/font/10-powerline-symbols.conf
+
+# fc-cache -vf ~/.fonts/
 
 # Create directory for keeping old files
 if [ ! -d $HOME/oldfiles ]; then
