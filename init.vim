@@ -74,6 +74,7 @@ Plug 'wellle/targets.vim'
 Plug 'kshenoy/vim-signature'
 Plug 'tmhedberg/matchit'
 Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
+Plug 'vimwiki/vimwiki'
 
 Plug 'mhinz/vim-startify'
 Plug 'Yggdroot/indentLine'
