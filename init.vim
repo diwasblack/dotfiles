@@ -6,34 +6,35 @@ let mapleader=' '
 let maplocalleader=' '
 let g:python3_host_prog='/usr/bin/python3'
 
-set colorcolumn=80             " Ruler for maximum characters
-set cursorline                 " Highlight current line
-set diffopt+=vertical          " Use vertical splits
-set expandtab                  " Tabs are spaces
-set foldenable                 " Enable folding
-set foldlevelstart=10          " Open most folds by default
-set foldmethod=indent          " Fold based on indent level
-set hidden                     " Enables hidden buffer
-set ignorecase                 " Case insensitive search
-set lazyredraw                 " Redraw only when we need to
-set list                       " Show invisible characters
-set noswapfile                 " Disable swap file
-set nowrap                     " Disable wrapping
-set number                     " Shows line number
-set relativenumber             " Enable relative numbering
-set shiftround                 " Round indent to multiple of 'shiftwidth'
-set shiftwidth=4               " Number of space insert/remove shifting line
-set shortmess=I                " Hide intro message
-set smartcase                  " Performs case sensitive search if contains uppercase letters
-set smartindent                " Smart indentation
-set softtabstop=4              " Number of spaces in tab when editing
-set splitright                 " New windows goes right
-set tabstop=4                  " Number of visual spaces per TAB
-set termguicolors              " Enable 24 bit color support
-set title                      " Change terminal title
-set undofile                   " Persistent undo
-set undolevels=1000            " How many undos
-set undoreload=10000           " Number of lines to save for undo
+set colorcolumn=80    " Ruler for maximum characters
+set copyindent        " Use indentation for previous line as a default
+set cursorline        " Highlight current line
+set diffopt+=vertical " Use vertical splits
+set expandtab         " Tabs are spaces
+set foldenable        " Enable folding
+set foldlevelstart=10 " Open most folds by default
+set foldmethod=indent " Fold based on indent level
+set hidden            " Enables hidden buffer
+set ignorecase        " Case insensitive search
+set lazyredraw        " Redraw only when we need to
+set list              " Show invisible characters
+set noswapfile        " Disable swap file
+set nowrap            " Disable wrapping
+set number            " Shows line number
+set relativenumber    " Enable relative numbering
+set shiftround        " Round indent to multiple of 'shiftwidth'
+set shiftwidth=4      " Number of space insert/remove shifting line
+set shortmess=I       " Hide intro message
+set smartcase         " Performs case sensitive search if contains uppercase letters
+set smartindent       " Smart indentation
+set softtabstop=4     " Number of spaces in tab when editing
+set splitright        " New windows goes right
+set tabstop=4         " Number of visual spaces per TAB
+set termguicolors     " Enable 24 bit color support
+set title             " Change terminal title
+set undofile          " Persistent undo
+set undolevels=1000   " How many undos
+set undoreload=10000  " Number of lines to save for undo
 
 let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 
@@ -49,7 +50,7 @@ Plug 'itchyny/lightline.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'w0rp/ale'
-Plug 'Shougo/deoplete.nvim'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
 Plug 'junegunn/fzf.vim'
@@ -70,20 +71,16 @@ Plug 'junegunn/vim-peekaboo'
 Plug 'junegunn/vim-easy-align', { 'on': ['<Plug>(EasyAlign)', 'EasyAlign'] }
 Plug 'justinmk/vim-dirvish'
 Plug 'justinmk/vim-sneak'
+Plug 'justinmk/vim-gtfo'
 Plug 'wellle/targets.vim'
 Plug 'kshenoy/vim-signature'
 Plug 'tmhedberg/matchit'
 Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
 Plug 'vimwiki/vimwiki'
-
+Plug 'editorconfig/editorconfig-vim'
 Plug 'mhinz/vim-startify'
 Plug 'Yggdroot/indentLine'
-
-Plug 'justinmk/vim-gtfo'
-Plug 'tpope/vim-dispatch'
 Plug 'christoomey/vim-tmux-navigator'
-
-Plug 'editorconfig/editorconfig-vim'
 
 call plug#end()
 
@@ -131,22 +128,13 @@ nnoremap <C-l> >>
 " Highlight last inserted text
 nnoremap gV `[v`]
 
-" Mapping to switch buffers
-nnoremap gn :bnext<CR>
-nnoremap gp :bprevious<CR>
-
 nnoremap <Leader>q :bdelete<CR>
 nnoremap <Leader>n :enew<CR>
 
 nnoremap <leader>ev :edit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 
-" Mapping for builtin terminal
-tnoremap <A-h> <C-\><C-n><C-w>h
-tnoremap <A-j> <C-\><C-n><C-w>j
-tnoremap <A-k> <C-\><C-n><C-w>k
-tnoremap <A-l> <C-\><C-n><C-w>l
-
+" Mapping for inbuilt terminal
 tnoremap <C-q> <C-\><C-n>
 
 " Key binding for moving between splits
@@ -158,15 +146,6 @@ nnoremap <A-l> <C-w>l
 " Mappings for fugitive
 nnoremap <Leader>gs :Gstatus<CR>
 nnoremap <Leader>gd :Gdiff<CR>
-nnoremap <Leader>gw :Gwrite<CR>
-nnoremap <Leader>gr :Gread<CR>
-nnoremap <Leader>gl :Dispatch git pull --ff-only<CR>
-nnoremap <Leader>gp :Dispatch git push<CR>
-nnoremap <Leader>gf :Dispatch git fetch<CR>
-
-" Dispatch
-nnoremap <Leader>w :Dispatch webpack<CR>
-nnoremap <Leader>t :Dispatch py.test<CR>
 
 "==============================================================================
 " Autocmd
@@ -277,6 +256,7 @@ nnoremap <Leader>b :Buffers<CR>
 " Advanced customization using autoload functions
 autocmd VimEnter * command! Colors
   \ call fzf#vim#colors({'left': '15%', 'options': '--reverse --margin 30%,0'})
+
 "==============================================================================
 " Ack.vim
 "==============================================================================
