@@ -48,7 +48,7 @@ Plug 'itchyny/lightline.vim'
 
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
-Plug 'neomake/neomake'
+Plug 'w0rp/ale'
 Plug 'Shougo/deoplete.nvim'
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
@@ -232,17 +232,13 @@ function! LightlineFilename()
 endfunction
 
 "==============================================================================
-" Neomake
+" ALE
 "==============================================================================
 
-let g:neomake_error_sign = {'text': '✗', 'texthl': 'NeomakeErrorSign'}
-let g:neomake_warning_sign = {'text': '✠', 'texthl': 'NeomakeWarningSign'}
-let g:neomake_message_sign = {'text': '➤', 'texthl': 'NeomakeMessageSign'}
-let g:neomake_info_sign = {'text': 'ℹ', 'texthl': 'NeomakeInfoSign'}
+let g:ale_sign_error = '✗'
+let g:ale_sign_warning = '✠'
 
-let g:neomake_python_enabled_makers = ['flake8']
-
-autocmd! BufWritePost,BufEnter * Neomake
+highlight clear ALEWarningSign
 
 "==============================================================================
 " deoplete
