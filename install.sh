@@ -11,14 +11,14 @@ git submodule init
 git submodule update
 
 echo "############ Updating package lists ############"
-sudo apt-get update
+sudo apt update
 
 echo "############ Installing tmux and zsh ############"
-sudo apt-get install tmux zsh
+sudo apt install tmux zsh
 
 if ! command -v gem > /dev/null 2>&1; then
     echo "############ Installing ruby ############"
-    sudo apt-get install ruby
+    sudo apt install ruby
 fi
 
 echo "############ Installing tmuxinator ############"
@@ -27,7 +27,7 @@ sudo gem install tmuxinator
 # Install pip if not present
 if [ ! -f /usr/bin/pip3 ]; then
     echo "############ Installing pip for python3 ############"
-    sudo apt-get install python3-pip
+    sudo apt install python3-pip
 fi
 
 echo "############ Installing powerline ############"
@@ -39,21 +39,8 @@ if ! command -v curl > /dev/null 2>&1; then
 fi
 
 echo "############ Installing fontface hack ############"
-sudo apt-get install fonts-hack-ttf
-
-# echo "############ Setting up powerline fonts ############"
-# curl -fLo ~/.fonts/PowerlineSymbols.otf --create-dirs \
-#     https://github.com/powerline/powerline/raw/develop/font/PowerlineSymbols.otf
-
-# if ! command -v fc-cache > /dev/null 2>&1; then
-#     echo "############ Installing fontconfig ############"
-#     sudo apt-get install fontconfig
-# fi
-
-# curl -fLo ~/.config/fontconfig/conf.d/10-powerline-symbols.conf  --create-dirs \
-#     https://github.com/powerline/powerline/raw/develop/font/10-powerline-symbols.conf
-
-# fc-cache -vf ~/.fonts/
+# Supports powerline symbols
+sudo apt install fonts-hack-ttf
 
 # Create directory for keeping old files
 if [ ! -d $HOME/oldfiles ]; then
