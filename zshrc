@@ -23,13 +23,8 @@ setopt histignoredups
 # Vi mode bindings
 bindkey -v
 
-source "${HOME}/.zplug/init.zsh"
-
-zplug "zsh-users/zsh-syntax-highlighting"
-zplug "zsh-users/zsh-completions"
-zplug "plugins/git",   from:oh-my-zsh
-
-zplug load
+# Load colors
+autoload -Uz colors && colors
 
 # Configuration for fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -61,3 +56,6 @@ setopt prompt_subst
 PROMPT='%{$fg_bold[yellow]%}λ %{$fg_bold[green]%} %~/ %{$fg_bold[blue]%}($vcs_info_msg_0_)%{$reset_color%} $ '
 
 zstyle ':vcs_info:git:*' formats '%b'
+
+source <(antibody init)
+antibody bundle < ~/dotfiles/zsh_plugins
