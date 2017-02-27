@@ -53,7 +53,7 @@ precmd_functions+=( precmd_vcs_info )
 setopt prompt_subst
 
 # Custom PROMPT for zsh
-PROMPT='%{$fg_bold[yellow]%}λ %{$fg_bold[green]%} %~/ %{$fg_bold[blue]%}($vcs_info_msg_0_)%{$reset_color%} $ '
+PROMPT='%{$fg_bold[yellow]%}%n@%m %{$fg_bold[green]%}%~/ %{$fg_bold[blue]%}($vcs_info_msg_0_)%{$reset_color%} $ '
 
 zstyle ':vcs_info:git:*' formats '%b'
 
