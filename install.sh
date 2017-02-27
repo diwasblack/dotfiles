@@ -42,22 +42,6 @@ echo "############ Installing fontface hack ############"
 # Supports powerline symbols
 sudo apt install fonts-hack-ttf
 
-# Create directory for keeping old files
-if [ ! -d $HOME/oldfiles ]; then
-    mkdir $HOME/oldfiles
-fi
-
-# Backup oldfiles
-names=( "tmux.conf" "zshrc" "bash_aliases")
-files=( ".tmux.conf" ".zshrc" ".bash_aliases")
-for i in `seq 0 2`; do
-    if [ -f $HOME/${files[$i]} ]; then
-        mv "$HOME/${files[$i]}" "$HOME/oldfiles/"
-    fi
-    ln -s $HOME/dotfiles/${names[$i]} $HOME/${files[$i]}
-done
-ln -s $HOME/dotfiles/powerline $HOME/.config/powerline
-
 echo "############ Setting up neovim ############"
 echo "############ Downloading vim-plug ############"
 curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs \
@@ -70,4 +54,11 @@ sudo -H /usr/bin/pip3 install flake8
 sudo -H /usr/bin/pip3 install autopep8
 sudo -H /usr/bin/pip3 install jedi
 
-ln -s $HOME/dotfiles/init.vim $HOME/.config/nvim/init.vim
+# Check if GNU stow is installed
+if ! command -v stow > /dev/null 2>&1; then
+    echo "############ Installing GNU stow ############"
+    sudo apt install stow
+fi
+
+# Link dotfiles
+stow bash zsh tmux powerline neovim

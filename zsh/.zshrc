@@ -58,4 +58,4 @@ PROMPT='%{$fg_bold[yellow]%}λ %{$fg_bold[green]%} %~/ %{$fg_bold[blue]%}($vcs_i
 zstyle ':vcs_info:git:*' formats '%b'
 
 source <(antibody init)
-antibody bundle < ~/dotfiles/zsh_plugins
+antibody bundle < ~/.zsh_plugins
