@@ -25,7 +25,7 @@ set relativenumber    " Enable relative numbering
 set shiftround        " Round indent to multiple of 'shiftwidth'
 set shiftwidth=4      " Number of space insert/remove shifting line
 set shortmess=I       " Hide intro message
-set smartcase         " Performs case sensitive search if contains uppercase letters
+set smartcase         " Performs case sensitive search smartly
 set smartindent       " Smart indentation
 set softtabstop=4     " Number of spaces in tab when editing
 set splitright        " New windows goes right
@@ -59,7 +59,7 @@ Plug 'mileszs/ack.vim'
 Plug 'othree/html5.vim'
 Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'pangloss/vim-javascript'
-Plug 'Chiel92/vim-autoformat'
+Plug 'Chiel92/vim-autoformat', { 'on': 'Autoformat' }
 Plug 'zchee/deoplete-jedi'
 
 Plug 'tpope/vim-repeat'
@@ -103,8 +103,6 @@ function! ToggleBackground()
     endif
 endfunction
 
-nnoremap <F5> :call ToggleBackground()<CR>
-
 "==============================================================================
 " Mappings
 "==============================================================================
@@ -128,12 +126,6 @@ nnoremap <C-l> >>
 " Highlight last inserted text
 nnoremap gV `[v`]
 
-nnoremap <Leader>q :bdelete<CR>
-nnoremap <Leader>n :enew<CR>
-
-nnoremap <leader>ev :edit $MYVIMRC<cr>
-nnoremap <leader>sv :source $MYVIMRC<cr>
-
 " Mapping for inbuilt terminal
 tnoremap <C-q> <C-\><C-n>
 
@@ -146,6 +138,12 @@ nnoremap <A-l> <C-w>l
 " Mappings for fugitive
 nnoremap <Leader>gs :Gstatus<CR>
 nnoremap <Leader>gd :Gdiff<CR>
+
+nnoremap <Leader>q :bdelete<CR>
+nnoremap <Leader>n :enew<CR>
+
+nnoremap <leader>ev :edit $MYVIMRC<cr>
+nnoremap <leader>sv :source $MYVIMRC<cr>
 
 "==============================================================================
 " Autocmd
@@ -269,6 +267,12 @@ if executable('ag')
 endif
 
 "==============================================================================
+" vim-autoformat
+"==============================================================================
+
+noremap <F8> :Autoformat<CR>
+
+"==============================================================================
 " vim-easy-align
 "==============================================================================
 
@@ -301,9 +305,3 @@ nnoremap <silent> <A-j> :TmuxNavigateDown<cr>
 nnoremap <silent> <A-k> :TmuxNavigateUp<cr>
 nnoremap <silent> <A-l> :TmuxNavigateRight<cr>
 " nnoremap <silent> <A-/> :TmuxNavigatePrevious<cr>
-
-"==============================================================================
-" vim-autoformat
-"==============================================================================
-
-noremap <F8> :Autoformat<CR>
