@@ -51,8 +51,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'w0rp/ale'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
-Plug 'junegunn/fzf.vim'
+Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'mileszs/ack.vim'
 
 Plug 'othree/html5.vim'
@@ -227,24 +226,34 @@ let g:deoplete#enable_at_startup = 1
 autocmd FileType python set completeopt-=preview
 
 "==============================================================================
-" FZF
+" denite
 "==============================================================================
 
-let g:fzf_action = {
-  \ 'ctrl-t': 'tab split',
-  \ 'ctrl-x': 'split',
-  \ 'ctrl-v': 'vsplit' }
+" Use silver searcher to search for files
+call denite#custom#var('file_rec', 'command',
+    \ ['ag', '--follow', '--nocolor', '--nogroup', '-g', ''])
 
-" Fzf layout
-let g:fzf_layout = { 'down': '40%' }
+" Change mappings.
+call denite#custom#map(
+    \ 'insert',
+    \ '<C-j>',
+    \ '<denite:move_to_next_line>',
+    \ 'noremap'
+    \)
 
-" Mapping
-nnoremap <Leader>f :Files<CR>
-nnoremap <Leader>b :Buffers<CR>
+call denite#custom#map(
+    \ 'insert',
+    \ '<C-k>',
+    \ '<denite:move_to_previous_line>',
+    \ 'noremap'
+    \)
 
-" Advanced customization using autoload functions
-autocmd VimEnter * command! Colors
-  \ call fzf#vim#colors({'left': '15%', 'options': '--reverse --margin 30%,0'})
+" Change ignore_globs
+call denite#custom#filter('matcher_ignore_globs', 'ignore_globs',
+    \ [ '.git/', '.ropeproject/', '__pycache__/',
+    \   'venv/', 'images/', '*.min.*', 'img/', 'fonts/'])
+
+nnoremap <Leader>f :Denite buffer file_rec<CR>
 
 "==============================================================================
 " Ack.vim
