@@ -51,7 +51,6 @@ Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'w0rp/ale'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
 Plug 'junegunn/fzf.vim'
 Plug 'mileszs/ack.vim'
@@ -226,14 +225,6 @@ let g:deoplete#enable_at_startup = 1
 
 " Disable pydoc split
 autocmd FileType python set completeopt-=preview
-
-"==============================================================================
-" vim-snippet
-"==============================================================================
-
-let g:UltiSnipsExpandTrigger='<Tab>'
-let g:UltiSnipsJumpForwardTrigger='<c-b>'
-let g:UltiSnipsJumpBackwardTrigger='<c-z>'
 
 "==============================================================================
 " FZF
