@@ -253,7 +253,7 @@ call denite#custom#filter('matcher_ignore_globs', 'ignore_globs',
     \ [ '.git/', '.ropeproject/', '__pycache__/',
     \   'venv/', 'images/', '*.min.*', 'img/', 'fonts/'])
 
-nnoremap <Leader>f :Denite buffer file_rec<CR>
+nnoremap <Leader>f :Denite -winheight=15 buffer file_rec<CR>
 
 "==============================================================================
 " Ack.vim
