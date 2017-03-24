@@ -1,5 +1,6 @@
 # Default editor to use
 export EDITOR=nvim
+export TERM=xterm-256color
 
 HISTSIZE=2000
 SAVEHIST=2000
