@@ -16,6 +16,15 @@ sudo apt update
 echo "############ Installing tmux and zsh ############"
 sudo apt install tmux zsh
 
+# Check if curl is installed
+if ! command -v curl > /dev/null 2>&1; then
+    echo "############ Installing curl ############"
+    sudo apt-get install curl
+fi
+
+echo "############ Install antibody for zsh ############"
+curl -sL https://git.io/antibody | bash -s
+
 if ! command -v gem > /dev/null 2>&1; then
     echo "############ Installing ruby ############"
     sudo apt install ruby
@@ -32,11 +41,6 @@ fi
 
 echo "############ Installing powerline ############"
 sudo -H /usr/bin/pip3 install powerline-status
-
-if ! command -v curl > /dev/null 2>&1; then
-    echo "############ Installing curl ############"
-    sudo apt-get install curl
-fi
 
 echo "############ Installing fontface hack ############"
 # Supports powerline symbols
