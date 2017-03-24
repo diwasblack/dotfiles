@@ -42,13 +42,17 @@ echo "############ Installing fontface hack ############"
 # Supports powerline symbols
 sudo apt install fonts-hack-ttf
 
-echo "############ Setting up neovim ############"
+echo "############ Installing silver searcher ############"
+sudo apt install silversearcher-ag
+
+echo "############ Installing neovim ############"
+sudo add-apt-repository ppa:neovim-ppa/unstable
+sudo apt update
+sudo apt install neovim
+
 echo "############ Downloading vim-plug ############"
 curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-
-echo "############ Installing silver searcher ############"
-sudo apt install silversearcher-ag
 
 echo "############ Installing python libraries ############"
 sudo -H /usr/bin/pip3 install psutil
