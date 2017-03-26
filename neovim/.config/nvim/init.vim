@@ -105,7 +105,8 @@ endfunction
 " Mappings
 "==============================================================================
 
-inoremap jk <esc>
+" Make Y behave like C and D
+noremap Y y$
 
 " Move line up/down
 nnoremap <C-j> :m .+1<CR>==
