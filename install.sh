@@ -59,11 +59,11 @@ curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 echo -e "\n############ Installing python libraries ############"
-sudo -H /usr/bin/pip3 install psutil
 sudo -H /usr/bin/pip3 install neovim
 sudo -H /usr/bin/pip3 install flake8
-sudo -H /usr/bin/pip3 install autopep8
 sudo -H /usr/bin/pip3 install jedi
+sudo -H /usr/bin/pip3 install yapf
+sudo -H /usr/bin/pip3 install psutil
 
 # Check if GNU stow is installed
 if ! command -v stow > /dev/null 2>&1; then
