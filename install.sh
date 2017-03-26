@@ -19,7 +19,7 @@ sudo apt install tmux zsh
 # Check if curl is installed
 if ! command -v curl > /dev/null 2>&1; then
     echo -e "\n############ Installing curl ############"
-    sudo apt-get install curl
+    sudo apt install curl
 fi
 
 echo -e "\n############ Install antibody for zsh ############"
