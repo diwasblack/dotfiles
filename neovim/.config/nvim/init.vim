@@ -108,19 +108,9 @@ endfunction
 " Make Y behave like C and D
 noremap Y y$
 
-" Move line up/down
-nnoremap <C-j> :m .+1<CR>==
-nnoremap <C-k> :m .-2<CR>==
-xnoremap <C-j> :m '>+1<CR>gv=gv
-xnoremap <C-k> :m '<-2<CR>gv=gv
-
 " Mapping for indentation
 xnoremap < <gv
 xnoremap > >gv
-xnoremap <C-h> <gv
-xnoremap <C-l> >gv
-nnoremap <C-h> <<
-nnoremap <C-l> >>
 
 " Highlight last inserted text
 nnoremap gV `[v`]
@@ -128,18 +118,9 @@ nnoremap gV `[v`]
 " Mapping for inbuilt terminal
 tnoremap <C-q> <C-\><C-n>
 
-" Key binding for moving between splits
-nnoremap <A-h> <C-w>h
-nnoremap <A-j> <C-w>j
-nnoremap <A-k> <C-w>k
-nnoremap <A-l> <C-w>l
-
 " Mappings for fugitive
 nnoremap <Leader>gs :Gstatus<CR>
 nnoremap <Leader>gd :Gdiff<CR>
-
-nnoremap <Leader>q :bdelete<CR>
-nnoremap <Leader>n :enew<CR>
 
 nnoremap <leader>ev :edit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
