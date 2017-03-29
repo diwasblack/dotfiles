@@ -73,6 +73,7 @@ Plug 'justinmk/vim-gtfo'
 Plug 'wellle/targets.vim'
 Plug 'kshenoy/vim-signature'
 Plug 'tmhedberg/matchit'
+Plug 'AndrewRadev/splitjoin.vim'
 Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
 Plug 'editorconfig/editorconfig-vim'
 Plug 'mhinz/vim-startify'
