@@ -36,8 +36,6 @@ set undofile          " Persistent undo
 set undolevels=1000   " How many undos
 set undoreload=10000  " Number of lines to save for undo
 
-let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
-
 "==============================================================================
 " Plugin list
 "==============================================================================
