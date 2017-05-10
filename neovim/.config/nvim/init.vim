@@ -40,6 +40,13 @@ set undoreload=10000  " Number of lines to save for undo
 " Plugin list
 "==============================================================================
 
+" Automatic installation of vim-plug
+if empty(glob('~/.config/nvim/autoload/plug.vim'))
+  silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
 call plug#begin()
 
 Plug 'morhetz/gruvbox'
