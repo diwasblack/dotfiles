@@ -293,3 +293,8 @@ nnoremap <silent> <A-j> :TmuxNavigateDown<cr>
 nnoremap <silent> <A-k> :TmuxNavigateUp<cr>
 nnoremap <silent> <A-l> :TmuxNavigateRight<cr>
 " nnoremap <silent> <A-/> :TmuxNavigatePrevious<cr>
+
+"==============================================================================
+" Custom commands
+"==============================================================================
+command! FormatJSON %!python -m json.tool
