@@ -6,35 +6,36 @@ let mapleader=' '
 let maplocalleader=' '
 let g:python3_host_prog='/usr/bin/python3'
 
-set colorcolumn=80    " Ruler for maximum characters
-set copyindent        " Use indentation for previous line as a default
-set cursorline        " Highlight current line
-set diffopt+=vertical " Use vertical splits
-set expandtab         " Tabs are spaces
-set foldenable        " Enable folding
-set foldlevelstart=10 " Open most folds by default
-set foldmethod=indent " Fold based on indent level
-set hidden            " Enables hidden buffer
-set ignorecase        " Case insensitive search
-set lazyredraw        " Redraw only when we need to
-set list              " Show invisible characters
-set noswapfile        " Disable swap file
-set nowrap            " Disable wrapping
-set number            " Shows line number
-set relativenumber    " Enable relative numbering
-set shiftround        " Round indent to multiple of 'shiftwidth'
-set shiftwidth=4      " Number of space insert/remove shifting line
-set shortmess=I       " Hide intro message
-set smartcase         " Performs case sensitive search smartly
-set smartindent       " Smart indentation
-set softtabstop=4     " Number of spaces in tab when editing
-set splitright        " New windows goes right
-set tabstop=4         " Number of visual spaces per TAB
-set termguicolors     " Enable 24 bit color support
-set title             " Change terminal title
-set undofile          " Persistent undo
-set undolevels=1000   " How many undos
-set undoreload=10000  " Number of lines to save for undo
+set clipboard=unnamedplus " Use system clipboard as a default
+set colorcolumn=80        " Ruler for maximum characters
+set copyindent            " Use indentation for previous line as a default
+set cursorline            " Highlight current line
+set diffopt+=vertical     " Use vertical splits
+set expandtab             " Tabs are spaces
+set foldenable            " Enable folding
+set foldlevelstart=10     " Open most folds by default
+set foldmethod=indent     " Fold based on indent level
+set hidden                " Enables hidden buffer
+set ignorecase            " Case insensitive search
+set lazyredraw            " Redraw only when we need to
+set list                  " Show invisible characters
+set noswapfile            " Disable swap file
+set nowrap                " Disable wrapping
+set number                " Shows line number
+set relativenumber        " Enable relative numbering
+set shiftround            " Round indent to multiple of 'shiftwidth'
+set shiftwidth=4          " Number of space insert/remove shifting line
+set shortmess=I           " Hide intro message
+set smartcase             " Performs case sensitive search smartly
+set smartindent           " Smart indentation
+set softtabstop=4         " Number of spaces in tab when editing
+set splitright            " New windows goes right
+set tabstop=4             " Number of visual spaces per TAB
+set termguicolors         " Enable 24 bit color support
+set title                 " Change terminal title
+set undofile              " Persistent undo
+set undolevels=1000       " How many undos
+set undoreload=10000      " Number of lines to save for undo
 
 "==============================================================================
 " Plugin list
