@@ -49,6 +49,10 @@ sudo apt install fonts-hack-ttf
 echo -e "\n############ Installing silver searcher ############"
 sudo apt install silversearcher-ag
 
+echo -e "\n############ Install fzf ############"
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+~/.fzf/install
+
 echo -e "\n############ Installing neovim ############"
 sudo add-apt-repository ppa:neovim-ppa/unstable
 sudo apt update
