@@ -53,15 +53,6 @@ echo -e "\n############ Install fzf ############"
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install
 
-echo -e "\n############ Installing neovim ############"
-sudo add-apt-repository ppa:neovim-ppa/unstable
-sudo apt update
-sudo apt install neovim
-
-echo -e "\n############ Downloading vim-plug ############"
-curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-
 echo -e "\n############ Installing python libraries ############"
 sudo -H /usr/bin/pip3 install neovim
 sudo -H /usr/bin/pip3 install flake8
