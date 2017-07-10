@@ -1,5 +1,10 @@
-# Default editor to use
-export EDITOR=nvim
+# Check if neovim is installed else switch to vim
+if command -v nvim > /dev/null 2>&1; then
+    export EDITOR=nvim
+else
+    export EDITOR=vim
+fi
+
 export TERM=xterm-256color
 
 HISTSIZE=2000
