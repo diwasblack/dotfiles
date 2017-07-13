@@ -10,5 +10,14 @@ call plug#begin()
 
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-eunuch'
+Plug 'justinmk/vim-dirvish'
 
 call plug#end()
+
+set expandtab             " Tabs are spaces
+set number                " Shows line number
+set relativenumber        " Enable relative numbering
+set shiftround            " Round indent to multiple of 'shiftwidth'
+set shiftwidth=4          " Number of space insert/remove shifting line
+set softtabstop=4         " Number of spaces in tab when editing
+set tabstop=4             " Number of visual spaces per TAB
