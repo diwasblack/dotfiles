@@ -4,33 +4,39 @@ if command -v nvim > /dev/null 2>&1; then
 else
     export EDITOR=vim
 fi
-
 export TERM=xterm-256color
 
 HISTSIZE=2000
 SAVEHIST=2000
 HISTFILE=~/.zsh_history
 
-# Turn on spelling correction
-setopt correct
+bindkey -v # Vi mode bindings
 
-# Correction for arguments
-# setopt correctall
+setopt correct # Turn on spelling correction
+setopt hist_expire_dups_first # when trimming history, lose oldest duplicates first
+setopt hist_verify # don't execute, just expand history
+setopt histignoredups # Don't save duplicate in history
+setopt inc_append_history # Appends every command to the history file once it is executed
+setopt share_history # Reloads the history whenever you use it
 
-# Appends every command to the history file once it is executed
-setopt inc_append_history
+autoload -Uz colors && colors # Load colors
+autoload -Uz compinit && compinit
 
-# Reloads the history whenever you use it
-setopt share_history
+autoload -Uz up-line-or-beginning-search down-line-or-beginning-search
 
-# Don't save duplicate in history
-setopt histignoredups
+zle -N up-line-or-beginning-search
+zle -N down-line-or-beginning-search
 
-# Vi mode bindings
-bindkey -v
+[[ -n "${key[Up]}"   ]] && bindkey "${key[Up]}"   up-line-or-beginning-search
+[[ -n "${key[Down]}" ]] && bindkey "${key[Down]}" down-line-or-beginning-search
 
-# Load colors
-autoload -Uz colors && colors
+autoload -Uz vcs_info
+precmd_vcs_info() { vcs_info }
+precmd_functions+=( precmd_vcs_info )
+setopt prompt_subst
+
+zstyle ':completion:*' menu select
+zstyle ':vcs_info:git:*' formats '%b'
 
 # Configuration for fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -41,27 +47,10 @@ autoload -Uz colors && colors
 # Include bash_aliases
 [ -f ~/.bash_aliases ] && source ~/.bash_aliases
 
-autoload -Uz compinit && compinit
-zstyle ':completion:*' menu select
-
-autoload -Uz up-line-or-beginning-search down-line-or-beginning-search
-zle -N up-line-or-beginning-search
-zle -N down-line-or-beginning-search
-
-[[ -n "${key[Up]}"   ]] && bindkey "${key[Up]}"   up-line-or-beginning-search
-[[ -n "${key[Down]}" ]] && bindkey "${key[Down]}" down-line-or-beginning-search
-
 [[ -e /etc/zsh_command_not_found ]] && source /etc/zsh_command_not_found
-
-autoload -Uz vcs_info
-precmd_vcs_info() { vcs_info }
-precmd_functions+=( precmd_vcs_info )
-setopt prompt_subst
 
 # Custom PROMPT for zsh
 PROMPT='%{$fg_bold[yellow]%}%n@%m %{$fg_bold[green]%}%~/ %{$fg_bold[blue]%}($vcs_info_msg_0_)%{$reset_color%} $ '
-
-zstyle ':vcs_info:git:*' formats '%b'
 
 source <(antibody init)
 antibody bundle < ~/.zsh_plugins
