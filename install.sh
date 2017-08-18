@@ -14,12 +14,12 @@ echo -e "\n############ Updating package lists ############"
 sudo apt update
 
 echo -e "\n############ Installing tmux and zsh ############"
-sudo apt install tmux zsh
+sudo apt install -y tmux zsh
 
 # Check if curl is installed
 if ! command -v curl > /dev/null 2>&1; then
     echo -e "\n############ Installing curl ############"
-    sudo apt install curl
+    sudo apt install -y curl
 fi
 
 echo -e "\n############ Install antibody for zsh ############"
@@ -27,7 +27,7 @@ curl -sL https://git.io/antibody | bash -s
 
 if ! command -v gem > /dev/null 2>&1; then
     echo -e "\n############ Installing ruby ############"
-    sudo apt install ruby
+    sudo apt install -y ruby
 fi
 
 echo -e "\n############ Installing tmuxinator ############"
@@ -36,7 +36,7 @@ sudo gem install tmuxinator
 # Install pip if not present
 if [ ! -f /usr/bin/pip3 ]; then
     echo -e "\n############ Installing pip for python3 ############"
-    sudo apt install python3-pip
+    sudo apt install -y python3-pip
 fi
 
 echo -e "\n############ Installing powerline ############"
@@ -44,10 +44,10 @@ sudo -H /usr/bin/pip3 install powerline-status
 
 echo -e "\n############ Installing fontface hack ############"
 # Supports powerline symbols
-sudo apt install fonts-hack-ttf
+sudo apt install -y fonts-hack-ttf
 
 echo -e "\n############ Installing silver searcher ############"
-sudo apt install silversearcher-ag
+sudo apt install -y silversearcher-ag
 
 echo -e "\n############ Install fzf ############"
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
@@ -63,7 +63,7 @@ sudo -H /usr/bin/pip3 install psutil
 # Check if GNU stow is installed
 if ! command -v stow > /dev/null 2>&1; then
     echo -e "\n############ Installing GNU stow ############"
-    sudo apt install stow
+    sudo apt install -y stow
 fi
 
 # Link dotfiles
