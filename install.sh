@@ -53,6 +53,9 @@ echo -e "\n############ Install fzf ############"
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install
 
+echo -e "\n############ Installing xclip ############"
+sudo apt install -y xclip
+
 echo -e "\n############ Installing python libraries ############"
 sudo -H /usr/bin/pip3 install neovim
 sudo -H /usr/bin/pip3 install flake8
