@@ -72,7 +72,6 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-obsession'
 Plug 'tpope/vim-eunuch'
 Plug 'junegunn/vim-peekaboo'
-Plug 'junegunn/vim-journal'
 Plug 'junegunn/vim-easy-align', { 'on': ['<Plug>(EasyAlign)', 'EasyAlign'] }
 Plug 'justinmk/vim-dirvish'
 Plug 'justinmk/vim-sneak'
