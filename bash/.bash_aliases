@@ -1,5 +1,6 @@
 alias mux="tmuxinator"
 alias pubip="curl -s ipinfo.io/ip"
+alias ipinfo="curl -s ipinfo.io"
 
 alias gd='git diff'
 alias gf='git fetch'
