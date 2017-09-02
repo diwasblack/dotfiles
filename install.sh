@@ -49,12 +49,15 @@ sudo apt install -y fonts-hack-ttf
 echo -e "\n############ Installing silver searcher ############"
 sudo apt install -y silversearcher-ag
 
+echo -e "\n############ Installing ranger  ############"
+sudo apt install -y ranger
+
+echo -e "\n############ Installing neovim and xclip ############"
+sudo apt install -y neovim xclip
+
 echo -e "\n############ Install fzf ############"
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install
-
-echo -e "\n############ Installing xclip ############"
-sudo apt install -y xclip
 
 echo -e "\n############ Installing python libraries ############"
 sudo -H /usr/bin/pip3 install neovim
