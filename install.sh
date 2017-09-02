@@ -72,5 +72,8 @@ if ! command -v stow > /dev/null 2>&1; then
     sudo apt install -y stow
 fi
 
+# Create config directory for neovim before linking
+mkdir -p ~/.config/nvim
+
 # Link dotfiles
 stow bash zsh tmux powerline neovim ranger
