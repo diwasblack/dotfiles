@@ -46,14 +46,14 @@ echo -e "\n############ Installing fontface hack ############"
 # Supports powerline symbols
 sudo apt install -y fonts-hack-ttf
 
+echo -e "\n############ Installing neovim and xclip ############"
+sudo apt install -y neovim xclip
+
 echo -e "\n############ Installing silver searcher ############"
 sudo apt install -y silversearcher-ag
 
-echo -e "\n############ Installing ranger  ############"
-sudo apt install -y ranger
-
-echo -e "\n############ Installing neovim and xclip ############"
-sudo apt install -y neovim xclip
+echo -e "\n############ Installing other essential tools ############"
+sudo apt install -y rclone magic-wormhole ranger mosh
 
 echo -e "\n############ Install fzf ############"
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
@@ -73,4 +73,4 @@ if ! command -v stow > /dev/null 2>&1; then
 fi
 
 # Link dotfiles
-stow bash zsh tmux powerline neovim
+stow bash zsh tmux powerline neovim ranger
