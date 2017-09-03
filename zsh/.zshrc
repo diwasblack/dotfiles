@@ -38,19 +38,19 @@ setopt prompt_subst
 zstyle ':completion:*' menu select
 zstyle ':vcs_info:git:*' formats '%b'
 
+[[ -e /etc/zsh_command_not_found ]] && source /etc/zsh_command_not_found
+
 # Configuration for fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-# Extra setting for zsh
-[ -f ~/.zshrc_extra ] && source ~/.zshrc_extra
 
 # Include bash_aliases
 [ -f ~/.bash_aliases ] && source ~/.bash_aliases
 
-[[ -e /etc/zsh_command_not_found ]] && source /etc/zsh_command_not_found
+# Extra setting for zsh
+[ -f ~/.config/zsh/.zshrc_extra ] && source ~/.config/zsh/.zshrc_extra
 
 # Custom PROMPT for zsh
 PROMPT='%{$fg_bold[yellow]%}%n@%m %{$fg_bold[green]%}%~/ %{$fg_bold[blue]%}($vcs_info_msg_0_)%{$reset_color%} $ '
 
 source <(antibody init)
-antibody bundle < ~/.zsh_plugins
+antibody bundle < ~/.config/zsh/.zsh_plugins
