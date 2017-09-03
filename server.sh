@@ -28,5 +28,8 @@ if ! command -v stow > /dev/null 2>&1; then
     sudo apt install -y stow
 fi
 
+# Create folder before linking files
+mkdir -p ~/.config/nvim ~/.config/zsh
+
 # Link dotfiles
 stow bash zsh ranger vim
