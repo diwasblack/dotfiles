@@ -25,5 +25,5 @@ echo -e "\n############ Install fzf ############"
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install
 
-# Link dotfiles
-stow ranger
+# No folding will create necessary folders instead of linking the folder as whole
+stow --no-folding ranger

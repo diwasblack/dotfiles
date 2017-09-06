@@ -21,10 +21,8 @@ if ! command -v stow > /dev/null 2>&1; then
     ${pkg_mgr_install} stow
 fi
 
-# Create folder before linking files
-mkdir -p ~/.config/zsh
-
-stow zsh bash
+# No folding will create necessary folders instead of linking the folder as whole
+stow --no-folding zsh bash
 
 # For now do not change the default shell of current user
 # chsh -s /bin/zsh
