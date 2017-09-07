@@ -20,6 +20,11 @@ function sync_zsh_files {
 alias syncnotes="rclone sync ~/notes drive:notes"
 alias syncdot="sync_zsh_files; sync_rclone_config; sync_ssh_files"
 
+# Sync folder to specified remote service
+function sync_to_remote {
+    rclone sync $2 $1:$2
+}
+
 # added by Miniconda3 installer
 export PATH="$HOME/miniconda3/bin:$PATH"
 export PATH="$PATH:$HOME/.local/bin"
