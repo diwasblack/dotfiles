@@ -9,22 +9,11 @@ function sync_ssh_files {
     rclone sync /tmp/ssh.zip.gpg drive:config
 }
 
-function sync_rclone_config {
-    rclone sync ~/.rclone.conf drive:config
-}
-
-function sync_zsh_files {
-    rclone sync ~/.zshrc_extra drive:config
-    rclone sync ~/.zsh_history drive:config
-}
-alias syncnotes="rclone sync ~/notes drive:notes"
-alias syncdot="sync_zsh_files; sync_rclone_config; sync_ssh_files"
-
 # Sync folder to specified remote service
 function sync_to_remote {
     rclone sync $2 $1:$2
 }
 
-# added by Miniconda3 installer
-export PATH="$HOME/miniconda3/bin:$PATH"
+alias syncnotes="rclone sync ~/notes drive:notes"
+
 export PATH="$PATH:$HOME/.local/bin"
