@@ -40,9 +40,6 @@ zstyle ':vcs_info:git:*' formats '%b'
 
 [[ -e /etc/zsh_command_not_found ]] && source /etc/zsh_command_not_found
 
-# Configuration for fzf
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
 # Include bash_aliases
 [ -f ~/.bash_aliases ] && source ~/.bash_aliases
 

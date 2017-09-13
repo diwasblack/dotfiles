@@ -16,6 +16,9 @@ function sync_to_remote {
 
 [ -f ~/.config/zsh/tmuxinator.zsh ] && source ~/.config/zsh/tmuxinator.zsh
 
+# Configuration for fzf
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
 alias syncnotes="rclone sync ~/notes drive:notes"
 
 export PATH="$PATH:$HOME/.local/bin"
