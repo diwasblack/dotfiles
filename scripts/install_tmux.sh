@@ -16,6 +16,9 @@ fi
 echo -e "\n############ Installing tmuxinator ############"
 sudo gem install tmuxinator
 
+# Download tmuxinator auto complete for zsh
+curl --create-dirs -o ~/.config/zsh/tmuxinator.zsh https://raw.githubusercontent.com/tmuxinator/tmuxinator/master/completion/tmuxinator.zsh
+
 # Install pip if not present
 if [ ! -f /usr/bin/pip3 ]; then
     echo -e "\n############ Installing pip for python3 ############"
