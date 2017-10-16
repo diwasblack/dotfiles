@@ -299,4 +299,6 @@ nnoremap <silent> <A-l> :TmuxNavigateRight<cr>
 "==============================================================================
 " Custom commands
 "==============================================================================
+
 command! FormatJSON %!python -m json.tool
+command! Notes edit ~/notes
