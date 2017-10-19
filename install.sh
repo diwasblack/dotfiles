@@ -1,6 +1,8 @@
 #!/bin/bash
 
-source ~/dotfiles/scripts/vars.sh
+# Declare variables to use
+export pkg_mgr_install="sudo apt install -y"
+export pkg_mgr_repo_update="sudo apt update"
 
 echo -e "\n############ Update packages info ############"
 ${pkg_mgr_repo_update}
@@ -10,13 +12,13 @@ git submodule init
 git submodule update
 
 # Install zsh
-/bin/bash ~/dotfiles/scripts/install_zsh.sh
+/bin/bash scripts/install_zsh.sh
 
 # Install tmux
-/bin/bash ~/dotfiles/scripts/install_tmux.sh
+/bin/bash scripts/install_tmux.sh
 
 # Install neovim
-/bin/bash ~/dotfiles/scripts/install_neovim.sh
+/bin/bash scripts/install_neovim.sh
 
 echo -e "\n############ Installing other essential tools ############"
 ${pkg_mgr_install} rclone magic-wormhole ranger mosh

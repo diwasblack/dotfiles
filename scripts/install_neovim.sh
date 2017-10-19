@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# Install neovim
-source ~/dotfiles/scripts/vars.sh
+# Declare variables to use
+export pkg_mgr_install="sudo apt install -y"
 
 echo -e "\n############ Installing neovim and xclip ############"
 ${pkg_mgr_install} neovim xclip
