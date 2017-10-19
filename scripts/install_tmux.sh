@@ -31,11 +31,3 @@ sudo -H /usr/bin/pip3 install powerline-status
 echo -e "\n############ Installing fontface hack ############"
 # Supports powerline symbols
 ${pkg_mgr_install} fonts-hack-ttf
-
-# Check if GNU stow is installed
-if ! command -v stow > /dev/null 2>&1; then
-    echo -e "\n############ Installing GNU stow ############"
-    ${pkg_mgr_install} stow
-fi
-
-stow tmux powerline

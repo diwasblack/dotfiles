@@ -11,14 +11,26 @@ echo -e "\n############ Updating submodules ############"
 git submodule init
 git submodule update
 
+# Install GNU stow if not installed
+if ! command -v stow > /dev/null 2>&1; then
+    echo -e "\n############ Installing GNU stow ############"
+    ${pkg_mgr_install} stow
+fi
+
 # Install zsh
 /bin/bash scripts/install_zsh.sh
+stow --no-folding zsh bash
+
+# For now do not change the default shell of current user
+# chsh -s /bin/zsh
 
 # Install tmux
 /bin/bash scripts/install_tmux.sh
+stow tmux powerline
 
 # Install neovim
 /bin/bash scripts/install_neovim.sh
+stow --no-folding neovim
 
 echo -e "\n############ Installing other essential tools ############"
 ${pkg_mgr_install} rclone magic-wormhole ranger mosh

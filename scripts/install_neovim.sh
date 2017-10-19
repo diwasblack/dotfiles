@@ -21,12 +21,3 @@ sudo -H /usr/bin/pip3 install flake8
 sudo -H /usr/bin/pip3 install jedi
 sudo -H /usr/bin/pip3 install yapf
 sudo -H /usr/bin/pip3 install psutil
-
-# Check if GNU stow is installed
-if ! command -v stow > /dev/null 2>&1; then
-    echo -e "\n############ Installing GNU stow ############"
-    ${pkg_mgr_install} stow
-fi
-
-# No folding will create necessary folders instead of linking the folder as whole
-stow --no-folding neovim
