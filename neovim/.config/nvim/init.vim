@@ -6,7 +6,6 @@ let mapleader=' '
 let maplocalleader=' '
 let g:python3_host_prog='/usr/bin/python3'
 
-set clipboard=unnamedplus " Use system clipboard as a default
 set colorcolumn=80        " Ruler for maximum characters
 set copyindent            " Use indentation for previous line as a default
 set cursorline            " Highlight current line
