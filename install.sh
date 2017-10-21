@@ -1,8 +1,7 @@
 #!/bin/bash
 
-# Declare variables to use
-export pkg_mgr_install="sudo apt install -y"
-export pkg_mgr_repo_update="sudo apt update"
+# Detect the package manager to use
+source scripts/detect_pkg_mgr.sh
 
 echo -e "\n############ Update packages info ############"
 ${pkg_mgr_repo_update}

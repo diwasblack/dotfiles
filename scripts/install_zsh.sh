@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# Declare variables to use
-export pkg_mgr_install="sudo apt install -y"
+# Detect the package manager to use
+source detect_pkg_mgr.sh
 
 echo -e "\n############ Installing zsh ############"
 ${pkg_mgr_install} zsh
