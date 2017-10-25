@@ -1,12 +1,22 @@
 function sync_ssh_files {
-    # Create zip file in tmp folder
-    zip -r /tmp/ssh.zip ~/.ssh
+    # Make a temporary directory
+    mkdir -p /tmp/keys/gpg
 
-    # Encrpt ssh with AES256 symmetric key
-    gpg -c --cipher-algo AES256 /tmp/ssh.zip
+    # Copy SSH files
+    cp -r ~/.ssh /tmp/keys/
+
+    # Export GPG files
+    gpg -a --export-secret-keys diwasblack@gmail.com > /tmp/keys/secret.key
+    gpg -a --export-ownertrust > /tmp/keys/ownertrust.txt
+
+    # Create zip file in tmp folder
+    cd /tmp && zip -r keys.zip keys
+
+    # Encrpt keys zip with AES256 symmetric key
+    gpg -c --cipher-algo AES256 /tmp/keys.zip
 
     # Sync files to drive
-    rclone sync /tmp/ssh.zip.gpg drive:config
+    rclone sync /tmp/keys.zip.gpg drive:config
 }
 
 # Sync folder to specified remote service
