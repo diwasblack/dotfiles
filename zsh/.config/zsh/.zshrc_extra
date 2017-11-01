@@ -32,3 +32,4 @@ function sync_to_remote {
 alias syncnotes="rclone sync ~/notes drive:notes"
 
 export PATH="$PATH:$HOME/.local/bin"
+export PATH="$PATH:$HOME/.gem/ruby/2.4.0/bin"
