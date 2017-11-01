@@ -65,6 +65,7 @@ Plug 'pangloss/vim-javascript'
 Plug 'Chiel92/vim-autoformat', { 'on': 'Autoformat' }
 Plug 'zchee/deoplete-jedi'
 
+Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-tbone'
 Plug 'tpope/vim-commentary'
