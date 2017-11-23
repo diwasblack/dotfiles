@@ -5,13 +5,6 @@ URxvt*urgentOnBell: false
 URxvt.letterSpace: 0
 URxvt.font:     xft:hack:size=12:antialias=true
 
-URxvt.perl-ext-common: default,clipboard
-
-URxvt.clipboard.copycmd: xsel -ib
-URxvt.clipboard.pastecmd: xsel -ob
-
-URxvt.keysym.Control-C: perl:clipboard:copy
-URxvt.keysym.Control-V: perl:clipboard:paste
 URxvt.iso14755: false
 
 ! -----------------------------------------------------------------------------
