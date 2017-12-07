@@ -1,6 +1,6 @@
 function sync_ssh_files {
     # Make a temporary directory
-    mkdir -p /tmp/keys/gpg
+    mkdir -p /tmp/keys
 
     # Copy SSH files
     cp -r ~/.ssh /tmp/keys/
