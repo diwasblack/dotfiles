@@ -31,3 +31,6 @@ sudo -H /usr/bin/pip3 install powerline-status
 echo -e "\n############ Installing fontface hack ############"
 # Supports powerline symbols
 ${pkg_mgr_install} fonts-hack-ttf
+
+# Add alias for tmuxinator
+echo "\nalias mux=\"tmuxinator\"" >> ~/.bash_aliases
