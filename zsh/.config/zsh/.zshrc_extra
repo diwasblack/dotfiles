@@ -1,9 +1,10 @@
-function sync_ssh_files {
+function sync_secret_files {
     # Make a temporary directory
     mkdir -p /tmp/keys
 
-    # Copy SSH files
+    # Copy files
     cp -r ~/.ssh /tmp/keys/
+    cp -r ~/.password-store /tmp/keys/
 
     # Export GPG files
     gpg -a --export-secret-keys diwasblack@gmail.com > /tmp/keys/secret.key
@@ -17,6 +18,8 @@ function sync_ssh_files {
 
     # Sync files to drive
     rclone sync /tmp/keys.zip.gpg drive:config
+    # Backup to dropbox as well
+    rclone sync /tmp/keys.zip.gpg dropbox:config
 }
 
 # Sync folder to specified remote service
