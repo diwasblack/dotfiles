@@ -224,7 +224,7 @@ autocmd FileType python set completeopt-=preview
 
 " Use silver searcher to search for files
 call denite#custom#var('file_rec', 'command',
-    \ ['ag', '--follow', '--nocolor', '--nogroup', '-g', ''])
+    \ ['rg', '--files', '--glob', '!.git'])
 
 " Change mappings.
 call denite#custom#map(
@@ -255,8 +255,8 @@ nnoremap <Leader>f :Denite -winheight=15 buffer file_rec<CR>
 " Disable immediate jumping to match
 cnoreabbrev Ack Ack!
 
-if executable('ag')
-  let g:ackprg = 'ag --vimgrep'
+if executable('rg')
+  let g:ackprg = 'rg --vimgrep --no-heading'
 endif
 
 "==============================================================================

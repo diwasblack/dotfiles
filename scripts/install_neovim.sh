@@ -6,8 +6,8 @@ source detect_pkg_mgr.sh
 echo -e "\n############ Installing neovim and xclip ############"
 ${pkg_mgr_install} neovim xclip
 
-echo -e "\n############ Installing silver searcher ############"
-${pkg_mgr_install} silversearcher-ag
+echo -e "\n############ Installing ripgrep ############"
+${pkg_mgr_install} ripgrep
 
 # Install pip if not present
 if [ ! -f /usr/bin/pip3 ]; then
