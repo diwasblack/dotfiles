@@ -32,7 +32,7 @@ stow tmux powerline
 stow --no-folding neovim
 
 echo -e "\n############ Installing other essential tools ############"
-${pkg_mgr_install} rclone magic-wormhole ranger mosh
+${pkg_mgr_install} rclone ranger
 
 echo -e "\n############ Install fzf ############"
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
