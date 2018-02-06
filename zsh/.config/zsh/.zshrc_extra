@@ -33,7 +33,8 @@ alias syncnotes="rclone sync ~/notes drive:notes"
 [ -f ~/.config/zsh/tmuxinator.zsh ] && source ~/.config/zsh/tmuxinator.zsh
 
 # Configuration for fzf
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -f /usr/share/fzf/completion.zsh ] && source /usr/share/fzf/completion.zsh
+[ -f /usr/share/fzf/key-bindings.zsh ] && source /usr/share/fzf/key-bindings.zsh
 
 ZSH_COMMAND_NOT_FOUND='/usr/share/doc/pkgfile/command-not-found.zsh'
 [[ -e $ZSH_COMMAND_NOT_FOUND ]] && source $ZSH_COMMAND_NOT_FOUND
