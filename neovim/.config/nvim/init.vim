@@ -59,6 +59,7 @@ Plug 'w0rp/ale'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'mileszs/ack.vim'
+Plug 'ludovicchabant/vim-gutentags'
 
 Plug 'othree/html5.vim'
 Plug 'othree/javascript-libraries-syntax.vim'
