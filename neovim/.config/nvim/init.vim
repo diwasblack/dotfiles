@@ -60,11 +60,11 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'mileszs/ack.vim'
 Plug 'ludovicchabant/vim-gutentags'
+Plug 'Chiel92/vim-autoformat', { 'on': 'Autoformat' }
 
 Plug 'othree/html5.vim'
 Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'pangloss/vim-javascript'
-Plug 'Chiel92/vim-autoformat', { 'on': 'Autoformat' }
 Plug 'zchee/deoplete-jedi'
 
 Plug 'tpope/vim-unimpaired'
@@ -74,13 +74,15 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-obsession'
 Plug 'tpope/vim-eunuch'
-Plug 'junegunn/vim-peekaboo'
-Plug 'junegunn/vim-easy-align', { 'on': ['<Plug>(EasyAlign)', 'EasyAlign'] }
+
 Plug 'justinmk/vim-dirvish'
 Plug 'justinmk/vim-sneak'
 Plug 'justinmk/vim-gtfo'
+
+Plug 'junegunn/vim-peekaboo'
+Plug 'junegunn/vim-easy-align', { 'on': ['<Plug>(EasyAlign)', 'EasyAlign'] }
+
 Plug 'wellle/targets.vim'
-Plug 'kshenoy/vim-signature'
 Plug 'tmhedberg/matchit'
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
