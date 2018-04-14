@@ -287,6 +287,7 @@ nmap <F3> :UndotreeToggle<CR>
 
 let g:indentLine_char = '│'
 let g:indentLine_fileTypeExclude = ['tex', 'markdown']
+au Filetype tex setlocal conceallevel=0
 
 "==============================================================================
 " vim-tmux-navigator
