@@ -21,16 +21,6 @@ setopt share_history # Reloads the history whenever you use it
 autoload -Uz colors && colors # Load colors
 autoload -Uz compinit && compinit
 
-# Commands matching the current line up to the current cursor position will be shown
-# FIXME does not work
-autoload -Uz up-line-or-beginning-search down-line-or-beginning-search
-
-zle -N up-line-or-beginning-search
-zle -N down-line-or-beginning-search
-
-[[ -n "$key[Up]"   ]] && bindkey -- "$key[Up]"   up-line-or-beginning-search
-[[ -n "$key[Down]" ]] && bindkey -- "$key[Down]" down-line-or-beginning-search
-
 autoload -Uz vcs_info
 precmd_vcs_info() { vcs_info }
 precmd_functions+=( precmd_vcs_info )
