@@ -73,6 +73,7 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-obsession'
 Plug 'tpope/vim-eunuch'
+Plug 'tpope/vim-tbone'
 
 Plug 'justinmk/vim-dirvish'
 Plug 'justinmk/vim-sneak'
