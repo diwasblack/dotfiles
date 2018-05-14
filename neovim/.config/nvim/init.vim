@@ -55,17 +55,17 @@ Plug 'itchyny/lightline.vim'
 
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
-Plug 'w0rp/ale'
 Plug 'Shougo/deoplete.nvim', { 'do': 'UpdateRemotePlugins' }
 Plug 'Shougo/denite.nvim', { 'do': 'UpdateRemotePlugins' }
 Plug 'mileszs/ack.vim'
-Plug 'ludovicchabant/vim-gutentags'
-Plug 'Chiel92/vim-autoformat', { 'on': 'Autoformat' }
+Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
 
 Plug 'othree/html5.vim'
 Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'pangloss/vim-javascript'
-Plug 'zchee/deoplete-jedi'
 
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-repeat'
@@ -199,15 +199,6 @@ function! LightlineFilename()
 endfunction
 
 "==============================================================================
-" ALE
-"==============================================================================
-
-let g:ale_sign_error = '✗'
-let g:ale_sign_warning = '✠'
-
-highlight clear ALEWarningSign
-
-"==============================================================================
 " deoplete
 "==============================================================================
 
@@ -259,10 +250,39 @@ if executable('rg')
 endif
 
 "==============================================================================
-" vim-autoformat
+" LanguageClient-neovim
 "==============================================================================
 
-noremap <F8> :Autoformat<CR>
+" Automatically start language servers.
+" let g:LanguageClient_autoStart = 1
+let g:LanguageClient_serverCommands = {
+    \ 'python': ['pyls']
+    \ }
+
+let g:LanguageClient_diagnosticsDisplay = {
+    \ 1: {
+    \ "name": "Error",
+    \ "texthl": "ALEError",
+    \ "signText": "✗",
+    \ "signTexthl": "ALEErrorSign",},
+    \ 2: {
+    \ "name": "Warning",
+    \ "texthl": "ALEWarning",
+    \  "signText": "✠",
+    \  "signTexthl": "ALEWarningSign", },
+    \  3: {
+    \  "name": "Information",
+    \  "texthl": "ALEInfo",
+    \  "signText": "ℹ",
+    \  "signTexthl": "ALEInfoSign",},
+    \  4: {
+    \  "name": "Hint",
+    \  "texthl": "ALEInfo",
+    \  "signText": "➤",
+    \  "signTexthl": "ALEInfoSign",}}
+
+nnoremap <silent> <F8> :call LanguageClient#textDocument_formatting()<CR>
+nnoremap <silent> <Leader>gd :call LanguageClient#textDocument_definition()<CR>
 
 "==============================================================================
 " vim-easy-align
