@@ -283,6 +283,7 @@ let g:LanguageClient_diagnosticsDisplay = {
 
 nnoremap <silent> <F8> :call LanguageClient#textDocument_formatting()<CR>
 nnoremap <silent> <Leader>gd :call LanguageClient#textDocument_definition()<CR>
+nnoremap <silent> <Leader>gh :call LanguageClient#textDocument_hover()<CR>
 
 "==============================================================================
 " vim-easy-align
