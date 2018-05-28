@@ -84,7 +84,6 @@ Plug 'AndrewRadev/splitjoin.vim'
 Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
 Plug 'editorconfig/editorconfig-vim'
 Plug 'mhinz/vim-startify'
-Plug 'Yggdroot/indentLine'
 Plug 'christoomey/vim-tmux-navigator'
 
 call plug#end()
@@ -300,13 +299,6 @@ nmap ga <Plug>(EasyAlign)
 "==============================================================================
 
 nmap <F3> :UndotreeToggle<CR>
-
-"==============================================================================
-" Indentline
-"==============================================================================
-
-let g:indentLine_char = '│'
-let g:indentLine_fileTypeExclude = ['tex', 'markdown', 'json']
 
 "==============================================================================
 " vim-tmux-navigator
