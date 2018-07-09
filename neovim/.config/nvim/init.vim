@@ -76,8 +76,7 @@ Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-tbone'
 
 Plug 'justinmk/vim-dirvish'
-Plug 'justinmk/vim-sneak'
-Plug 'junegunn/vim-easy-align', { 'on': ['<Plug>(EasyAlign)', 'EasyAlign'] }
+Plug 'junegunn/vim-easy-align', { 'on' : ['<Plug>(EasyAlign)', 'EasyAlign'] }
 Plug 'wellle/targets.vim'
 Plug 'tmhedberg/matchit'
 Plug 'AndrewRadev/splitjoin.vim'
@@ -211,7 +210,7 @@ autocmd FileType python set completeopt-=preview
 " denite
 "==============================================================================
 
-" Use silver searcher to search for files
+" Command to search for the files recursively
 call denite#custom#var('file_rec', 'command',
     \ ['rg', '--files', '--glob', '!.git'])
 
