@@ -6,13 +6,11 @@ let mapleader=' '
 let maplocalleader=' '
 let g:python3_host_prog='/usr/bin/python3'
 
-set autoread          " Auto reload a file when changed
 set colorcolumn=80    " Ruler for maximum characters
 set copyindent        " Use indentation for previous line as a default
 set cursorline        " Highlight current line
 set diffopt+=vertical " Use vertical splits
 set expandtab         " Tabs are spaces
-set foldenable        " Enable folding
 set foldlevelstart=10 " Open most folds by default
 set foldmethod=indent " Fold based on indent level
 set hidden            " Enables hidden buffer
@@ -55,8 +53,8 @@ Plug 'itchyny/lightline.vim'
 
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
-Plug 'Shougo/deoplete.nvim', { 'do': 'UpdateRemotePlugins' }
-Plug 'Shougo/denite.nvim', { 'do': 'UpdateRemotePlugins' }
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'mileszs/ack.vim'
 Plug 'autozimu/LanguageClient-neovim', {
     \ 'branch': 'next',
