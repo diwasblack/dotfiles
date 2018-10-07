@@ -56,10 +56,8 @@ Plug 'airblade/vim-gitgutter'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'mileszs/ack.vim'
-Plug 'autozimu/LanguageClient-neovim', {
-    \ 'branch': 'next',
-    \ 'do': 'bash install.sh',
-    \ }
+Plug 'prabirshrestha/async.vim'
+Plug 'prabirshrestha/vim-lsp'
 
 Plug 'othree/html5.vim'
 Plug 'othree/javascript-libraries-syntax.vim'
@@ -246,40 +244,27 @@ if executable('rg')
 endif
 
 "==============================================================================
-" LanguageClient-neovim
+" vim-lsp
 "==============================================================================
 
-" Automatically start language servers.
-" let g:LanguageClient_autoStart = 1
-let g:LanguageClient_serverCommands = {
-    \ 'python': ['pyls']
-    \ }
+let g:lsp_signs_enabled = 1         " enable signs
+let g:lsp_diagnostics_echo_cursor = 1 " enable echo under cursor when in normal mode
 
-let g:LanguageClient_diagnosticsDisplay = {
-    \ 1: {
-    \ "name": "Error",
-    \ "texthl": "ALEError",
-    \ "signText": "✗",
-    \ "signTexthl": "ALEErrorSign",},
-    \ 2: {
-    \ "name": "Warning",
-    \ "texthl": "ALEWarning",
-    \  "signText": "✠",
-    \  "signTexthl": "ALEWarningSign", },
-    \  3: {
-    \  "name": "Information",
-    \  "texthl": "ALEInfo",
-    \  "signText": "ℹ",
-    \  "signTexthl": "ALEInfoSign",},
-    \  4: {
-    \  "name": "Hint",
-    \  "texthl": "ALEInfo",
-    \  "signText": "➤",
-    \  "signTexthl": "ALEInfoSign",}}
+if executable('pyls')
+    " pip install python-language-server
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'pyls',
+        \ 'cmd': {server_info->['pyls']},
+        \ 'whitelist': ['python'],
+        \ })
+endif
 
-nnoremap <silent> <F8> :call LanguageClient#textDocument_formatting()<CR>
-nnoremap <silent> <Leader>gd :call LanguageClient#textDocument_definition()<CR>
-nnoremap <silent> <Leader>gh :call LanguageClient#textDocument_hover()<CR>
+let g:lsp_signs_error = {'text': '✗'}
+let g:lsp_signs_warning = {'text': '‼'}
+
+nnoremap <silent> <F8> :LspDocumentFormat<CR>
+nnoremap <silent> <Leader>gd :LspDefinition<CR>
+nnoremap <silent> <Leader>gh :LspHover<CR>
 
 "==============================================================================
 " vim-easy-align
