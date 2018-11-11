@@ -7,6 +7,8 @@ URxvt.font:     xft:hack:size=12:antialias=true
 
 URxvt.iso14755: false
 
+URxvt.perl-ext-common: resize-font
+
 ! -----------------------------------------------------------------------------
 ! File: gruvbox-dark.xresources
 ! Description: Retro groove colorscheme generalized
