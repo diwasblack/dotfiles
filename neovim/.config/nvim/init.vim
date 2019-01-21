@@ -199,9 +199,6 @@ endfunction
 " Enable completion
 let g:deoplete#enable_at_startup = 1
 
-" Disable pydoc split
-autocmd FileType python set completeopt-=preview
-
 "==============================================================================
 " denite
 "==============================================================================
@@ -249,6 +246,7 @@ endif
 
 let g:lsp_signs_enabled = 1         " enable signs
 let g:lsp_diagnostics_echo_cursor = 1 " enable echo under cursor when in normal mode
+let g:lsp_async_completion = 1
 
 if executable('pyls')
     " pip install python-language-server
@@ -257,6 +255,7 @@ if executable('pyls')
         \ 'cmd': {server_info->['pyls']},
         \ 'whitelist': ['python'],
         \ })
+    autocmd FileType python setlocal omnifunc=lsp#complete
 endif
 
 let g:lsp_signs_error = {'text': '✗'}
