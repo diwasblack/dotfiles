@@ -29,7 +29,7 @@ set smartindent       " Smart indentation
 set softtabstop=4     " Number of spaces in tab when editing
 set splitright        " New windows goes right
 set tabstop=4         " Number of visual spaces per TAB
-" set termguicolors     " Enable 24 bit color support
+set termguicolors     " Enable 25 bit color support
 set title             " Change terminal title
 set undofile          " Persistent undo
 set undolevels=1000   " How many undos
