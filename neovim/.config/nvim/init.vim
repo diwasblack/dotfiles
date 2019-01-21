@@ -300,3 +300,4 @@ nnoremap <silent> <A-l> :TmuxNavigateRight<cr>
 command! FormatJSON %!python -m json.tool
 command! Notes edit ~/notes
 command! Firefox execute ':silent !firefox %'
+command! ToggleBackground call ToggleBackground()
