@@ -5,6 +5,7 @@ function sync_secret_files {
     # Copy files
     cp -r ~/.ssh /tmp/keys/
     cp -r ~/.password-store /tmp/keys/
+    cp -r ~/.android /tmp/keys/
 
     # Export GPG files
     gpg -a --export-secret-keys diwasblack@gmail.com > /tmp/keys/secret.key
