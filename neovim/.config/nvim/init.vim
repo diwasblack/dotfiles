@@ -4,7 +4,6 @@
 
 let mapleader=' '
 let maplocalleader=' '
-let g:python3_host_prog='/usr/bin/python3'
 
 set colorcolumn=80    " Ruler for maximum characters
 set copyindent        " Use indentation for previous line as a default
