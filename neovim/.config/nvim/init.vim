@@ -63,6 +63,7 @@ Plug 'autozimu/LanguageClient-neovim', {
 Plug 'othree/html5.vim'
 Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'pangloss/vim-javascript'
+Plug 'ekalinin/Dockerfile.vim'
 
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-repeat'
