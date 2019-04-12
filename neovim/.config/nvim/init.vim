@@ -252,7 +252,8 @@ endif
 "
 let g:LanguageClient_useVirtualText = 0
 let g:LanguageClient_serverCommands = {
-    \ 'python': ['pyls']
+    \ 'python': ['pyls'],
+    \ 'typescript': ['typescript-language-server', '--stdio']
     \ }
 
 nnoremap <silent> <F8> :call LanguageClient#textDocument_formatting()<CR>
