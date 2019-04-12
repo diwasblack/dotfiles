@@ -256,8 +256,8 @@ let g:LanguageClient_serverCommands = {
     \ }
 
 nnoremap <silent> <F8> :call LanguageClient#textDocument_formatting()<CR>
-nnoremap <silent> <Leader>gd :call LanguageClient#textDocument_definition()<CR>
-nnoremap <silent> <Leader>gh :call LanguageClient#textDocument_hover()<CR>
+nnoremap <silent> <Leader>ld :call LanguageClient#textDocument_definition()<CR>
+nnoremap <silent> <Leader>lh :call LanguageClient#textDocument_hover()<CR>
 
 "==============================================================================
 " vim-easy-align
