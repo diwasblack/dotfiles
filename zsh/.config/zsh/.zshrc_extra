@@ -1,3 +1,6 @@
+# Custom tmux commands
+[ -f ~/.config/zsh/tmuxf ] && source ~/.config/zsh/tmuxf
+
 # Auto complete for tmuxinator commands
 [ -f ~/.config/zsh/tmuxinator.zsh ] && source ~/.config/zsh/tmuxinator.zsh
 

@@ -1,0 +1,42 @@
+#!/bin/bash
+
+function attach-or-create-tmux-session() {
+    local project_path=$1
+
+    # Obtain the session name to use
+    local name=$(basename $project_path)
+
+    # Check if session exists-stores status in exit code
+    tmux has-session -t $name
+    local tmux_status=$?
+
+    echo $tmux_status
+
+    # Attach and return if the session is present
+    if [ "${tmux_status}" = "0" ]; then
+        echo "Session found"
+        tmux attach-session -t $name
+        return
+    fi
+
+    # Create new session
+    tmux new-session -d -c $project_path -s $name
+    tmux send-keys "nvim -S ~/.vim_sessions/${name}" C-m
+
+    # Open zsh
+    tmux new-window -c $project_path -t $name:1 -n "zsh" "zsh"
+    tmux set-window-option -t $name:2 remain-on-exit on
+
+    # Open ranger
+    tmux new-window -c $project_path -t $name:2 -n "ranger" "ranger"
+    tmux set-window-option -t $name:3 remain-on-exit on
+
+    # Focus on editor window
+    tmux select-window -t $name:1
+
+    # Attach the tmux session created
+    tmux attach-session -t $name
+}
+
+
+alias tmuxf="attach-or-create-tmux-session"
