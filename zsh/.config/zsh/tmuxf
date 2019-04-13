@@ -10,8 +10,6 @@ function attach-or-create-tmux-session() {
     tmux has-session -t $name
     local tmux_status=$?
 
-    echo $tmux_status
-
     # Attach and return if the session is present
     if [ "${tmux_status}" = "0" ]; then
         echo "Session found"
@@ -24,12 +22,11 @@ function attach-or-create-tmux-session() {
     tmux send-keys "nvim -S ~/.vim_sessions/${name}" C-m
 
     # Open zsh
-    tmux new-window -c $project_path -t $name:1 -n "zsh" "zsh"
-    tmux set-window-option -t $name:2 remain-on-exit on
+    tmux new-window -c $project_path -t $name:1 -n "zsh"
 
     # Open ranger
-    tmux new-window -c $project_path -t $name:2 -n "ranger" "ranger"
-    tmux set-window-option -t $name:3 remain-on-exit on
+    tmux new-window -c $project_path -t $name:2 -n "ranger"
+    tmux send-keys "ranger" C-m
 
     # Focus on editor window
     tmux select-window -t $name:1
