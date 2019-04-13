@@ -35,13 +35,13 @@ zstyle ':vcs_info:git:*' formats '%b'
 [ -f ~/.bash_aliases ] && source ~/.bash_aliases
 
 # Extra settings for zsh
-[ -f ~/.config/zsh/.zshrc_extra ] && source ~/.config/zsh/.zshrc_extra
+[ -f ~/.config/zsh/zshrc_extra ] && source ~/.config/zsh/zshrc_extra
 
 # If found source local zshrc
-[ -f ~/.config/zsh/.zshrc_local ] && source ~/.config/zsh/.zshrc_local
+[ -f ~/.config/zsh/zshrc_local ] && source ~/.config/zsh/zshrc_local
 
 # Custom PROMPT for zsh
 PROMPT='%{$fg_bold[yellow]%}%n@%m %{$fg_bold[green]%}%~/ %{$fg_bold[blue]%}($vcs_info_msg_0_)%{$reset_color%} $ '
 
 source <(antibody init)
-antibody bundle < ~/.config/zsh/.zsh_plugins
+antibody bundle < ~/.config/zsh/zsh_plugins
