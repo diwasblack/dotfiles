@@ -20,6 +20,7 @@ function attach-or-create-tmux-session() {
     # Create new session
     tmux new-session -d -c $project_path -s $name
     tmux send-keys "nvim -S ~/.vim_sessions/${name}" C-m
+    tmux rename-window -t $name:1 'nvim'
 
     # Open zsh
     tmux new-window -c $project_path -t $name:1 -n "zsh"
