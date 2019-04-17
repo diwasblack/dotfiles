@@ -202,6 +202,9 @@ endfunction
 " Enable completion
 let g:deoplete#enable_at_startup = 1
 
+" Disable pydoc split
+autocmd FileType python set completeopt-=preview
+
 "==============================================================================
 " denite
 "==============================================================================
