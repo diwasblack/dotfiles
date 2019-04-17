@@ -74,6 +74,7 @@ Plug 'tpope/vim-obsession'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-tbone'
 
+Plug 'vimwiki/vimwiki'
 Plug 'justinmk/vim-dirvish'
 Plug 'junegunn/vim-easy-align', { 'on' : ['<Plug>(EasyAlign)', 'EasyAlign'] }
 Plug 'wellle/targets.vim'
