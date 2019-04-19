@@ -4,8 +4,10 @@
 # Auto complete for tmuxinator commands
 [ -f ~/.config/zsh/tmuxinator.zsh ] && source ~/.config/zsh/tmuxinator.zsh
 
-# Configuration for fzf
+# Configure FZF
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -f /usr/share/fzf/key-bindings.zsh ] && source /usr/share/fzf/key-bindings.zsh
+[ -f /usr/share/fzf/completion.zsh ] && source /usr/share/fzf/completion.zsh
 
 function sync_secret_files {
     # Make a temporary directory
