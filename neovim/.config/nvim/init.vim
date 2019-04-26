@@ -60,12 +60,6 @@ Plug 'autozimu/LanguageClient-neovim', {
     \ 'do': 'bash install.sh',
     \ }
 
-Plug 'othree/html5.vim'
-Plug 'othree/javascript-libraries-syntax.vim'
-Plug 'pangloss/vim-javascript'
-Plug 'leafgarland/typescript-vim'
-Plug 'ekalinin/Dockerfile.vim'
-
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-commentary'
@@ -74,8 +68,8 @@ Plug 'tpope/vim-obsession'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-tbone'
 
-Plug 'vimwiki/vimwiki'
 Plug 'justinmk/vim-dirvish'
+Plug 'vimwiki/vimwiki'
 Plug 'junegunn/vim-easy-align', { 'on' : ['<Plug>(EasyAlign)', 'EasyAlign'] }
 Plug 'wellle/targets.vim'
 Plug 'tmhedberg/matchit'
@@ -84,6 +78,14 @@ Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
 Plug 'editorconfig/editorconfig-vim'
 Plug 'mhinz/vim-startify'
 Plug 'christoomey/vim-tmux-navigator'
+
+" Language specific plugins
+Plug 'othree/html5.vim'
+Plug 'othree/javascript-libraries-syntax.vim'
+Plug 'pangloss/vim-javascript'
+Plug 'leafgarland/typescript-vim'
+Plug 'ekalinin/Dockerfile.vim'
+Plug 'tweekmonster/django-plus.vim'
 
 call plug#end()
 
