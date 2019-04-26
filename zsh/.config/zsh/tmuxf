@@ -22,8 +22,9 @@ function attach-or-create-tmux-session() {
     tmux send-keys "nvim -S ~/.vim_sessions/${name}" C-m
     tmux rename-window -t $name:1 'nvim'
 
-    # Open zsh
-    tmux new-window -c $project_path -t $name:1 -n "zsh"
+    # Open zsh windows
+    tmux new-window -c $project_path -t $name:1 -n "zsh1"
+    tmux new-window -c $project_path -t $name:1 -n "zsh2"
 
     # Open ranger
     tmux new-window -c $project_path -t $name:2 -n "ranger"
