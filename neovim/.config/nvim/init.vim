@@ -53,8 +53,9 @@ Plug 'itchyny/lightline.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'mileszs/ack.vim'
+Plug '/usr/local/opt/fzf'
+Plug 'junegunn/fzf.vim'
 Plug 'autozimu/LanguageClient-neovim', {
     \ 'branch': 'next',
     \ 'do': 'bash install.sh',
@@ -209,34 +210,10 @@ let g:deoplete#enable_at_startup = 1
 autocmd FileType python set completeopt-=preview
 
 "==============================================================================
-" denite
+" FZF
 "==============================================================================
 
-" Command to search for the files recursively
-call denite#custom#var('file_rec', 'command',
-    \ ['rg', '--files', '--glob', '!.git'])
-
-" Change mappings.
-call denite#custom#map(
-    \ 'insert',
-    \ '<C-j>',
-    \ '<denite:move_to_next_line>',
-    \ 'noremap'
-    \)
-
-call denite#custom#map(
-    \ 'insert',
-    \ '<C-k>',
-    \ '<denite:move_to_previous_line>',
-    \ 'noremap'
-    \)
-
-" Change ignore_globs
-call denite#custom#filter('matcher_ignore_globs', 'ignore_globs',
-    \ [ '.git/', '.ropeproject/', '__pycache__/',
-    \   'venv/', 'images/', '*.min.*', 'img/', 'fonts/'])
-
-nnoremap <Leader>f :Denite -winheight=15 buffer file_rec<CR>
+nnoremap <Leader>f :FZF<CR>
 
 "==============================================================================
 " Ack.vim
