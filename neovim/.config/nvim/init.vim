@@ -230,10 +230,6 @@ endif
 " LanguageClient-neovim
 "==============================================================================
 
-" Automatically start language servers.
-" let g:LanguageClient_autoStart = 1
-"
-let g:LanguageClient_useVirtualText = 0
 let g:LanguageClient_serverCommands = {
     \ 'python': ['pyls'],
     \ 'javascript': ['javascript-typescript-stdio'],
