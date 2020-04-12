@@ -38,8 +38,6 @@ function sync_to_remote {
     rclone sync $2 $1:$2
 }
 
-alias syncnotes="rclone sync ~/notes drive:notes"
-
 ZSH_COMMAND_NOT_FOUND='/usr/share/doc/pkgfile/command-not-found.zsh'
 [[ -e $ZSH_COMMAND_NOT_FOUND ]] && source $ZSH_COMMAND_NOT_FOUND
 
