@@ -85,6 +85,7 @@ Plug 'othree/html5.vim'
 Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'pangloss/vim-javascript'
 Plug 'leafgarland/typescript-vim'
+Plug 'peitalin/vim-jsx-typescript'
 Plug 'ekalinin/Dockerfile.vim'
 Plug 'tweekmonster/django-plus.vim'
 
