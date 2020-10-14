@@ -9,35 +9,6 @@
 [ -f /usr/share/fzf/key-bindings.zsh ] && source /usr/share/fzf/key-bindings.zsh
 [ -f /usr/share/fzf/completion.zsh ] && source /usr/share/fzf/completion.zsh
 
-function sync_secret_files {
-    # Make a temporary directory
-    mkdir -p /tmp/keys
-
-    # Copy files
-    cp -r ~/.ssh /tmp/keys/
-    cp -r ~/.android /tmp/keys/
-
-    # Export GPG files
-    gpg -a --export-secret-keys diwasblack@gmail.com > /tmp/keys/secret.key
-    gpg -a --export-ownertrust > /tmp/keys/ownertrust.txt
-
-    # Create zip file in tmp folder
-    cd /tmp && zip -r keys.zip keys
-
-    # Encrpt keys zip with AES256 symmetric key
-    gpg -c --cipher-algo AES256 /tmp/keys.zip
-
-    # Sync files to drive
-    rclone sync /tmp/keys.zip.gpg drive:config
-    # Backup to dropbox as well
-    rclone sync /tmp/keys.zip.gpg dropbox:config
-}
-
-# Sync folder to specified remote service
-function sync_to_remote {
-    rclone sync $2 $1:$2
-}
-
 ZSH_COMMAND_NOT_FOUND='/usr/share/doc/pkgfile/command-not-found.zsh'
 [[ -e $ZSH_COMMAND_NOT_FOUND ]] && source $ZSH_COMMAND_NOT_FOUND
 
