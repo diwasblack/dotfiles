@@ -280,7 +280,8 @@ nnoremap <silent> <A-l> :TmuxNavigateRight<cr>
 " Custom commands
 "==============================================================================
 
-command! FormatJSON %!python -m json.tool
+command! FormatJSON %!python3 -m json.tool
+command! FormatXML %!python3 -c "import xml.dom.minidom, sys; print(xml.dom.minidom.parse(sys.stdin).toprettyxml())"
 command! BufClear bufdo bd
 command! ToggleBackground call ToggleBackground()
 command! Firefox execute ':silent !firefox %'
