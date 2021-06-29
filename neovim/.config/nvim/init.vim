@@ -237,9 +237,9 @@ let g:LanguageClient_serverCommands = {
     \ 'typescript': ['javascript-typescript-stdio'],
     \ }
 
-nnoremap <silent> <F8> :call LanguageClient#textDocument_formatting()<CR>
-nnoremap <silent> <Leader>ld :call LanguageClient#textDocument_definition()<CR>
-nnoremap <silent> <Leader>lh :call LanguageClient#textDocument_hover()<CR>
+nnoremap <silent> <Leader>ld <Plug>(lcn-type-definition)
+nnoremap <silent> <Leader>lh <Plug>(lcn-hover)
+nnoremap <silent> <Leader>lf <Plug>(lcn-format)
 
 "==============================================================================
 " vim-easy-align
