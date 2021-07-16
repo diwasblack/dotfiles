@@ -53,13 +53,10 @@ Plug 'itchyny/lightline.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'neovim/nvim-lspconfig'
 Plug 'mileszs/ack.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-Plug 'autozimu/LanguageClient-neovim', {
-    \ 'branch': 'next',
-    \ 'do': 'bash install.sh',
-    \ }
 
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-repeat'
@@ -92,6 +89,13 @@ Plug 'tweekmonster/django-plus.vim'
 call plug#end()
 
 "==============================================================================
+" Autocmd
+"==============================================================================
+
+autocmd Filetype html setlocal ts=4 sw=4 sts=4
+autocmd Filetype htmldjango setlocal ts=4 sw=4 sts=4
+
+"==============================================================================
 " Colorscheme
 "==============================================================================
 
@@ -111,38 +115,68 @@ function! ToggleBackground()
 endfunction
 
 "==============================================================================
-" Mappings
+" LSP Configuration
 "==============================================================================
 
-" Make Y behave like C and D
-noremap Y y$
+lua << EOF
+local nvim_lsp = require('lspconfig')
+require'lspconfig'.pyright.setup{}
 
-" Mapping for indentation
-xnoremap < <gv
-xnoremap > >gv
+-- Use an on_attach function to only map the following keys
+-- after the language server attaches to the current buffer
+local on_attach = function(client, bufnr)
+  local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
+  local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
 
-" Highlight last inserted text
-nnoremap gV `[v`]
+  --Enable completion triggered by <c-x><c-o>
+  buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
 
-" Mapping for inbuilt terminal
-tnoremap <C-q> <C-\><C-n>
+  -- Mappings.
+  local opts = { noremap=true, silent=true }
 
-" Mappings for fugitive
-nnoremap <Leader>gs :Gstatus<CR>
-nnoremap <Leader>gd :Gdiff<CR>
+  -- See `:help vim.lsp.*` for documentation on any of the below functions
+  buf_set_keymap('n', 'gD', '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts)
+  buf_set_keymap('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
+  buf_set_keymap('n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
+  buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
+  buf_set_keymap('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
+  buf_set_keymap('n', '<space>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
+  buf_set_keymap('n', '<space>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
+  buf_set_keymap('n', '<space>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
+  buf_set_keymap('n', '<space>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
+  buf_set_keymap('n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
+  buf_set_keymap('n', '<space>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
+  buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
+  buf_set_keymap('n', '<space>e', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
+  buf_set_keymap('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
+  buf_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
+  buf_set_keymap('n', '<space>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
+  buf_set_keymap("n", "<space>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
 
-nnoremap <leader>ev :edit $MYVIMRC<cr>
-nnoremap <leader>sv :source $MYVIMRC<cr>
+end
 
-" Detect changes to the file
-nnoremap <leader>r :checktime<cr>
+-- Use a loop to conveniently call 'setup' on multiple servers and
+-- map buffer local keybindings when the language server attaches
+local servers = { "pyright" }
+for _, lsp in ipairs(servers) do
+  nvim_lsp[lsp].setup {
+    on_attach = on_attach,
+    flags = {
+      debounce_text_changes = 150,
+    }
+  }
+end
+EOF
 
 "==============================================================================
-" Autocmd
+" deoplete
 "==============================================================================
 
-autocmd Filetype html setlocal ts=2 sw=2 sts=2
-autocmd Filetype htmldjango setlocal ts=2 sw=2 sts=2
+" Enable completion
+let g:deoplete#enable_at_startup = 1
+
+" Disable pydoc split
+autocmd FileType python set completeopt-=preview
 
 "==============================================================================
 " Lightline
@@ -201,16 +235,6 @@ function! LightlineFilename()
 endfunction
 
 "==============================================================================
-" deoplete
-"==============================================================================
-
-" Enable completion
-let g:deoplete#enable_at_startup = 1
-
-" Disable pydoc split
-autocmd FileType python set completeopt-=preview
-
-"==============================================================================
 " FZF
 "==============================================================================
 
@@ -226,20 +250,6 @@ cnoreabbrev Ack Ack!
 if executable('rg')
   let g:ackprg = 'rg --vimgrep --no-heading'
 endif
-
-"==============================================================================
-" LanguageClient-neovim
-"==============================================================================
-
-let g:LanguageClient_serverCommands = {
-    \ 'python': ['pyls'],
-    \ 'javascript': ['javascript-typescript-stdio'],
-    \ 'typescript': ['javascript-typescript-stdio'],
-    \ }
-
-nnoremap <silent> <Leader>ld <Plug>(lcn-type-definition)
-nnoremap <silent> <Leader>lh <Plug>(lcn-hover)
-nnoremap <silent> <Leader>lf <Plug>(lcn-format)
 
 "==============================================================================
 " vim-easy-align
@@ -277,8 +287,31 @@ nnoremap <silent> <A-l> :TmuxNavigateRight<cr>
 " nnoremap <silent> <A-/> :TmuxNavigatePrevious<cr>
 
 "==============================================================================
-" Custom commands
+" Custom mapping and configurations
 "==============================================================================
+
+" Make Y behave like C and D
+noremap Y y$
+
+" Mapping for indentation
+xnoremap < <gv
+xnoremap > >gv
+
+" Highlight last inserted text
+nnoremap gV `[v`]
+
+" Mapping for inbuilt terminal
+tnoremap <C-q> <C-\><C-n>
+
+" Mappings for fugitive
+nnoremap <Leader>gs :Gstatus<CR>
+nnoremap <Leader>gd :Gdiff<CR>
+
+nnoremap <leader>ev :edit $MYVIMRC<cr>
+nnoremap <leader>sv :source $MYVIMRC<cr>
+
+" Detect changes to the file
+nnoremap <leader>r :checktime<cr>
 
 command! FormatJSON %!python3 -m json.tool
 command! FormatXML %!python3 -c "import xml.dom.minidom, sys; print(xml.dom.minidom.parse(sys.stdin).toprettyxml())"
