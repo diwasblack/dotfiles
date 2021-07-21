@@ -31,16 +31,14 @@ setopt prompt_subst
 zstyle ':completion:*' menu select
 zstyle ':vcs_info:git:*' formats '%b'
 
-# Include existing bash_aliases
+# Add basic configurations
+alias ll="ls -alFh"
+alias ls="ls -G"
+
+# Include aliases
 [ -f ~/.bash_aliases ] && source ~/.bash_aliases
 
-# Include extra aliases
-[ -f ~/.aliases ] && source ~/.aliases
-
-# Extra settings for zsh
-[ -f ~/.config/zsh/zshrc_extra ] && source ~/.config/zsh/zshrc_extra
-
-# If found source local zshrc
+# Source local zshrc
 [ -f ~/.config/zsh/zshrc_local ] && source ~/.config/zsh/zshrc_local
 
 # Custom PROMPT for zsh

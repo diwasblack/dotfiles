@@ -1,6 +1,0 @@
-alias ll='ls -alFh'
-alias mux="tmuxinator"
-alias pubip="curl -s ipinfo.io/ip"
-alias ipinfo="curl -s ipinfo.io"
-
-alias clearbranches='git branch --merged | grep -v "\*" | xargs -n 1 git branch -d'
