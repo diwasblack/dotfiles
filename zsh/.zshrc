@@ -35,10 +35,9 @@ zstyle ':vcs_info:git:*' formats '%b'
 alias ll="ls -alFh"
 alias ls="ls -G"
 
-# Include aliases
+# Source important configs
 [ -f ~/.bash_aliases ] && source ~/.bash_aliases
-
-# Source local zshrc
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 [ -f ~/.zshrc_local ] && source ~/.zshrc_local
 
 # Custom PROMPT for zsh
@@ -63,16 +62,13 @@ function attach-or-create-tmux-session() {
 
     # Create new session
     tmux new-session -d -c $project_path -s $name
-    tmux send-keys "nvim -S ~/.vim_sessions/${name}" C-m
+    tmux send-keys "nvim -S ${project_path}/Session.vim" C-m
     tmux rename-window -t $name:1 'nvim'
 
     # Open zsh windows
-    tmux new-window -a -c $project_path -t $name:1 -n "zsh1"
-    tmux new-window -a -c $project_path -t $name:2 -n "zsh2"
-
-    # Open ranger
-    tmux new-window -a -c $project_path -t $name:3 -n "ranger"
-    tmux send-keys "ranger" C-m
+    tmux new-window -a -c $project_path -t $name:1 -n "zsh"
+    tmux new-window -a -c $project_path -t $name:2 -n "server"
+    tmux new-window -a -c $project_path -t $name:3 -n "file"
 
     # Focus on editor window
     tmux select-window -t $name:1
