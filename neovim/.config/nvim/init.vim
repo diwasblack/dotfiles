@@ -52,19 +52,17 @@ Plug 'itchyny/lightline.vim'
 
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'neovim/nvim-lspconfig'
 Plug 'mileszs/ack.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+Plug 'neovim/nvim-lspconfig'
 
-Plug 'tpope/vim-unimpaired'
-Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-obsession'
 Plug 'tpope/vim-eunuch'
-Plug 'tpope/vim-tbone'
+Plug 'tpope/vim-obsession'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-unimpaired'
 
 Plug 'justinmk/vim-dirvish'
 Plug 'vimwiki/vimwiki'
@@ -74,26 +72,8 @@ Plug 'tmhedberg/matchit'
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
 Plug 'editorconfig/editorconfig-vim'
-Plug 'mhinz/vim-startify'
-Plug 'christoomey/vim-tmux-navigator'
-
-" Language specific plugins
-Plug 'othree/html5.vim'
-Plug 'othree/javascript-libraries-syntax.vim'
-Plug 'pangloss/vim-javascript'
-Plug 'leafgarland/typescript-vim'
-Plug 'peitalin/vim-jsx-typescript'
-Plug 'ekalinin/Dockerfile.vim'
-Plug 'tweekmonster/django-plus.vim'
 
 call plug#end()
-
-"==============================================================================
-" Autocmd
-"==============================================================================
-
-autocmd Filetype html setlocal ts=4 sw=4 sts=4
-autocmd Filetype htmldjango setlocal ts=4 sw=4 sts=4
 
 "==============================================================================
 " Colorscheme
@@ -167,16 +147,6 @@ for _, lsp in ipairs(servers) do
   }
 end
 EOF
-
-"==============================================================================
-" deoplete
-"==============================================================================
-
-" Enable completion
-let g:deoplete#enable_at_startup = 1
-
-" Disable pydoc split
-autocmd FileType python set completeopt-=preview
 
 "==============================================================================
 " Lightline
@@ -275,18 +245,6 @@ let g:vimwiki_list = [{'path': '~/vimwiki/',
                     \ 'syntax': 'markdown', 'ext': '.md'}]
 
 "==============================================================================
-" vim-tmux-navigator
-"==============================================================================
-
-let g:tmux_navigator_no_mappings = 1
-
-nnoremap <silent> <A-h> :TmuxNavigateLeft<cr>
-nnoremap <silent> <A-j> :TmuxNavigateDown<cr>
-nnoremap <silent> <A-k> :TmuxNavigateUp<cr>
-nnoremap <silent> <A-l> :TmuxNavigateRight<cr>
-" nnoremap <silent> <A-/> :TmuxNavigatePrevious<cr>
-
-"==============================================================================
 " Custom mapping and configurations
 "==============================================================================
 
@@ -304,7 +262,7 @@ nnoremap gV `[v`]
 tnoremap <C-q> <C-\><C-n>
 
 " Mappings for fugitive
-nnoremap <Leader>gs :Gstatus<CR>
+nnoremap <Leader>gs :Git<CR>
 nnoremap <Leader>gd :Gdiff<CR>
 
 nnoremap <leader>ev :edit $MYVIMRC<cr>
