@@ -1,26 +1,33 @@
-# Check if neovim is installed else switch to vim
+# Set default text editor
+export EDITOR=vim
+export VISUAL=vim
 if command -v nvim > /dev/null 2>&1; then
     export EDITOR=nvim
     export VISUAL=nvim
-else
-    export EDITOR=vim
-    export VISUAL=vim
 fi
 
 HISTSIZE=2000
 SAVEHIST=2000
 HISTFILE=~/.zsh_history
 
-bindkey -v # Vi mode bindings
+# Vi mode bindings
+bindkey -v
 
-setopt correct # Turn on spelling correction
-setopt hist_expire_dups_first # when trimming history, lose oldest duplicates first
-setopt hist_verify # don't execute, just expand history
-setopt histignoredups # Don't save duplicate in history
-setopt inc_append_history # Appends every command to the history file once it is executed
-setopt share_history # Reloads the history whenever you use it
+# Turn on spelling correction
+setopt correct
+# when trimming history, lose oldest duplicates first
+setopt hist_expire_dups_first 
+# don't execute, just expand history
+setopt hist_verify
+# Don't save duplicate in history
+setopt histignoredups
+# Appends every command to the history file once it is executed
+setopt inc_append_history
+# Reloads the history whenever you use it
+setopt share_history
 
-autoload -Uz colors && colors # Load colors
+# Load colors
+autoload -Uz colors && colors
 autoload -Uz compinit && compinit
 
 autoload -Uz vcs_info
@@ -37,44 +44,7 @@ alias ls="ls -G"
 
 # Source important configs
 [ -f ~/.bash_aliases ] && source ~/.bash_aliases
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 [ -f ~/.zshrc_local ] && source ~/.zshrc_local
 
 # Custom PROMPT for zsh
 PROMPT='%{$fg_bold[yellow]%}%n@%m %{$fg_bold[green]%}%~/ %{$fg_bold[blue]%}($vcs_info_msg_0_)%{$reset_color%} $ '
-
-function attach-or-create-tmux-session() {
-    local project_path=$1
-
-    # Obtain the session name to use
-    local name=$(basename $project_path)
-
-    # Check if session exists-stores status in exit code
-    tmux has-session -t $name
-    local tmux_status=$?
-
-    # Attach and return if the session is present
-    if [ "${tmux_status}" = "0" ]; then
-        echo "Session found"
-        tmux attach-session -t $name
-        return
-    fi
-
-    # Create new session
-    tmux new-session -d -c $project_path -s $name
-    tmux send-keys "nvim -S ${project_path}/Session.vim" C-m
-    tmux rename-window -t $name:1 'nvim'
-
-    # Open zsh windows
-    tmux new-window -a -c $project_path -t $name:1 -n "zsh"
-    tmux new-window -a -c $project_path -t $name:2 -n "server"
-    tmux new-window -a -c $project_path -t $name:3 -n "file"
-
-    # Focus on editor window
-    tmux select-window -t $name:1
-
-    # Attach the tmux session created
-    tmux attach-session -t $name
-}
-
-alias tmuxf="attach-or-create-tmux-session"
