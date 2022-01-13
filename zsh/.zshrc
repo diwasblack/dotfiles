@@ -14,7 +14,7 @@ HISTFILE=~/.zsh_history
 bindkey -v
 
 setopt correct
-setopt hist_expire_dups_first-
+setopt hist_expire_dups_first
 setopt hist_verify
 setopt histignoredups
 setopt inc_append_history
