@@ -276,3 +276,5 @@ command! FormatXML %!python3 -c "import xml.dom.minidom, sys; print(xml.dom.mini
 command! BufClear bufdo bd
 command! ToggleBackground call ToggleBackground()
 command! Firefox execute ':silent !firefox %'
+
+source ~/.vimrc_local
