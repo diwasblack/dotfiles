@@ -36,4 +36,4 @@ alias ls="ls -G"
 [ -f ~/.zshrc_local ] && source ~/.zshrc_local
 
 # Custom PROMPT for zsh
-PROMPT='%{$fg_bold[yellow]%}%n@%m %{$fg_bold[green]%}%~/%{$reset_color%} $ '
+PROMPT='%{$fg_bold[yellow]%}%n@%m %{$fg_bold[green]%}%c/%{$reset_color%} $ '
