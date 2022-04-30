@@ -248,33 +248,16 @@ let g:vimwiki_list = [{'path': '~/vimwiki/',
 " Custom mapping and configurations
 "==============================================================================
 
-" Make Y behave like C and D
 noremap Y y$
-
-" Mapping for indentation
 xnoremap < <gv
 xnoremap > >gv
-
-" Highlight last inserted text
 nnoremap gV `[v`]
-
-" Mapping for inbuilt terminal
-tnoremap <C-q> <C-\><C-n>
-
-" Mappings for fugitive
-nnoremap <Leader>gs :Git<CR>
-nnoremap <Leader>gd :Gdiff<CR>
-
 nnoremap <leader>ev :edit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
-
-" Detect changes to the file
 nnoremap <leader>r :checktime<cr>
 
 command! FormatJSON %!python3 -m json.tool
 command! FormatXML %!python3 -c "import xml.dom.minidom, sys; print(xml.dom.minidom.parse(sys.stdin).toprettyxml())"
-command! BufClear bufdo bd
 command! ToggleBackground call ToggleBackground()
-command! Firefox execute ':silent !firefox %'
 
 source ~/.vimrc_local
