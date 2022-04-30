@@ -1,5 +1,4 @@
-# Dotfiles
-My dot files collection
+# dotfiles
+My configuration collection for zsh, tmux, and neovim
 
-# Screenshot
-![Workspace screenshot](https://github.com/diwasblack/dotfiles/blob/master/img/workspace.png)
+![workspace preview](https://github.com/diwasblack/dotfiles/blob/master/img/workspace.png)
