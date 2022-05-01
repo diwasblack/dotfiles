@@ -14,6 +14,7 @@ set foldlevelstart=10 " Open most folds by default
 set foldmethod=indent " Fold based on indent level
 set hidden            " Enables hidden buffer
 set ignorecase        " Case insensitive search
+set laststatus=3      " Global statusline
 set lazyredraw        " Redraw only when we need to
 set list              " Show invisible characters
 set noswapfile        " Disable swap file
