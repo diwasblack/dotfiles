@@ -14,7 +14,6 @@ set foldlevelstart=10 " Open most folds by default
 set foldmethod=indent " Fold based on indent level
 set hidden            " Enables hidden buffer
 set ignorecase        " Case insensitive search
-set laststatus=3      " Global statusline
 set lazyredraw        " Redraw only when we need to
 set list              " Show invisible characters
 set noswapfile        " Disable swap file
@@ -34,6 +33,12 @@ set title             " Change terminal title
 set undofile          " Persistent undo
 set undolevels=1000   " How many undos
 set undoreload=10000  " Number of lines to save for undo
+
+if has('nvim-0.7')
+    set laststatus=3      " Global statusline
+endif
+
+
 
 "==============================================================================
 " Plugin list
