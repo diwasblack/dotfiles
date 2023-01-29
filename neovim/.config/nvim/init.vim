@@ -60,7 +60,6 @@ Plug 'tpope/vim-fugitive'
 Plug 'mhinz/vim-signify'
 Plug 'mileszs/ack.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
 Plug 'neovim/nvim-lspconfig'
 
 Plug 'tpope/vim-commentary'
@@ -71,11 +70,9 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 
 Plug 'justinmk/vim-dirvish'
-Plug 'vimwiki/vimwiki'
 Plug 'junegunn/vim-easy-align', { 'on' : ['<Plug>(EasyAlign)', 'EasyAlign'] }
 Plug 'wellle/targets.vim'
 Plug 'tmhedberg/matchit'
-Plug 'AndrewRadev/splitjoin.vim'
 Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
 Plug 'editorconfig/editorconfig-vim'
 
