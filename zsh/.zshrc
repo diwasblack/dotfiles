@@ -6,8 +6,8 @@ if command -v nvim > /dev/null 2>&1; then
     export VISUAL=nvim
 fi
 
-HISTSIZE=2000
-SAVEHIST=2000
+HISTSIZE=10000
+SAVEHIST=10000
 HISTFILE=~/.zsh_history
 
 # Vi mode bindings
@@ -15,11 +15,12 @@ bindkey -v
 
 setopt correct
 setopt hist_expire_dups_first
+setopt hist_ignore_space
 setopt hist_verify
 setopt histignoredups
 setopt inc_append_history
-setopt share_history
 setopt prompt_subst
+setopt share_history
 
 # Load colors
 autoload -Uz colors && colors
