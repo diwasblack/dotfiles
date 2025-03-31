@@ -36,5 +36,9 @@ alias ls="ls -G"
 [ -f ~/.bash_aliases ] && source ~/.bash_aliases
 [ -f ~/.zshrc_local ] && source ~/.zshrc_local
 
+if command -v fzf > /dev/null 2>&1; then
+    source <(fzf --zsh)
+fi
+
 # Custom PROMPT for zsh
 PROMPT='%{$fg_bold[yellow]%}%n@%m %{$fg_bold[green]%}%c/%{$reset_color%} $ '
